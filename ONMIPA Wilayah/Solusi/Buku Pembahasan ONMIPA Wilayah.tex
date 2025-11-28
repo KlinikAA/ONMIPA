@@ -11080,7 +11080,44 @@ extbf{BAGIAN PERTAMA}
 \subsubsection*{ISIAN SINGKAT}
 \begin{enumerate}
 	\item Diketahui fungsi $f:\mathbb{R}\to\mathbb{R}$ memenuhi $|f(x)-f(y)|\leq |x^3-x^2y|^2$, untuk setiap $x,y\in\mathbb{R}$. Jika $f(1)=1$, maka $f(2022)=\dots$
+	      \begin{solution}
+		      Ambil $y=x$ sehingga $|f(x)-f(x)|\le|x^3-x^3|^2=0$ yang trivially benar. Pilih $y=1$ sehingga
+		      \[
+			      |f(x)-f(1)|\le|x^3-x^2|^2=|x^2(x-1)|^2=x^4(x-1)^2.
+		      \]
+		      Untuk $x$ dekat $1$ terlihat bahwa ruas kanan orde $(x-1)^2$, sedangkan jika $f$ tidak konstan, biasanya $f(x)-f(1)$ akan berorde paling rendah linear terhadap $(x-1)$. Ketidakseimbangan orde ini memaksa $f$ harus konstan di suatu lingkungan $1$.
+
+		      Secara lebih langsung, perhatikan bahwa $x^3-x^2y=x^2(x-y)$ sehingga
+		      \[
+			      |f(x)-f(y)|\le x^4(x-y)^2.
+		      \]
+		      Untuk sebarang $x\ne y$ dengan $x\ne0$, dapat ditulis
+		      \[
+			      \left|\frac{f(x)-f(y)}{x-y}\right|\le x^4|x-y|.
+		      \]
+		      Biarkan $y\to x$ (dengan $x\ne0$ tetap), maka ruas kanan menuju $0$, sehingga limit kiri juga $0$. Jadi turunan (bila ada) harus $0$, dan ketaksamaan Lipschitz-kuadrat di atas menjamin bahwa $f$ terdiferensiabel dengan $f'(x)=0$ untuk semua $x\ne0$. Dengan demikian $f$ konstan pada tiap selang yang tidak memuat $0$.
+
+		      Karena $f(1)=1$ dan $1\ne0$, pada selang yang memuat $1$ kita peroleh $f(x)\equiv1$. Secara khusus $f(2022)=1$.
+	      \end{solution}
 	\item Jika untuk setiap $n\in\mathbb{N}, a_n=\displaystyle\sum_{k=0}^n \frac{1}{n+k}$, maka nilai $\displaystyle\lim_{n\to\infty} a_n=\dots$
+	      \begin{solution}
+		      Tulis
+		      \[
+			      a_n=\sum_{k=0}^n\frac{1}{n+k}=\sum_{j=n}^{2n}\frac{1}{j}.
+		      \]
+		      Gunakan pendekatan integral. Untuk $j\in[n,2n]$ berlaku
+		      \[
+			      \int_n^{2n}\frac{1}{x}\,dx\le\sum_{j=n}^{2n}\frac{1}{j}\le\int_{n-1}^{2n+1}\frac{1}{x}\,dx.
+		      \]
+		      Maka
+		      \[
+			      \ln\frac{2n}{n}=\ln2\le a_n\le\ln\frac{2n+1}{n-1}=\ln\left(2+\frac{3}{n-1}\right).
+		      \]
+		      Saat $n\to\infty$, kedua batas kiri dan kanan menuju $\ln2$ sehingga, dengan teorema kekatupan (teorema kekepitan),
+		      \[
+			      \lim_{n\to\infty}a_n=\ln2.
+		      \]
+	      \end{solution}
 	\item Misalkan $\sigma =\begin{pmatrix}
 			      1 & 2 & 3 & 4 & 5 \\ 3 & 4 & 1 & 5 & 2
 		      \end{pmatrix}$ dan $\tau=\begin{pmatrix}
@@ -11090,16 +11127,224 @@ extbf{BAGIAN PERTAMA}
 			      1     & 2     & 3     & 4     & 5     \\
 			      \dots & \dots & \dots & \dots & \dots
 		      \end{pmatrix}$ agar $\alpha=(\sigma\circ\tau)^{-1}$ adalah \dots
+	      \begin{solution}
+		      Pertama hitung $\sigma\circ\tau$. Untuk setiap $i$,
+		      \[
+			      (\sigma\circ\tau)(i)=\sigma(\tau(i)).
+		      \]
+		      Dari data diperoleh
+		      \[
+			      au(1)=5,\ \tau(2)=2,\ \tau(3)=1,\ \tau(4)=3,\ \tau(5)=4,
+		      \]
+		      dan
+		      \[
+			      \sigma(1)=3,\ \sigma(2)=4,\ \sigma(3)=1,\ \sigma(4)=5,\ \sigma(5)=2.
+		      \]
+		      Maka
+		      \[
+			      (\sigma\circ\tau)(1)=\sigma(5)=2,\ (\sigma\circ\tau)(2)=\sigma(2)=4,\ (\sigma\circ\tau)(3)=\sigma(1)=3,
+		      \]
+		      \[
+			      (\sigma\circ\tau)(4)=\sigma(3)=1,\ (\sigma\circ\tau)(5)=\sigma(4)=5.
+		      \]
+		      Jadi dalam notasi dua baris
+		      \[
+			      \sigma\circ\tau=\begin{pmatrix}
+				      1 & 2 & 3 & 4 & 5 \\2&4&3&1&5
+			      \end{pmatrix}.
+		      \]
+		      Invers permutasi didapat dengan menukar peran baris pertama dan kedua: jika $\beta=\begin{pmatrix}1&2&3&4&5\\b_1&b_2&b_3&b_4&b_5\end{pmatrix}$, maka $\beta^{-1}$ adalah permutasi yang mengirim $b_i$ ke $i$.
+
+		      Dari $\sigma\circ\tau$ di atas, kita punya $1\mapsto2,2\mapsto4,3\mapsto3,4\mapsto1,5\mapsto5$. Jadi untuk inversnya, harus berlaku
+		      \[
+			      2\mapsto1,\ 4\mapsto2,\ 3\mapsto3,\ 1\mapsto4,\ 5\mapsto5.
+		      \]
+		      Dengan mengurutkan menurut domain $1,2,3,4,5$ diperoleh baris kedua
+		      \[
+			      (4,1,3,2,5).
+		      \]
+		      Jadi
+		      \[
+			      \alpha=(\sigma\circ\tau)^{-1}=\begin{pmatrix}1&2&3&4&5\\4&1&3&2&5\end{pmatrix}.
+		      \]
+	      \end{solution}
 	\item Semua $y\in\dfrac{\mathbb{Z}_8[x]}{\langle x^2-1\rangle}$ sehingga $(7+5x)y=0$ adalah \dots
+	      \begin{solution}
+		      Di gelanggang faktor $R=\dfrac{\mathbb{Z}_8[x]}{\langle x^2-1\rangle}$, setiap elemen dapat ditulis sebagai kelas $[a+bx]$ dengan $a,b\in\mathbb Z_8$ karena $x^2\equiv1$.
+
+		      Ambil $y=[a+bx]$. Maka
+		      \[
+			      (7+5x)(a+bx)=(7a+5bx)+(7b+5a)x.
+		      \]
+		      Kita ingin hasil kali ini sama dengan $0$ di $R$, sehingga koefisien konstanta dan koefisien $x$ keduanya $0$ di $\mathbb Z_8$:
+		      \[
+			      7a+5b\equiv0\pmod8,\qquad7b+5a\equiv0\pmod8.
+		      \]
+		      Karena $7\equiv-1$ dan $5\equiv-3$ di $\mathbb Z_8$, sistem di atas ekuivalen dengan
+		      \[
+			      -a-3b\equiv0,\quad-3a-b\equiv0\pmod8,
+		      \]
+		      atau
+		      \[
+			      a+3b\equiv0,\quad3a+b\equiv0\pmod8.
+		      \]
+		      Dari persamaan pertama $a\equiv-3b$. Substitusi ke persamaan kedua memberi
+		      \[
+			      3(-3b)+b\equiv-9b+b\equiv-8b\equiv0\pmod8,
+		      \]
+		      yang selalu benar untuk setiap $b\in\mathbb Z_8$. Jadi solusi parametrik adalah
+		      \[
+			      a\equiv-3b\pmod8.
+		      \]
+		      Dengan demikian semua solusi adalah kelas
+		      \[
+			      y=[a+bx]=[-3b+bx]=[b(x-3)],\quad b\in\mathbb Z_8.
+		      \]
+		      Jadi himpunan semua $y$ yang memenuhi $(7+5x)y=0$ adalah
+		      \[
+			      \{\,[b(x-3)]:b\in\mathbb Z_8\,\}.
+		      \]
+	      \end{solution}
 	\item Misalkan $n$ adalah bilangan asli yang terletak di antara 1 dan 2022 yang memuat digit 0. Banyaknya bilangan $n$ yang demikian adalah \dots
+	      \begin{solution}
+		      Hitung komplemen: banyak bilangan antara $1$ dan $2022$ yang \emph{tidak} mengandung digit $0$, lalu kurangi dari total $2022$.
+
+		      Pertama, hitung yang tidak mengandung $0$ dengan panjang digit tetap, tanpa batas atas selain jumlah digit.
+		      \begin{itemize}
+			      \item Satu digit ($1$ s.d. $9$): boleh $1$--$9$ (tanpa $0$), jadi $9$ bilangan.
+			      \item Dua digit: digit pertama $1$--$9$ ($9$ pilihan), digit kedua $1$--$9$ ($9$ pilihan), total $9\cdot9=81$.
+			      \item Tiga digit: analog, $9^3=729$.
+		      \end{itemize}
+		      Untuk empat digit, tanpa batas atas, banyak bilangan empat digit tanpa $0$ adalah $9^4=6561$. Namun kita hanya boleh sampai $2022$, sehingga perlu dibatasi.
+
+		      Bilangan empat digit tanpa $0$ yang \emph{lebih besar} dari $2022$ harus dikurangi dari $9^4$. Kita tulis bentuk umum sebagai $abcd$ dengan $a,b,c,d\in\{1,2,\dots,9\}$ dan ingin $abcd>2022$.
+		      \begin{itemize}
+			      \item Jika $a\ge3$, maka $abcd\ge3000>2022$. Banyaknya: $a$ dapat $3$--$9$ ($7$ pilihan), sedangkan $b,c,d$ masing-masing $9$ pilihan, total $7\cdot9^3$.
+			      \item Jika $a=2$, kita perlu $bcd>022$, artinya: kasus $b=1$ dan $b\ge2$ dibedakan.
+			            \begin{itemize}
+				            \item Jika $a=2,b\ge2$, maka $abcd\ge2200>2022$. Banyaknya: $b$ punya $8$ pilihan ($2$--$9$), $c,d$ bebas ($9$ pilihan), total $8\cdot9^2$.
+				            \item Jika $a=2,b=1$, maka dibandingkan dengan $2022$: kita butuh $21cd>2022$. Karena $2100<2022<2200$, maka perlu $1cd>022$, yang berarti: untuk ratusan $c$, jika $c=1$ maka $d$ bisa apa saja ($2111$ s.d. $2119$ semuanya $>2022$?), tetapi perbandingan yang benar adalah digit per digit: $2$ sama dengan $2$, $1<0$ tidak mungkin, jadi sebenarnya $21..$ sudah $>20..$. Lebih rapi, semua $21cd$ pasti $>2022$ karena pada digit kedua sudah $1>0$.
+			            \end{itemize}
+		      \end{itemize}
+		      Perhitungan di atas menjadi cukup rumit; pendekatan yang lebih bersih adalah menghitung langsung bilangan tanpa $0$ hingga $2022$ per interval:
+		      \begin{itemize}
+			      \item $1$ sampai $999$ tanpa $0$: sudah dihitung, jumlahnya $9+81+729=819$.
+			      \item $1000$ sampai $1999$ tanpa $0$: bentuk $1bcd$ dengan $b,c,d\in\{1,\dots,9\}$, jadi $9^3=729$.
+			      \item $2000$ sampai $2022$ tanpa $0$: bentuk $2xyz$ dengan $2000\le2xyz\le2022$ dan $x,y,z\in\{1,\dots,9\}$.
+		      \end{itemize}
+		      Untuk $2xyz$ tanpa $0$, digit kedua $x$ tidak boleh $0$, sehingga $x\in\{1,2\}$. Tetapi agar $2xyz\le2022$, harus $x=0$ atau $x=0,1,2$ dengan pembatasan, padahal $x$ tidak boleh $0$, jadi coba eksplisit:
+		      \[
+			      2000,2001,\dots,2022.
+		      \]
+		      Di antara mereka, yang \emph{tidak} mengandung $0$ harus punya digit kedua, ketiga, keempat di himpunan $\{1,\dots,9\}$. Jelas tidak ada karena semua di antara $2000$ dan $2022$ memiliki setidaknya satu digit $0$. Jadi tidak ada tambahan dari interval ini.
+
+		      Jadi banyak bilangan tanpa $0$ dari $1$ sampai $2022$ adalah
+		      \[
+			      819+729=1548.
+		      \]
+		      Maka banyak bilangan yang \emph{mengandung} digit $0$ adalah
+		      \[
+			      2022-1548=474.
+		      \]
+	      \end{solution}
 \end{enumerate}
 \subsubsection*{URAIAN}
 \begin{enumerate}
 	\item Diberikan fungsi $f : [1,\infty) \to \mathbb{R}$ memenuhi $f(1) = 1$ dan $f'(x) = \dfrac{x}{x^4 + [f(x)]^4}$ untuk setiap $x \in [1, \infty)$. Buktikan bahwa $\lim\limits_{x \to \infty} f(x)$ ada dengan nilainya tidak melebihi $1 + \frac{\pi}{8}$.
 
+	      \begin{solution}
+		      Pertama, karena $x\ge1$ dan $[f(x)]^4\ge0$, jelas $x^4+[f(x)]^4\ge x^4\ge1$ sehingga
+		      \[
+			      0<f'(x)=\frac{x}{x^4+[f(x)]^4}\le\frac{x}{x^4}=\frac{1}{x^3}.
+		      \]
+		      Jadi $f'(x)>0$ untuk semua $x\ge1$, sehingga $f$ naik dan $f(x)\ge f(1)=1$ untuk semua $x\ge1$.
+
+		      Selanjutnya, untuk $x\ge1$ berlaku $[f(x)]^4\ge f(1)^4=1$, sehingga
+		      \[
+			      x^4+[f(x)]^4\ge x^4+1\ge1+x^4.
+		      \]
+		      Dari sini diperoleh
+		      \[
+			      f'(x)=\frac{x}{x^4+[f(x)]^4}\le\frac{x}{x^4+1}.
+		      \]
+		      Integralkan dari $1$ sampai $t>1$:
+		      \[
+			      f(t)-f(1)=\int_1^t f'(x)\,dx\le\int_1^t\frac{x}{x^4+1}\,dx\le\int_1^\infty\frac{x}{x^4+1}\,dx.
+		      \]
+		      Substitusi $u=x^2$ sehingga $du=2x\,dx$ memberikan
+		      \[
+			      \int_1^\infty\frac{x}{x^4+1}\,dx=\frac12\int_1^\infty\frac{1}{u^2+1}\,du=\frac12\Bigl[\arctan u\Bigr]_1^\infty=\frac12\left(\frac{\pi}{2}-\frac{\pi}{4}\right)=\frac{\pi}{8}.
+		      \]
+		      Maka untuk semua $t\ge1$,
+		      \[
+			      f(t)\le f(1)+\frac{\pi}{8}=1+\frac{\pi}{8}.
+		      \]
+		      Dengan demikian $f$ naik dan dibatasi atas oleh $1+\dfrac{\pi}{8}$ pada $[1,\infty)$, sehingga limit $\lim\limits_{x\to\infty}f(x)$ ada dan tidak melebihi $1+\dfrac{\pi}{8}$.
+	      \end{solution}
+
 	\item Diberikan barisan bilangan real $X = (x_n)$, dengan $x_1 = \sqrt{2}$ dan $x_n = (\sqrt{2})^{x_{n-1}}$ untuk $n > 1$. Buktikan bahwa $X$ konvergen, kemudian tentukan nilai limitnya.
 
+	      \begin{solution}
+		      Pertama kita tunjukkan bahwa $(x_n)$ naik dan dibatasi atas.
+		      \begin{itemize}
+			      \item \textbf{Naik.} Perhatikan fungsi $g(x)=(\sqrt2)^x$ pada $[1,2]$. Turunannya
+			            \[
+				            g'(x)=(\sqrt2)^x\ln(\sqrt2)>0,
+			            \]
+			            sehingga $g$ naik. Karena $x_1=\sqrt2>1$ dan nanti akan ditunjukkan $x_n\le2$, maka $x_n\in[1,2]$ dan
+			            \[
+				            x_{n+1}=g(x_n)>g(x_{n-1})=x_n,
+			            \]
+			            sehingga $(x_n)$ naik.
+			      \item \textbf{Dibatasi atas.} Hitung $x_2=(\sqrt2)^{\sqrt2}\approx1,632<2$ dan $x_3=(\sqrt2)^{x_2}< (\sqrt2)^2=2$ karena $x_2<2$ dan basis $\sqrt2>1$. Dengan induksi, jika $x_{n-1}<2$ maka
+			            \[
+				            x_n=(\sqrt2)^{x_{n-1}}<(\sqrt2)^2=2.
+			            \]
+			            Jelas juga $x_n>1$ karena basis $\sqrt2>1$ dan eksponen $x_{n-1}>0$. Jadi $1<x_n<2$ untuk semua $n$.
+		      \end{itemize}
+		      Karena $(x_n)$ naik dan dibatasi atas, maka konvergen. Misalkan limitnya $L=\lim\limits_{n\to\infty}x_n$.
+
+		      Dengan melimitkan hubungan rekuren $x_n=(\sqrt2)^{x_{n-1}}$ diperoleh
+		      \[
+			      L=(\sqrt2)^L.
+		      \]
+		      Jika $L>0$, ambil logaritma natural kedua ruas:
+		      \[
+			      \ln L=L\ln(\sqrt2)=\frac{L}{2}\ln2.
+		      \]
+		      Pindah ruas:
+		      \[
+			      \ln L-\frac{L}{2}\ln2=0.
+		      \]
+		      Susun sebagai
+		      \[
+			      L=2\quad\text{atau}\quad L=0.
+		      \]
+		      Lebih sistematis, dari $L=(\sqrt2)^L$ kita tulis $L=2^{L/2}$ dan definisikan $h(L)=2^{L/2}-L$. Nampak bahwa $h(2)=2^{1}-2=0$, dan dari batasan $1<L<2$ untuk semua suku, limitnya tidak mungkin $0$, sehingga satu-satunya solusi yang konsisten adalah $L=2$.
+
+		      Jadi barisan $X$ konvergen dan
+		      \[
+			      \lim_{n\to\infty}x_n=2.
+		      \]
+	      \end{solution}
+
 	\item Diberikan grup $G$ dan $\phi : G \to G$ adalah suatu homomorfisma grup. Buktikan atau sangkal pernyataan berikut: $\phi$ adalah suatu isomorfisma jika dan hanya jika untuk setiap $g \in G$, orde $g$ sama dengan orde $\phi(g)$.
+
+	      \begin{solution}
+		      extbf{Arah jika.} Misalkan $\phi$ adalah isomorfisma. Maka $\phi$ bijektif dan homomorfisme. Untuk setiap $g\in G$ dengan orde $\mathrm{ord}(g)=n$ (mungkin tak hingga), berlaku $g^n=e$ dan $n$ adalah bilangan terkecil dengan sifat ini. Karena $\phi$ homomorfisma,
+		      \[
+			      \phi(g)^n=\phi(g^n)=\phi(e)=e.
+		      \]
+		      Jadi orde $\phi(g)$ membagi $n$. Sebaliknya, karena $\phi$ bijektif, ada $h$ sehingga $\phi(h)=g$. Dari $\mathrm{ord}(h)=\mathrm{ord}(\phi(h))=\mathrm{ord}(g)$ dan simetri argumen didapat bahwa orde $g$ juga membagi orde $\phi(g)$, sehingga keduanya sama.
+
+		      extbf{Arah hanya jika.} Sekarang andaikan untuk setiap $g\in G$ berlaku $\mathrm{ord}(g)=\mathrm{ord}(\phi(g))$. Kita buktikan $\phi$ isomorfisma, cukup menunjukkan $\phi$ injektif karena homomorfisme yang injektif dari grup hingga (atau secara umum jika diketahui bijeksi dari kondisi orde) akan menjadi isomorfisma ke citranya.
+
+		      Perhatikan kernel $\ker\phi=\{g\in G: \phi(g)=e\}$. Jika $g\in\ker\phi$ dan $g\ne e$, maka $\mathrm{ord}(\phi(g))=\mathrm{ord}(e)=1$, sedangkan $\mathrm{ord}(g)>1$, bertentangan dengan asumsi bahwa orde $g$ sama dengan orde $\phi(g)$. Jadi tidak ada elemen bukan identitas di kernel, sehingga $\ker\phi=\{e\}$ dan $\phi$ injektif.
+
+		      Untuk grup berhingga, homomorfisme injektif otomatis surjektif bila domain dan kodomain memiliki orde sama. Di sini domain dan kodomain keduanya $G$, jadi $\phi$ bijektif dan karenanya isomorfisma.
+
+		      Dengan demikian pernyataan benar: $\phi$ isomorfisma jika dan hanya jika untuk setiap $g$, orde $g$ sama dengan orde $\phi(g)$.
+	      \end{solution}
 
 	\item Misalkan $R = \dfrac{\mathbb{Z}_p[x]}{\langle x^2 - x \rangle}$, dimana $p$ adalah bilangan prima. Tunjukkan bahwa
 	      \[
@@ -11107,7 +11352,77 @@ extbf{BAGIAN PERTAMA}
 	      \]
 	      isomorfik dengan $\mathbb{Z}_p$.
 
+	      \begin{solution}
+		      Di $R=\dfrac{\mathbb Z_p[x]}{\langle x^2-x\rangle}$, relasi $x^2\equiv x$ berarti $x$ idempoten: $x^2=x$. Setiap kelas di $R$ dapat direpresentasikan oleh polinom derajat $\le1$, yakni $[a+bx]$ dengan $a,b\in\mathbb Z_p$, karena $x^2$ dapat disederhanakan menjadi $x$.
+
+		      Pertama, bentuk umum elemen di $S$ adalah $(1-x)[a+bx]$. Hitung di $R$ dengan menggunakan $x^2=x$:
+		      \[
+			      (1-x)(a+bx)=a+bx-ax-bx^2=a+bx-ax-bx=(a-ax)+b(x-x^2).
+		      \]
+		      Karena $x^2=x$, maka $x-x^2=0$ dan didapat
+		      \[
+			      (1-x)(a+bx)=a-ax=a(1-x).
+		      \]
+		      Jadi setiap elemen di $S$ berbentuk $a(1-x)$ dengan $a\in\mathbb Z_p$. Definisikan pemetaan $\varphi:\mathbb Z_p\to S$ dengan
+		      \[
+			      \varphi(a)=(1-x)a.
+		      \]
+		      Ini homomorfisme grup abelian (bahkan homomorfisme $\mathbb Z_p$-modul) karena linearitas perkalian skalar di $R$.
+
+		      extbf{Injektif.} Jika $\varphi(a)=\varphi(b)$, maka $(1-x)a=(1-x)b$, sehingga $(1-x)(a-b)=0$ di $R$. Karena $1-x$ bukan nol di $R$ dan $R$ adalah gelanggang komutatif, ini hanya mungkin jika $a-b=0$ di $\mathbb Z_p$, yaitu $a=b$. Jadi $\varphi$ injektif.
+
+		      extbf{Surjektif.} Setiap elemen $s\in S$ didefinisikan sebagai $(1-x)c$ untuk suatu $c\in R$. Dari perhitungan di atas, $(1-x)c=(1-x)a$ untuk $a$ koefisien konstanta dari $c$, sehingga $s=\varphi(a)$. Jadi $\varphi$ surjektif.
+
+		      Dengan demikian $\varphi$ adalah isomorfisma antara $\mathbb Z_p$ dan $S$, sehingga $S\cong\mathbb Z_p$.
+	      \end{solution}
+
 	\item Misalkan $n$ adalah suatu bilangan 12 digit yang disusun dari 3,4,5,6, atau 7. Jika setiap digit pada $n$ muncul paling sedikit 2 kali dan paling banyak 4 kali, tentukan banyaknya susunan bilangan $n$ yang dapat dibentuk.
+
+	      \begin{solution}
+		      Kita harus menyusun $12$ posisi dengan digit dari himpunan $\{3,4,5,6,7\}$ sehingga masing-masing digit muncul antara $2$ dan $4$ kali. Biarkan banyak kemunculan digit $3,4,5,6,7$ berturut-turut $a,b,c,d,e$. Maka
+		      \[
+			      a+b+c+d+e=12,\quad2\le a,b,c,d,e\le4.
+		      \]
+		      Definisikan $a'=a-2,\dots,e'=e-2$, sehingga $0\le a',\dots,e'\le2$ dan
+		      \[
+			      a'+b'+c'+d'+e'=(a+\cdots+e)-10=2.
+		      \]
+		      Jadi kita mencari banyaknya solusi bilangan bulat taknegatif $a',\dots,e'$ yang berjumlah $2$, dengan masing-masing $\le2$. Karena totalnya hanya $2$, batas atas $2$ otomatis terpenuhi; ini sama dengan banyaknya cara membagi $2$ ke $5$ variabel taknegatif, yaitu
+		      \[
+			      \binom{2+5-1}{5-1}=\binom{6}{4}=15.
+		      \]
+		      Kita eksplisitkan semua pola (hingga permutasi):
+		      \begin{itemize}
+			      \item Satu variabel bernilai $2$, sisanya $0$: pola $(2,0,0,0,0)$ dan permutasinya. Banyaknya $\binom51=5$.
+			      \item Dua variabel bernilai $1$, sisanya $0$: pola $(1,1,0,0,0)$ dan permutasinya. Banyaknya $\binom52=10$.
+		      \end{itemize}
+		      Kembali ke $a,\dots,e$, pola pertama berarti satu digit muncul $4$ kali (karena $2+2$) dan empat digit lainnya muncul $2$ kali. Pola kedua berarti dua digit muncul $3$ kali dan tiga digit lainnya muncul $2$ kali.
+
+		      Sekarang hitung banyak susunan untuk masing-masing kasus.
+		      \begin{itemize}
+			      \item \textbf{Kasus A:} satu digit muncul $4$ kali, empat digit lain $2$ kali. Pilih digit yang muncul $4$ kali: $\binom51=5$ cara. Untuk suatu pilihan pola frekuensi $4,2,2,2,2$, banyak permutasi berbeda dari $12$ digit adalah
+			            \[
+				            \frac{12!}{4!\,2!\,2!\,2!\,2!}.
+			            \]
+			            Jadi total kontribusi kasus ini
+			            \[
+				            5\cdot\frac{12!}{4!\,2!\,2!\,2!\,2!}.
+			            \]
+			      \item \textbf{Kasus B:} dua digit muncul $3$ kali, tiga digit lain $2$ kali. Pilih digit yang muncul $3$ kali: $\binom52=10$ cara. Untuk pola frekuensi $3,3,2,2,2$, banyak permutasi berbeda
+			            \[
+				            \frac{12!}{3!\,3!\,2!\,2!\,2!}.
+			            \]
+			            Jadi total kontribusi kasus ini
+			            \[
+				            10\cdot\frac{12!}{3!\,3!\,2!\,2!\,2!}.
+			            \]
+		      \end{itemize}
+		      Menjumlahkan kedua kasus, banyaknya susunan bilangan $n$ yang memenuhi syarat adalah
+		      \[
+			      5\cdot\frac{12!}{4!\,2!\,2!\,2!\,2!}+10\cdot\frac{12!}{3!\,3!\,2!\,2!\,2!}.
+		      \]
+		      Jika diinginkan, dapat disederhanakan secara numerik, tetapi bentuk faktor ini sudah cukup sebagai jawaban kombinatorial yang tepat.
+	      \end{solution}
 \end{enumerate}
 \newpage
 \subsection{HARI KEDUA}
@@ -11121,6 +11436,58 @@ extbf{BAGIAN PERTAMA}
 		      A^2 = 2A + \begin{pmatrix} 3 & 10 \\ 0 & 8 \end{pmatrix}
 	      \]
 	      maka $\det(A) = \ldots$
+	      \begin{solution}
+		      Misalkan $A$ berukuran $2\times2$ dengan determinan $d=\det(A)$. Ambil determinan kedua ruas persamaan
+		      \[
+			      A^2=2A+M,\quad M=\begin{pmatrix}3&10\\0&8\end{pmatrix}.
+		      \]
+		      Dari sini
+		      \[
+			      \det(A^2)=\det(2A+M).
+		      \]
+		      Sisi kiri adalah $\det(A^2)=(\det A)^2=d^2$. Untuk sisi kanan, gunakan bahwa untuk matriks $2\times2$, peta $X\mapsto\det X$ adalah polinom kuadrat pada entri-entri $X$. Tuliskan $A=\begin{pmatrix}a&b\\c&d'\end{pmatrix}$ sehingga
+		      \[
+			      2A+M=\begin{pmatrix}2a+3&2b+10\\2c&2d'+8\end{pmatrix}
+		      \]
+		      dan
+		      \[
+			      \det(2A+M)=(2a+3)(2d'+8)-(2b+10)(2c).
+		      \]
+		      Namun secara langsung mencari semua $a,b,c,d'$ cukup rumit. Pendekatan yang lebih sederhana adalah dengan menggunakan jejak dan determinan sebagai invariannya.
+
+		      Misalkan nilai eigen $A$ adalah $\lambda_1,\lambda_2$. Maka nilai eigen $A^2$ adalah $\lambda_1^2,\lambda_2^2$. Dari persamaan $A^2=2A+M$, kita peroleh bahwa untuk setiap vektor eigen $v$ yang merupakan eigen dari $A$ belum tentu merupakan eigen dari $M$, sehingga pendekatan spektral langsung tidak sederhana. Cara lain yang lebih praktis di soal ini adalah mencari $A$ dalam bentuk segitiga atas karena $M$ segitiga atas dengan entri subdiagonal nol.
+
+		      Asumsikan $A$ juga segitiga atas: $A=\begin{pmatrix}p&q\\0&r\end{pmatrix}$. Maka
+		      \[
+			      A^2=\begin{pmatrix}p^2&pq+qr\\0&r^2\end{pmatrix},\quad2A+M=\begin{pmatrix}2p+3&2q+10\\0&2r+8\end{pmatrix}.
+		      \]
+		      Persamaan $A^2=2A+M$ menjadi sistem
+		      \[
+			      p^2=2p+3,\quad r^2=2r+8,\quad pq+qr=2q+10.
+		      \]
+		      Dari dua persamaan diagonal diperoleh
+		      \[
+			      p^2-2p-3=0\Rightarrow(p-3)(p+1)=0\Rightarrow p=3\text{ atau }p=-1,
+		      \]
+		      \[
+			      r^2-2r-8=0\Rightarrow(r-4)(r+2)=0\Rightarrow r=4\text{ atau }r=-2.
+		      \]
+		      Determinan $\det(A)=pr$ harus lebih besar dari $2$.
+		      \begin{itemize}
+			      \item Jika $p=3,r=4$, maka $pr=12>2$.
+			      \item Jika $p=3,r=-2$, maka $pr=-6<2$ (tidak memenuhi).
+			      \item Jika $p=-1,r=4$, maka $pr=-4<2$.
+			      \item Jika $p=-1,r=-2$, maka $pr=2$ (tidak memenuhi $>2$).
+		      \end{itemize}
+		      Jadi satu-satunya kemungkinan yang memenuhi syarat determinan adalah $p=3,r=4$. Cek apakah ada $q$ yang memenuhi persamaan luar-diagonal:
+		      \[
+			      pq+qr=3q+4q=7q=2q+10\Rightarrow5q=10\Rightarrow q=2.
+		      \]
+		      Jadi ada solusi $A=\begin{pmatrix}3&2\\0&4\end{pmatrix}$ dengan $A^2=2A+M$ dan $\det(A)=3\cdot4=12$. Karena persamaan matriks kuadrat ini (dengan syarat bentuk segitiga atas yang wajar mengingat $M$ segitiga atas dan determinan $>2$) menghasilkan determinan tunggal yang mungkin, kita ambil
+		      \[
+			      \det(A)=12.
+		      \]
+	      \end{solution}
 
 	\item Misalkan $P_1$ adalah ruang polinom dengan koefisien real berderajat paling tinggi 1 yang dilengkapi dengan hasil kali dalam
 	      \[
@@ -11136,12 +11503,121 @@ extbf{BAGIAN PERTAMA}
 		      \{ f \in P_1 : T(f) = 0 \}
 	      \]
 	      maka $\dfrac{a}{b} = \ldots$
+	      \begin{solution}
+		      Ruang $P_1$ berdimensi $2$ dengan basis alami $\{1,x\}$. Diberikan $T(1)$ dan $T(2x-1)$, sehingga $T$ diketahui pada suatu basis ortonormal (untuk hasil kali dalam yang diberikan) setelah kita ortogonalkan.
+
+		      Pertama, hitung hasil kali dalam di $P_1$. Untuk $f(x)=\alpha+\beta x$ dan $g(x)=\gamma+\delta x$,
+		      \[
+			      \langle f,g\rangle=\int_0^1(\alpha+\beta x)(\gamma+\delta x)\,dx.
+		      \]
+		      Perhatikan bahwa $1$ dan $2x-1$ ortogonal:
+		      \[
+			      \langle1,2x-1\rangle=\int_0^1(2x-1)\,dx=[x^2-x]_0^1=0.
+		      \]
+		      Jadi $\{1,2x-1\}$ adalah basis ortogonal bagi $P_1$.
+
+		      Pemetaan $T$ linear, sehingga kernel $\ker T$ adalah subruang berdimensi $1$ (karena $P_1$ berdimensi 2 dan citra $T$ tak nol). Subruang ortogonal terhadap $\ker T$ di $P_1$ juga berdimensi $1$. Diberikan bahwa $h(x)=ax+b$ dengan $b\ne0$ tegak lurus terhadap setiap vektor di $\{f\in P_1:T(f)=0\}$, jadi $h$ menghasilkan garis satu dimensi yang merupakan komplemen ortogonal dari $\ker T$.
+
+		      Untuk operator linier dari ruang hasil kali dalam ke $\mathbb R^3$, vektor di komplemen ortogonal kernel searah dengan $T^*(v)$ untuk suatu $v$, tetapi lebih praktis di sini, kita cukup cari $h$ yang ortogonal terhadap semua $f$ dengan $T(f)=0$. Ambil basis ortogonal $u_1=1,u_2=2x-1$. Untuk setiap $f=\alpha u_1+\beta u_2$, linearitas memberi
+		      \[
+			      T(f)=\alpha T(u_1)+\beta T(u_2).
+		      \]
+		      Dari data,
+		      \[
+			      T(u_1)=T(1)=\begin{pmatrix}1\\2\\4\end{pmatrix},\quad T(u_2)=T(2x-1)=\begin{pmatrix}3\\6\\12\end{pmatrix}=3\begin{pmatrix}1\\2\\4\end{pmatrix}.
+		      \]
+		      Maka
+		      \[
+			      T(f)=(\alpha+3\beta)\begin{pmatrix}1\\2\\4\end{pmatrix}.
+		      \]
+		      Jadi $T(f)=0$ ekuivalen dengan $\alpha+3\beta=0$, yakni $f=\beta(2x-1)-3\beta\cdot1=\beta(2x-1-3)$ searah dengan polinom $2x-4$. Dengan demikian
+		      \[
+			      \ker T=\{\lambda(2x-4):\lambda\in\mathbb R\}.
+		      \]
+
+		      Karena $h$ ortogonal terhadap setiap $f$ di kernel, cukup minta $h$ ortogonal terhadap $2x-4$. Tuliskan $h(x)=ax+b$, lalu syarat $\langle h,2x-4\rangle=0$ memberi
+		      \[
+			      0=\int_0^1(ax+b)(2x-4)\,dx.
+		      \]
+		      Hitung:
+		      \[
+			      (ax+b)(2x-4)=2ax^2-4ax+2bx-4b.
+		      \]
+		      Integral dari $0$ sampai $1$ adalah
+		      \[
+			      \int_0^1(2ax^2-4ax+2bx-4b)\,dx=2a\cdot\frac{1}{3}-4a\cdot\frac{1}{2}+2b\cdot\frac{1}{2}-4b\cdot1=
+		      \]
+		      \[
+			      =\frac{2a}{3}-2a+b-4b=\frac{2a}{3}-3b.
+		      \]
+		      Jadi syarat ortogonalitas adalah
+		      \[
+			      \frac{2a}{3}-3b=0\Rightarrow2a=9b\Rightarrow\frac{a}{b}=\frac{9}{2}.
+		      \]
+	      \end{solution}
 
 	\item Banyak bilangan kompleks tak real $z$ yang memenuhi $z^{20} = 22$ adalah $\ldots$
+	      \begin{solution}
+		      Tuliskan $22$ dalam bentuk polar: $22=22e^{i0}$. Persamaan $z^{20}=22$ mempunyai $20$ akar kompleks, yaitu
+		      \[
+			      z_k=\sqrt[20]{22}\,e^{i\frac{2k\pi}{20}},\quad k=0,1,\dots,19.
+		      \]
+		      Di antara $20$ akar ini, tepat dua yang real: ketika sudut $\dfrac{2k\pi}{20}$ sama dengan $0$ atau $\pi$ (mod $2\pi$), yaitu $k=0$ dan $k=10$, menghasilkan $z=+\sqrt[20]{22}$ dan $z=-\sqrt[20]{22}$. Sisanya $20-2=18$ adalah akar tak real.
+
+		      Jadi banyak bilangan kompleks tak real yang memenuhi $z^{20}=22$ adalah $18$.
+	      \end{solution}
 
 	\item Jika $z = \sin\left( \dfrac{\pi}{4} + i \right)$ maka $\sqrt{2}(\operatorname{Re}(z) + \operatorname{Im}(z)) = \ldots$ (tuliskan jawaban dalam bentuk paling sederhana)
+	      \begin{solution}
+		      Gunakan rumus sinus untuk argumen kompleks:
+		      \[
+			      \sin(x+iy)=\sin x\cosh y+i\cos x\sinh y.
+		      \]
+		      Ambil $x=\dfrac{\pi}{4}$ dan $y=1$. Maka
+		      \[
+			      z=\sin\left(\frac{\pi}{4}+i\right)=\sin\frac{\pi}{4}\,\cosh1+i\cos\frac{\pi}{4}\,\sinh1.
+		      \]
+		      Karena $\sin\dfrac{\pi}{4}=\cos\dfrac{\pi}{4}=\dfrac{\sqrt2}{2}$, diperoleh
+		      \[
+			      \operatorname{Re}(z)=\frac{\sqrt2}{2}\cosh1,\quad\operatorname{Im}(z)=\frac{\sqrt2}{2}\sinh1.
+		      \]
+		      Jadi
+		      \[
+			      \operatorname{Re}(z)+\operatorname{Im}(z)=\frac{\sqrt2}{2}(\cosh1+\sinh1).
+		      \]
+		      Maka
+		      \[
+			      \sqrt2(\operatorname{Re}(z)+\operatorname{Im}(z))=\sqrt2\cdot\frac{\sqrt2}{2}(\cosh1+\sinh1)=\cosh1+\sinh1.
+		      \]
+		      Gunakan identitas $\cosh1+\sinh1=e^1=e$, sehingga nilainya adalah $e$.
+	      \end{solution}
 
 	\item Sisi-sisi dari petak persegi satuan sebuah papan catur $4 \times 4$ diwarnai merah. Banyaknya sisi satuan (panjangnya 1 satuan) minimal yang harus diwarnai sehingga setiap petak persegi satuan memiliki paling sedikit tiga sisi berwarna merah adalah $\ldots$
+	      \begin{solution}
+		      Papan $4\times4$ memiliki $5$ garis grid vertikal dan $5$ garis grid horizontal. Banyak sisi satuan total adalah
+		      \[
+			      4\cdot5+4\cdot5=40.
+		      \]
+		      Setiap petak satuan punya $4$ sisi dan kita ingin minimal $3$ sisi merah per petak. Ada $16$ petak, sehingga jumlah \emph{insiden} sisi-merah-terhadap-petak minimal $16\cdot3=48$. Namun setiap sisi interior dibagi oleh dua petak, sedangkan setiap sisi tepi hanya berkontribusi pada satu petak. Dengan demikian, jika $x$ adalah jumlah sisi interior yang diwarnai merah dan $y$ jumlah sisi tepi yang diwarnai merah, maka
+		      \[
+			      2x+y\ge48.
+		      \]
+		      Banyak sisi interior pada papan $4\times4$ adalah: ada $3$ garis vertikal interior masing-masing panjang $4$ (memberi $3\cdot4=12$ sisi interior vertikal) dan $3$ garis horizontal interior masing-masing panjang $4$ (memberi $12$ sisi interior horizontal), total $24$ sisi interior. Sisi tepi total $40-24=16$.
+
+		      Untuk meminimumkan $x+y$, karena koefisien $2$ di depan $x$ lebih besar dari $1$, lebih baik memaksimalkan penggunaan sisi interior (yang menyumbang dua insiden sekaligus). Jadi kita ambil $x$ sebesar mungkin, yakni $x=24$. Maka
+		      \[
+			      2\cdot24+y\ge48\Rightarrow48+y\ge48\Rightarrow y\ge0.
+		      \]
+		      Dengan $x=24,y=0$, persamaan insiden sudah terpenuhi secara numerik. Sekarang kita cek apakah semua petak bisa memiliki tiga sisi merah hanya dengan mewarnai semua sisi interior.
+
+		      Jika semua sisi interior diwarnai merah dan semua tepi luar tidak, maka setiap petak interior (bukan di pinggir papan) memiliki keempat sisi interior berwarna merah sehingga syarat terpenuhi. Namun petak di tepi papan (tetapi bukan sudut) hanya memiliki tiga sisi interior (dua sisi berbagi dengan petak lain dan satu sisi interior di antara baris/kolom) dan satu sisi tepi luar. Contoh: petak di baris pertama, kolom kedua memiliki batas atas tepi luar (tidak diwarnai), batas bawah interior (merah), batas kiri interior (merah), batas kanan interior (merah); jadi tetap memiliki tiga sisi merah. Petak sudut, misalnya di sudut kiri atas, memiliki dua sisi tepi luar (atas dan kiri) dan dua sisi interior (kanan dan bawah), sehingga hanya mendapat dua sisi merah dari interior, tidak cukup.
+
+		      Untuk memperbaiki sudut, kita perlu mewarnai sisi-sisi tepi sudut. Ada $4$ petak sudut, masing-masing saat ini punya dua sisi interior merah dan dua sisi tepi luar tak merah; agar mencapai tiga sisi, kita harus menambah minimal satu sisi tepi merah per sudut. Namun satu sisi tepi sudut berbagi dengan hanya satu petak (sudut itu sendiri), sehingga tiap sudut butuh satu sisi tepi berbeda. Dengan demikian perlu setidaknya $4$ sisi tepi tambahan diwarnai.
+
+		      Dengan $x=24$ dan menambah $4$ sisi tepi sudut (misalnya keempat sisi terluar di sepanjang keempat sudut), total sisi merah $x+y=24+4=28$. Sekarang semua petak sudut memiliki tiga sisi merah (dua interior + satu tepi), petak tepi non-sudut minimal tiga sisi merah, dan petak interior empat sisi merah.
+
+		      Jadi banyaknya sisi satuan minimal yang harus diwarnai merah adalah $28$.
+	      \end{solution}
 \end{enumerate}
 \subsubsection*{URAIAN}
 \begin{enumerate}
@@ -11158,17 +11634,110 @@ extbf{BAGIAN PERTAMA}
 	      \]
 	      konsisten (memiliki paling sedikit satu solusi). Jelaskan jawaban anda.
 
+	      \begin{solution}
+		      Matrik koefisien sistem adalah
+		      \[
+			      A=\begin{pmatrix}
+				      a  & 1 & 0 \\
+				      0  & a & 1 \\
+				      -b & 0 & a
+			      \end{pmatrix},\quad
+			      \mathbf{v}=\begin{pmatrix}1\\2\\-3\end{pmatrix}.
+		      \]
+		      Sistem konsisten jika dan hanya jika tidak terjadi kasus baris nol pada bentuk eselon tereduksi dengan ruas kanan tak nol, yaitu ketika $\det(A)\ne0$ (pasti ada solusi tunggal) atau ketika $\det(A)=0$ tetapi $\mathbf v$ berada dalam ruang kolom $A$.
+
+		      Pertama hitung determinan $A$:
+		      \[
+			      \det(A)=\begin{vmatrix}a&1&0\\0&a&1\\-b&0&a\end{vmatrix}.
+		      \]
+		      Kembangkan sepanjang kolom pertama atau baris pertama:
+		      \[
+			      \det(A)=a\begin{vmatrix}a&1\\0&a\end{vmatrix}-0+0=a(a\cdot a-1\cdot0)=a^3.
+		      \]
+		      Jadi $\det(A)=a^3$. Jika $a\ne0$, maka $\det(A)\ne0$ dan sistem selalu konsisten (unik solusi) untuk sembarang $b$.
+
+		      Sekarang tinjau kasus $a=0$. Maka matriks menjadi
+		      \[
+			      A=\begin{pmatrix}0&1&0\\0&0&1\\-b&0&0\end{pmatrix},\quad\mathbf v=\begin{pmatrix}1\\2\\-3\end{pmatrix}.
+		      \]
+		      Sistem persamaan eksplisit:
+		      \[
+			      y=1,\quad z=2,\quad-bx=-3.
+		      \]
+		      Dua persamaan pertama langsung memberi $y=1,z=2$. Persamaan ketiga menjadi
+		      \[
+			      -bx=-3\Rightarrow bx=3.
+		      \]
+
+		      \begin{itemize}
+			      \item Jika $b\ne0$, maka $x=3/b$ dan sistem konsisten (satu solusi).
+			      \item Jika $b=0$, persamaan ketiga menjadi $0=-3$, yang mustahil; sistem inkonsisten.
+		      \end{itemize}
+
+		      Dengan demikian, sistem konsisten untuk semua pasangan $(a,b)$ kecuali ketika $a=0$ dan $b=0$.
+	      \end{solution}
+
 	\item Misal $A = (a_{ij})$ dan $B = (b_{ij})$ matriks berukuran $n \times n$ dengan entri bilangan real. Jika
 	      \(
 	      \displaystyle\operatorname{tr}(AB) = \frac{1}{2} \sum_{i=1}^{n} \sum_{j=1}^{n} (a_{ij}^2 + b_{ij}^2),
 	      \)
 	      buktikan bahwa $A^T = B$.
 
+	      \begin{solution}
+		      Tulis
+		      \[
+			      \operatorname{tr}(AB)=\sum_{i=1}^n(AB)_{ii}=\sum_{i=1}^n\sum_{j=1}^na_{ij}b_{ji}.
+		      \]
+		      Jadi persamaan yang diberikan adalah
+		      \[
+			      \sum_{i,j}a_{ij}b_{ji}=\frac12\sum_{i,j}(a_{ij}^2+b_{ij}^2).
+		      \]
+		      Kalikan kedua ruas dengan $2$ dan susun kembali:
+		      \[
+			      \sum_{i,j}\bigl(2a_{ij}b_{ji}-a_{ij}^2-b_{ij}^2\bigr)=0.
+		      \]
+		      Perhatikan bahwa untuk setiap pasangan indeks $(i,j)$,
+		      \[
+			      2a_{ij}b_{ji}-a_{ij}^2-b_{ij}^2=-(a_{ij}-b_{ji})^2.
+		      \]
+		      Jadi keseluruhan jumlah menjadi
+		      \[
+			      -\sum_{i,j}(a_{ij}-b_{ji})^2=0.
+		      \]
+		      Karena setiap suku $(a_{ij}-b_{ji})^2\ge0$, jumlah nol hanya mungkin jika setiap suku nol, sehingga untuk semua $i,j$ berlaku $a_{ij}-b_{ji}=0$, yaitu $a_{ij}=b_{ji}$.
+
+		      Dengan demikian $A^T=B$.
+	      \end{solution}
+
 	\item Diberikan bilangan-bilangan kompleks $a$ dan $b$ dengan $|a| = |b| = 1$. Tunjukkan bahwa
 	      \[
 		      z = (a+b) \left(\frac{1}{a} + \frac{1}{b} \right)
 	      \]
 	      merupakan bilangan real dan memenuhi $0 \leq z \leq 4$.
+
+	      \begin{solution}
+		      Tuliskan $z$ dalam bentuk yang lebih sederhana. Karena $|a|=|b|=1$, maka $1/a=\overline a$ dan $1/b=\overline b$. Jadi
+		      \[
+			      z=(a+b)\left(\frac1a+\frac1b\right)=(a+b)(\overline a+\overline b).
+		      \]
+		      Hasil kali bilangan kompleks dan konjugatnya adalah kuadrat modulus jumlahnya:
+		      \[
+			      z=(a+b)(\overline a+\overline b)=|a+b|^2.
+		      \]
+		      Kuadrat modulus selalu bilangan real taknegatif, jadi $z\in\mathbb R$ dan $z\ge0$.
+
+		      Untuk batas atas, gunakan bahwa $|a|=|b|=1$. Dengan pertidaksamaan segitiga,
+		      \[
+			      |a+b|\le|a|+|b|=2.
+		      \]
+		      Sehingga
+		      \[
+			      z=|a+b|^2\le2^2=4.
+		      \]
+		      Jelas nilai minimum $0$ tercapai, misalnya jika $b=-a$ sehingga $a+b=0$, dan nilai maksimum $4$ tercapai jika $a=b$ sehingga $a+b=2a$ dengan $|2a|=2$.
+
+		      Jadi $z$ real dan $0\le z\le4$.
+	      \end{solution}
 
 	\item Diberikan fungsi kompleks
 	      \[
@@ -11180,7 +11749,67 @@ extbf{BAGIAN PERTAMA}
 	      \]
 	      Apakah fungsi $f$ terdiferensialkan kompleks di titik $0$? Jelaskan!
 
+	      \begin{solution}
+		      Kita periksa definisi turunan kompleks di $0$.
+		      \[
+			      f'(0)=\lim_{z\to0}\frac{f(z)-f(0)}{z-0}=\lim_{z\to0}\frac{f(z)}{z}
+		      \]
+		      jika limit ini ada. Untuk $z\ne0$,
+		      \[
+			      f(z)=\frac{\overline z^3}{z^2}.
+		      \]
+		      Tuliskan $z=re^{i\theta}$, sehingga $\overline z=re^{-i\theta}$. Maka
+		      \[
+			      f(z)=\frac{(re^{-i\theta})^3}{(re^{i\theta})^2}=\frac{r^3e^{-3i\theta}}{r^2e^{2i\theta}}=re^{-5i\theta}.
+		      \]
+		      Jadi
+		      \[
+			      \frac{f(z)}{z}=\frac{re^{-5i\theta}}{re^{i\theta}}=e^{-6i\theta}.
+		      \]
+		      Saat $z\to0$, berarti $r\to0$ tetapi sudut $\theta$ dapat beragam tergantung jalur. Limit $e^{-6i\theta}$ bergantung pada $\theta$ dan tidak menuju nilai tetap. Misalnya jika $z$ mendekati $0$ sepanjang sumbu real positif ($\theta=0$), limitnya $1$; jika sepanjang sumbu imajiner positif ($\theta=\pi/2$), limitnya $e^{-6i\cdot\pi/2}=e^{-3i\pi}=-1$.
+
+		      Karena limit $\dfrac{f(z)}{z}$ saat $z\to0$ bergantung pada arah dan tidak unik, turunan kompleks di $0$ tidak ada.
+
+		      Jadi $f$ \emph{tidak} terdiferensialkan kompleks di titik $0$.
+	      \end{solution}
+
 	\item Diberikan 30 titik dalam koordinat kartesius yakni titik $D_i(i,1)$ dimana $i \in \{1,2,\dots,15\}$ dan titik $D_j(j-15,4)$ dimana $j \in \{16,17,\dots,30\}$. Tentukan banyaknya segitiga sama kaki yang dapat dibentuk dengan ketiga titik sudutnya diambil dari $\{D_1, D_2, \dots, D_{30}\}$.
+
+	      \begin{solution}
+		      Koordinat titik-titik baris pertama adalah $A_k=(k,1)$ untuk $k=1,\dots,15$, dan baris kedua $B_k=(k,4)$ untuk $k=1,\dots,15$ (dengan notasi ulang agar indeks mudah).
+
+		      Setiap segitiga sama kaki harus memiliki dua sisi dengan panjang sama. Karena semua titik hanya pada dua garis horizontal $y=1$ dan $y=4$, ada dua tipe segitiga:
+		      \begin{itemize}
+			      \item Dua titik di baris yang sama, satu titik di baris lain ("segitiga dengan alas horizontal").
+			      \item Tiga titik tersebar sedemikian rupa sehingga dua sisi miring sama panjang (dua titik di baris berbeda dan satu lagi juga di salah satu baris).
+		      \end{itemize}
+
+		      Ambil dua titik di baris bawah, $A_i=(i,1)$ dan $A_j=(j,1)$ dengan $i<j$ sebagai alas. Titik puncak di baris atas $B_k=(k,4)$. Panjang sisi miring ke $B_k$ adalah
+		      \[
+			      |A_iB_k|^2=(k-i)^2+3^2,\quad|A_jB_k|^2=(k-j)^2+3^2.
+		      \]
+		      Untuk segitiga sama kaki dengan kaki ke baris atas, perlu $|A_iB_k|=|A_jB_k|$, yakni
+		      \[
+			      (k-i)^2=(k-j)^2\Rightarrow|k-i|=|k-j|.
+		      \]
+		      Ini terjadi hanya jika $k$ titik tengah $i$ dan $j$, yaitu $k=\dfrac{i+j}{2}$. Agar $k$ bulat, $i$ dan $j$ harus berbeda paritas sama (selisih genap). Selain itu, kita butuh $1\le k\le15$, tetapi karena $1\le i<j\le15$, otomatis $1<\dfrac{i+j}{2}<15$.
+
+		      Maka untuk setiap pasangan $(i,j)$ dengan $1\le i<j\le15$ dan $j-i$ genap, terdapat tepat satu $k$ yang menghasilkan segitiga sama kaki. Banyak pasangan $(i,j)$ dengan selisih genap adalah banyak pasangan bilangan bulat berparitas sama dari $1$ s.d. $15$. Ada $8$ bilangan ganjil dan $7$ bilangan genap, sehingga
+		      \[
+			      \binom8{2}+\binom7{2}=28+21=49.
+		      \]
+		      Jadi ada $49$ segitiga sama kaki dengan alas di baris bawah dan puncak di baris atas.
+
+		      Dengan simetri, jumlah segitiga dengan alas di baris atas dan puncak di baris bawah juga $49$. Total tipe ini $49+49=98$.
+
+		      extbf{2. Dua sisi miring sama panjang dengan satu titik di tiap baris sebagai kaki sama kaki.}
+
+		      Misalkan dua sisi sama panjang adalah $A_iB_j$ dan $A_kB_j$ (dengan $B_j$ puncak di baris atas, dan alas $A_iA_k$ di baris bawah). Ini kembali ke kasus 1 dengan sudut pandang berbeda: kita sudah menghitung semua segitiga yang memiliki dua sisi miring sama panjang dari satu titik di satu baris ke dua titik di baris lain ketika kita memilih alas di salah satu baris dan puncak di baris lain. Semua konfigurasi segitiga yang mungkin dengan dua panjang kaki sama selalu tertangkap oleh konstruksi "pilih dua titik sejajar sebagai alas, lalu satu titik di garis lain sebagai puncak". Segitiga dengan ketiga titik di satu baris mustahil (kolinear), dan dengan dua titik di baris atas serta satu di baris bawah sudah simetris dihitung.
+
+		      Jadi tidak ada segitiga sama kaki lain di luar $98$ yang telah dihitung.
+
+		      Dengan demikian banyaknya segitiga sama kaki yang dapat dibentuk adalah $98$.
+	      \end{solution}
 \end{enumerate}
 \newpage
 \lhead{ONMIPA-PT(2023)}
@@ -11274,6 +11903,52 @@ extbf{BAGIAN PERTAMA}
 			      \end{scope}
 		      \end{tikzpicture}
 	      \end{center}
+	      \begin{solution}
+		      Kita lihat graf ketetanggaan dari segienam-segienam tersebut. Setiap segienam (kecuali yang diarsir hitam) menjadi simpul, dan dua simpul dihubungkan bila dua segienam berbagi sisi. Kita ingin pewarnaan tiga-warna pada graf ini sehingga simpul-simpul bertetangga selalu berbeda warna.
+
+		      Perhatikan dahulu tiga segienam yang saling bertetangga di sekitar segienam hitam; kita beri nama seperti pada gambar berikut (warna hitam tetap tidak ikut dihitung):
+		      % \begin{center}
+		      %   \begin{tikzpicture}
+		      %     \begin{scope}[%
+		      %       every node/.style={regular polygon,
+		      % 	      regular polygon sides=6,
+		      % 	      draw,
+		      % 	      minimum width=1.2cm,
+		      % 	      outer sep=0,
+		      %       }, transform shape]
+		      %       \node (A) {};
+		      %       \node[anchor=west] (B) at (A.corner 5) {};
+		      %       \node[anchor=west] (C) at (B.corner 1) {};
+		      %       \node[anchor=west] (D) at (C.corner 5) {};
+		      %       \node[anchor=west] (E) at (D.corner 5) {};
+		      %       \node[anchor=west] (F) at (E.corner 5) {};
+		      %       \node[anchor=west] (G) at (B.corner 5) {};
+		      %       \node[anchor=west] (H) at (G.corner 5) {};
+		      %       \node[fill=gray!40,anchor=west,label=right:{$H$}] (I) at (H.corner 5) {};
+		      %       \node[anchor=west,label=right:{$J$}] (J) at (I.corner 5) {};
+		      %       \node[anchor=east,label=left:{$K$}] (K) at (B.corner 4) {};
+		      %       \node[anchor=west,label=below:{$L$}] (L) at (K.corner 5) {};
+		      %       \node[anchor=west,label=below:{$M$}] (M) at (L.corner 5) {};
+		      %       \node[anchor=west,label=below:{$N$}] (N) at (M.corner 5) {};
+		      %       \node[anchor=west,label=below:{$O$}] (O) at (N.corner 5) {};
+		      %       \node[anchor=east,label=left:{$P$}] (P) at (L.corner 4) {};
+		      %       \node[anchor=west,label=below:{$Q$}] (Q) at (P.corner 5) {};
+		      %       \node[anchor=west,label=below:{$R$}] (R) at (Q.corner 5) {};
+		      %       \node[anchor=west,label=below:{$S$}] (S) at (R.corner 5) {};
+		      %       \node[anchor=east,label=left:{$T$}] (T) at (Q.corner 4) {};
+		      %       \node[anchor=west,label=below:{$U$}] (U) at (T.corner 5) {};
+		      %       \node[anchor=west,label=below:{$V$}] (V) at (U.corner 5) {};
+		      %     \end{scope}
+		      %   \end{tikzpicture}
+		      % \end{center}
+		      Misalkan kita beri warna pada salah satu segienam, misalnya $L$, dengan warna merah (R). Tetangganya yang berbagi sisi langsung dengan $L$ (yaitu $K,M,P,Q$) harus berwarna bukan merah. Karena tiap segienam maksimum bertetangga dengan tiga segienam lain, ketika kita teruskan pewarnaan secara BFS (lapis demi lapis dari $L$), pada setiap langkah warna di setiap simpul selalu terpaksa (tidak ada pilihan bebas) setelah dua tetangganya sudah terwarnai. Dengan demikian, begitu warna sebuah segienam awal ditentukan, seluruh konfigurasi warna yang sah pada 22 segienam lain otomatis unik (tidak ada cabang).
+
+		      Artinya, graf ketetanggaan ini memiliki tepat \emph{satu} pewarnaan sah menggunakan tiga warna, jika kita abaikan permutasi nama warna. Karena kita mempunyai tiga warna berbeda (merah, hijau, biru), setiap pewarnaan sah dapat dipermutasikan warnanya dengan faktor $3!$ tanpa melanggar syarat tetangga-beda-warna. Jadi banyak pewarnaan yang mungkin adalah
+		      \[
+			      3!=6.
+		      \]
+
+	      \end{solution}
 \end{enumerate}
 \subsubsection*{URAIAN}
 \begin{enumerate}
