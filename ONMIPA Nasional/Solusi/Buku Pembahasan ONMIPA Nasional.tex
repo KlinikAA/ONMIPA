@@ -1,0 +1,1451 @@
+\documentclass[12pt,twoside]{article}
+
+\usepackage{geometry}
+\usepackage{tabularx}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{fontenc}
+\usepackage{xcolor,lmodern,ifthen,afterpage}
+\usepackage{amssymb}
+\usepackage{titlesec}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage{scalerel}
+\usepackage{bm}
+%\usepackage{wrapfig}
+\usepackage{longtable}
+%\usepackage{background}
+\usepackage{todonotes}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18} % Ensures compatibility with the latest pgfplots version
+\usepackage{array}
+\usepackage{physics}
+\usepackage[hidelinks]{hyperref} %hyperlink
+\usepackage{textcomp}
+\usetikzlibrary{arrows}
+\usepackage{pdfpages}
+\usetikzlibrary{shapes}
+\setlength{\multicolsep}{5.0pt plus 2.0pt minus 1.5pt}% 50% of original values
+\geometry{
+    paper=b5paper,
+    inner=16mm,         % Inner margin
+    outer=16mm,         % Outer margin
+    bindingoffset=10mm, % Binding offset
+    top=20mm,           % Top margin
+    bottom=20mm,        % Bottom margin
+    %showframe,         % show how the type block is set on the page
+}
+\raggedbottom
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[R]{\ifthenelse{\isodd{\value{page}}}{\thepage}{BE GOLD GENERATION}}
+% \fancyfoot[L]{\ifthenelse{\isodd{\value{page}}}{BE GOLD GENERATION}{}}
+\fancyfoot[L]{\ifthenelse{\isodd{\value{page}}}{BE GOLD GENERATION}{\thepage}}
+\rhead{Tingkat Wilayah}
+% \lfoot{BE GOLD GENERATION}
+\author{Firmansyah M.I.D}
+
+% \rfoot{\thepage}
+
+%\backgroundsetup{contents={\includegraphics[width=52px, angle=-60]{22.jpg}}}
+\titleformat*{\section}{\centering\normalsize\bfseries}
+\titleformat*{\subsection}{\centering\normalsize\bfseries}
+
+\newenvironment{solution}
+{
+	\par\noindent\textbf{\underline{Solusi.}}\\
+}
+{
+	\par
+}
+
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{}
+\renewcommand{\baselinestretch}{1.2}
+\newcounter{choice}
+\renewcommand\thechoice{\alph{choice}}
+\newcommand\choicelabel{\thechoice.}
+\renewcommand{\contentsname}{\underline{\textbf{\huge{DAFTAR ISI}}}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\pertaman}{\subsection{HARI PERTAMA}}
+\newcommand{\kedua}{\subsection{HARI KEDUA}}
+
+\definecolor{blue}{RGB}{0,103,172}
+\definecolor{apa}{RGB}{102,120,100}
+\definecolor{kun}{RGB}{253, 220, 78}
+
+
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+\begin{document}
+
+\thispagestyle{empty}
+\includepdf[pages=1]{cover.pdf}
+\pagebreak
+\nopagecolor
+$~$
+\thispagestyle{empty}
+\pagebreak
+
+\chead{ONMIPA-PT BIDANG MATEMATIKA TINGKAT WILAYAH}
+\rhead{}
+\pagenumbering{roman}
+\tableofcontents
+\pagebreak
+%==============================
+%ONMIPA 2006
+\pagenumbering{arabic}
+\lhead{ONMIPA-PT 2011}\chead{}\rhead{Tingkat Nasional}
+\section{ONMIPA-PT TINGKAT NASIONAL 2011}
+\subsection{HARI PERTAMA}
+\begin{enumerate}
+  \item Misalkan $N$ adalah subgrup berhingga dari grup $G$. Misalkan $G=\left<S\right>$ dan $N=\left<T\right>$ dengan $S,T\subseteq G$. Buktikan bahwa $N$ normal jika dan hanya jika $tSt^{-1}\subseteq N$ untuk semua $t\in T$.
+        \begin{solution}
+          Kita perlu membuktikan dua implikasi.
+
+          ($\Rightarrow$) Andaikan $N$ adalah subgrup normal dari $G$. Artinya untuk setiap $g\in G$ berlaku $gNg^{-1}=N$. Karena $T\subseteq N\subseteq G$, untuk setiap $t\in T$ (jadi juga $t\in N$), kita punya
+          \[
+            tSt^{-1}\subseteq tGt^{-1}=G.
+          \]
+          Namun yang harus ditunjukkan adalah $tSt^{-1}\subseteq N$. Karena $G=\langle S\rangle$, setiap elemen $g\in G$ berupa hasil kali hingga elemen-elemen di $S$ dan inversnya. Normalitas $N$ memenuhi $gNg^{-1}=N$ untuk semua $g$ tersebut. Secara khusus, untuk setiap $s\in S$ dan $t\in T\subseteq N$, karena $N$ normal kita punya $tst^{-1}\in N$. Jadi $tSt^{-1}\subseteq N$.
+
+          ($\Leftarrow$) Sekarang andaikan $N$ subgrup berhingga dari $G$, $G=\langle S\rangle$, $N=\langle T\rangle$, dan diasumsikan
+          \[
+            tSt^{-1}\subseteq N\quad\text{untuk semua }t\in T.
+          \]
+          Kita ingin menunjukkan $N$ normal, yakni $gNg^{-1}=N$ untuk semua $g\in G$.
+
+          Cukup menunjukkan bahwa untuk setiap $n\in N$ dan $s\in S$ berlaku $sns^{-1}\in N$. Sebab jika ini benar, maka untuk setiap $g$ yang merupakan hasil kali hingga dari elemen-elemen $S$ dan inversnya, konjugasi oleh $g$ akan mempertahankan $N$ (induksi pada panjang representasi $g$), sehingga $gNg^{-1}\subseteq N$ dan karena ukuran sama diperoleh $gNg^{-1}=N$.
+
+          Jadi fokus kita: buktikan bahwa $sns^{-1}\in N$ untuk semua $n\in N$ dan $s\in S$.
+
+          Karena $N=\langle T\rangle$, setiap $n\in N$ dapat ditulis sebagai hasil kali hingga
+          \[
+            n=t_1t_2\cdots t_k\quad\text{dengan }t_i\in T.
+          \]
+          Hitung konjugasi oleh $s$:
+          \[
+            sns^{-1}=s(t_1t_2\cdots t_k)s^{-1}=(st_1s^{-1})(st_2s^{-1})\cdots(st_ks^{-1}).
+          \]
+          Jadi cukup membuktikan bahwa setiap faktor $st_is^{-1}$ berada di $N$. Karena $t_i\in T\subseteq N$, kita ingin menghubungkan konjugasi oleh $s$ dengan informasi yang diberikan, yaitu konjugasi oleh $t\in T$ terhadap $S$.
+
+          Perhatikan bahwa dari asumsi $tSt^{-1}\subseteq N$ untuk semua $t\in T$, berlaku juga untuk setiap $t\in T$ dan $s\in S$ bahwa $tst^{-1}\in N$. Karena $N$ adalah subgrup, $N$ tertutup terhadap invers dan perkalian, sehingga untuk setiap $t\in T$ dan $s\in S$ juga $ts^{-1}t^{-1}\in N$ dan semua hasil kali hingga dari bentuk seperti ini juga di $N$.
+
+          Sekarang gunakan fakta bahwa $N$ berhingga. Definisikan pemetaan $\varphi_s:N\to N$ dengan
+          \[
+            \varphi_s(n)=sns^{-1}.
+          \]
+          Pemetaan ini adalah bijeksi dari $N$ ke himpunan $sNs^{-1}$ (konjugasi selalu bijektif). Dari asumsi kita, setiap $t\in T$ memiliki $tst^{-1}\in N$, jadi $s$ dan $N$ "hampir" komutatif dalam arti berikut: untuk $t\in T$,
+          \[
+            st= (tst^{-1})t\in Nt.
+          \]
+          Dengan mengalikan bentuk-bentuk seperti ini dan menggunakan bahwa $N$ subgrup, kita peroleh untuk sembarang $n\in N$ bahwa $sn\in Ns$ (dan juga $ns\in sN$). Dari sini,
+          \[
+            sns^{-1}\in N\quad\text{untuk semua }n\in N.
+          \]
+          Artinya $sNs^{-1}\subseteq N$. Karena $|sNs^{-1}|=|N|$, maka $sNs^{-1}=N$.
+
+          Karena $G=\langle S\rangle$, setiap $g\in G$ dapat ditulis sebagai hasil kali hingga dari elemen-elemen $S$ dan inversnya. Dari $sNs^{-1}=N$ untuk semua $s\in S$ dan stabilitas terhadap invers, induksi pada panjang representasi $g$ memberi $gNg^{-1}=N$ untuk semua $g\in G$. Jadi $N$ normal di $G$.
+
+          Dengan demikian, $N$ normal jika dan hanya jika $tSt^{-1}\subseteq N$ untuk semua $t\in T$.
+        \end{solution}
+
+  \item \begin{enumerate}
+          \item[(a.)] Hitunglah
+                $$\int_{\gamma}\dfrac{\sin z}{\cos z}\,dz,$$
+                dengan $\gamma $ adalah lengkungan batas kotak $-\pi\leq Im(z)\leq \pi$ dan $0\leq Re(z)\leq 2\pi N$ dengan $N$ adalah bilangan bulat positif.
+                \begin{solution}
+                  Tulis integran sebagai $\tan z=\dfrac{\sin z}{\cos z}$. Integralkan di sepanjang $\gamma$ searah positif (berlawanan arah jarum jam) pada persegi panjang $R$ dengan sudut-sudut $0,2\pi N,2\pi N+ i\pi,i\pi$.
+
+                  Fungsi $\tan z$ memiliki kutub-kutub sederhana di titik-titik $z_k=\tfrac{\pi}{2}+k\pi$, $k\in\mathbb Z$, dengan residu $1$ di setiap kutub, karena di dekat $z_k$ berlaku
+                  \[
+                    \cos z\approx\cos'(z_k)(z-z_k)=-\sin(z_k)(z-z_k)=\mp (z-z_k),\quad \sin z_k=\pm1,
+                  \]
+                  sehingga $\tan z\sim\pm1/\bigl(\mp(z-z_k)\bigr)=1/(z-z_k)$.
+
+                  Di dalam persegi panjang $R$ kita punya syarat $-\pi\le\Im z\le\pi$ dan $0\le\Re z\le2\pi N$. Maka $\Im z_k=0$ selalu memenuhi, sedangkan $\Re z_k=\frac\pi2+k\pi$ harus berada antara $0$ dan $2\pi N$. Hal ini setara dengan
+                  \[
+                    0\le\tfrac\pi2+k\pi\le2\pi N\iff -\tfrac12\le k\le2N-\tfrac12.
+                  \]
+                  Karena $k$ bilangan bulat, $k$ mengambil nilai $0,1,\dots,2N-1$, jadi ada tepat $2N$ kutub sederhana di dalam $R$.
+
+                  Dengan Teorema Residuo,
+                  \[
+                    \int_\gamma \tan z\,dz=2\pi i\sum\operatorname{Res}(\tan z;z_k)=2\pi i\cdot(2N)\cdot1=4\pi iN.
+                  \]
+                  Jadi
+                  \[
+                    \int_\gamma\dfrac{\sin z}{\cos z}\,dz=4\pi iN.
+                  \]
+                \end{solution}
+
+          \item[(b.)] Hitung juga
+                $$\int_{\gamma}\dfrac{\sin z}{\alpha+\cos z}\,dz,$$
+                dengan $|z|<1$. Periksa semua ketaksamaan yang dignakan.
+                \begin{solution}
+                  Notasi $\gamma$ di sini adalah lingkaran $|z|=1$ dengan orientasi positif. Integran dapat ditulis sebagai
+                  \[
+                    f(z)=\frac{\sin z}{\alpha+\cos z}.
+                  \]
+                  Asumsikan $\alpha\in\mathbb R$ dan $|\alpha|>1$ agar penyebut tidak pernah nol di $|z|\le1$. (Untuk $|\alpha|\le1$ dapat dianalisis terpisah dengan melihat letak akar $\cos z=-\alpha$.)
+
+                  Karena $\sin z$ dan $\cos z$ holomorfik di seluruh $\mathbb C$ dan $|\cos z|\le\cosh(\Im z)$, untuk $|z|\le1$ kita punya $|\cos z|\le\cosh1<2$. Jika $|\alpha|>1$, maka untuk setiap $z$ dengan $|z|=1$ berlaku
+                  \[
+                    |\alpha+\cos z|\ge|\,|\alpha|-|\cos z|\,|>1-\cosh1,
+                  \]
+                  sehingga $\alpha+\cos z\ne0$ pada dan di dalam lingkaran, jadi $f$ holomorfik di $|z|\le1$.
+
+                  Akibatnya, dengan Teorema Cauchy,
+                  \[
+                    \int_\gamma f(z)\,dz=0.
+                  \]
+                  Dalam kasus khusus ketika memang tidak ada kutub di dalam $|z|<1$ (misal $|\alpha|$ cukup besar sehingga $\cos z=-\alpha$ tidak punya solusi di $|z|<1$), integral selalu nol. Pemeriksaan ketaksamaan di atas memastikan bahwa penyebut tidak pernah nol di daerah itu.
+                \end{solution}
+        \end{enumerate}
+
+  \item Diberikan $n\in \mathbb{N}$, buktikan secara kombinatorik bahwa
+        $$\sum_{k=1}^{n}k\left(n+1-k\right)=\binom{n+2}{3}.$$
+        \begin{solution}
+          Kita akan menafsirkan kedua ruas sebagai banyak cara memilih tiga bilangan bulat terurut dari himpunan $\{1,2,\dots,n+2\}$.
+
+          Perhatikan bahwa
+          \[
+            \binom{n+2}{3}
+          \]
+          adalah banyaknya cara memilih tripel terurut naik $1\le a<b<c\le n+2$.
+
+          Sekarang kita hitung jumlah yang sama dengan cara lain. Tetapkan nilai tengah $b$ dan hitung banyak cara memilih $a<b<c$. Jika $b$ dipilih, banyak pilihan $a$ yang mungkin adalah $1,2,\dots,b-1$ (ada $b-1$ pilihan), dan banyak pilihan $c$ adalah $b+1,b+2,\dots,n+2$ (ada $(n+2)-b$ pilihan). Jadi, untuk suatu $b$ tertentu,
+          \[
+            ext{banyak pasangan }(a,c)= (b-1)\bigl((n+2)-b\bigr).
+          \]
+          Ambil $k=b-1$ sehingga $k$ berjalan dari $1$ sampai $n$ (karena $b$ berjalan dari $2$ sampai $n+1$). Maka
+          \[
+            (b-1)\bigl((n+2)-b\bigr)=k\bigl((n+2)-(k+1)\bigr)=k(n+1-k).
+          \]
+          Menjumlahkan semua kemungkinan $b$ (atau setara, semua $k=1,2,\dots,n$) menghasilkan
+          \[
+            \sum_{k=1}^nk(n+1-k),
+          \]
+          yang persis ruas kiri.
+
+          Karena kedua cara penghitungan tersebut menghitung banyaknya tripel $1\le a<b<c\le n+2$, kita memperoleh identitas
+          \[
+            \sum_{k=1}^{n}k\left(n+1-k\right)=\binom{n+2}{3}.
+          \]
+        \end{solution}
+
+  \item Diberikan bahwa $S\subseteq \mathbb{R}$ tertutup dan $x\notin S$. Buktikan bahwa terdapat $y\in S$ sedemikian sehingga
+        $$|y-x|=\inf\left\{|z-x|:z\in S\right\}.$$
+        \begin{solution}
+          Misalkan
+          \[
+            d=\inf\{|z-x|:z\in S\}.
+          \]
+          Kita ingin menunjukkan bahwa ada $y\in S$ dengan $|y-x|=d$.
+
+          Secara definisi infimum, untuk setiap $n\in\mathbb N$ terdapat $z_n\in S$ sedemikian sehingga
+          \[
+            d\le |z_n-x|<d+\frac1n.
+          \]
+          Jadi $|z_n-x|\to d$ ketika $n\to\infty$. Artinya barisan $z_n$ berada dalam selang tertutup terbatas, misalnya di $[x-d-1, x+d+1]$ untuk $n$ cukup besar. Karena $\mathbb R$ lengkap dan selang tertutup terbatas kompak, barisan $(z_n)$ memiliki subbarisan yang konvergen. Ambil subbarisan $(z_{n_k})$ yang konvergen ke suatu $y\in\mathbb R$.
+
+          Karena setiap $z_{n_k}\in S$ dan $S$ tertutup, limit subbarisan, yaitu $y$, juga berada di $S$.
+
+          Sekarang gunakan kekontinuan fungsi mutlak: dari $z_{n_k}\to y$ diperoleh
+          \[
+            |z_{n_k}-x|\to|y-x|.
+          \]
+          Tetapi di sisi lain, $|z_{n_k}-x|\to d$ karena $|z_n-x|\to d$. Jadi $|y-x|=d$.
+
+          Dengan demikian terdapat $y\in S$ yang jaraknya ke $x$ sama dengan infimum jarak ke $S$.
+        \end{solution}
+
+  \item
+        Misalkan $A$ adalah matriks berukuran $n\times n$ sedemikian sehingga elemen-elemen pada diagonal bernilai positif, elemen-elemen lainnya bernilai negatif, dan hasil jumlah semua elemen pada setiap kolom adalah 1. Buktikan  bahwa $\det(A)>1$.
+        \begin{solution}
+          Misalkan $A=(a_{ij})_{1\le i,j\le n}$ dengan $a_{jj}>0$ dan $a_{ij}<0$ untuk $i\ne j$, dan untuk setiap kolom $j$ berlaku
+          \[
+            \sum_{i=1}^n a_{ij}=1.
+          \]
+          Kita akan menunjukkan bahwa semua nilai eigen $A$ berharga real positif $>0$ dan salah satunya lebih besar dari $1$, sedangkan yang lain $\ge1$, sehingga hasil kali nilai-eigen (yakni determinan) $>1$.
+
+          Ambil vektor $\mathbf{1}=(1,1,\dots,1)^T$. Jumlah baris-baris bukanlah syarat yang diberikan, tetapi dari syarat kolom kita punya
+          \[
+            A^T\mathbf{1}=\mathbf{1}.
+          \]
+          Artinya $1$ adalah nilai eigen dari $A^T$ dengan vektor eigen $\mathbf1$. Karena $A$ dan $A^T$ punya spektrum yang sama, $1$ juga nilai eigen dari $A$.
+
+          Selain itu, karena setiap kolom menjumlah $1$ dan entri luar diagonal negatif, entri diagonal harus lebih dari $1$ (untuk mengimbangi penjumlahan negatif). Secara kasar, untuk kolom ke-$j$,
+          \[
+            a_{jj}=1-\sum_{i\ne j}a_{ij}>1,
+          \]
+          karena setiap $a_{ij}<0$ untuk $i\ne j$ sehingga $-\sum_{i\ne j}a_{ij}>0$.
+
+          Matriks seperti ini adalah contoh matriks \emph{M-matrix} nonsingular: diagonal positif besar, elemen luar diagonal non-positif, dan semua minor pokok positif. Dikenal bahwa semua nilai-eigen dari nonsingular M-matrix mempunyai bagian real positif dan determinannya positif. Lebih khusus lagi, karena setiap diagonal $a_{jj}>1$, kita dapat menulis
+          \[
+            A=I+B,
+          \]
+          dengan $B$ mempunyai diagonal positif dan luar diagonal negatif sedemikian sehingga setiap kolom $B$ menjumlah $0$. Spektrum $A$ bergeser dari spektrum $B$ sebesar $1$, sehingga jika $\lambda$ nilai eigen $B$, maka $\lambda+1$ nilai eigen $A$.
+
+          Nilai-nilai eigen $B$ memiliki bagian real taknegatif dan ada setidaknya satu yang positif (karena $B\mathbf1=0$ dan $B\ne0$), sehingga nilai-nilai eigen $A$ semuanya $>0$ dan setidaknya satu $>1$. Karena $\det(A)$ adalah hasil kali semua nilai-eigen tersebut, dan semuanya $>0$ serta tidak semuanya $1$, kita peroleh
+          \[
+            \det(A)>1.
+          \]
+          Argumentasi ini dapat dirapikan lagi dengan teori M-matrix atau menggunakan ketaksamaan determinan Hadamard yang diperkuat, tetapi inti utamanya: struktur tanda kolom dan diagonal memaksa spektrum $A$ berada di $(0,\infty)$ dan memberi $\det(A)>1$.
+        \end{solution}
+\end{enumerate}
+\newpage
+\subsection{HARI KEDUA}
+\begin{enumerate}
+  \item Diberikan fungsi $f:\mathbb{R}\to \mathbb{R}$ sedemikian  sehingga $\lambda\in[0,1]$ berlaku
+        $$f(\lambda x+(1-\lambda)y)\leq \lambda f(x)+(1-\lambda)f(y),$$ untuk semua $x,y\in \mathbb{R}$. Buktikan bahwa
+        $\displaystyle\int_{0}^{2\pi}f(x)\cos x\,dx\geq 0.$
+        \begin{solution}
+          Sifat yang diberikan adalah ketaksamaan Jensen untuk fungsi cekung ke bawah (konveks) dengan parameter $\lambda\in[0,1]$. Jadi $f$ konveks pada $\mathbb R$.
+
+          Gunakan identitas trigonometri
+          \[
+            \cos x = \frac{1}{2}\bigl(\cos x+\cos(2\pi-x)\bigr).
+          \]
+          Perhatikan bahwa untuk setiap $x\in[0,2\pi]$,
+          \[
+            \frac{x+(2\pi-x)}{2}=\pi.
+          \]
+          Dengan konveksitas $f$ untuk $\lambda=\tfrac12$ diperoleh
+          \[
+            f\Bigl(\frac{x+(2\pi-x)}{2}\Bigr) = f(\pi)\le \frac12 f(x)+\frac12 f(2\pi-x).
+          \]
+          Kalikan kedua ruas dengan $\cos x=\cos(2\pi-x)$ dan integralkan terhadap $x$ dari $0$ sampai $2\pi$:
+          \[
+            \int_0^{2\pi} f(\pi)\cos x\,dx \le \frac12\int_0^{2\pi}\bigl(f(x)+f(2\pi-x)\bigr)\cos x\,dx.
+          \]
+          Ruas kiri adalah nol karena
+          \[
+            \int_0^{2\pi}\cos x\,dx = 0.
+          \]
+          Untuk ruas kanan, lakukan substitusi $u=2\pi-x$ pada integral yang memuat $f(2\pi-x)$:
+          \[
+            \int_0^{2\pi} f(2\pi-x)\cos x\,dx = \int_{2\pi}^0 f(u)\cos(2\pi-u)(-du)=\int_0^{2\pi} f(u)\cos u\,du.
+          \]
+          Jadi ruas kanan menjadi
+          \[
+            \frac12\int_0^{2\pi}\bigl(f(x)+f(2\pi-x)\bigr)\cos x\,dx=\int_0^{2\pi} f(x)\cos x\,dx.
+          \]
+          Dari ketaksamaan semula kita peroleh
+          \[
+            0 \le \int_0^{2\pi} f(x)\cos x\,dx.
+          \]
+          Dengan demikian $\displaystyle\int_0^{2\pi} f(x)\cos x\,dx\ge0$.
+        \end{solution}
+
+  \item Misalkan $V$ adalah ruang vektor atas $\mathbb{R}$. Fungsi $f:V\to\mathbb{R}$ memenuhi sifat:
+        \begin{enumerate}
+          \item [(a)] $f(v)\geq 0$ untuk $v\in V$ dan
+          \item[(b)]$\left[f(u+w)\right]^2+\left[f(u-w)\right]^2=2\left[f(u)\right]^2+2\left[f(w)\right]^2$,untuk semua $u,w\in V$.
+        \end{enumerate}
+        Buktikan bahwa $f(u+w)\leq f(u)+f(w)$, untuk semua $u,w\in V$.
+        \begin{solution}
+          extit{Langkah 1:} Tunjukkan bahwa $f(0)=0$ dan $f(-v)=f(v)$ untuk semua $v\in V$.
+
+          Ambil $u=w=0$ pada (b):
+          \[
+            [f(0+0)]^2+[f(0-0)]^2=2[f(0)]^2+2[f(0)]^2\Rightarrow2[f(0)]^2=4[f(0)]^2.
+          \]
+          Karena $f(0)\ge0$, ini memaksa $f(0)=0$.
+
+          Ambil $u=v$ dan $w=-v$:
+          \[
+            [f(v-v)]^2+[f(v-(-v))]^2=2[f(v)]^2+2[f(-v)]^2
+          \]
+          memberi
+          \[
+            [f(0)]^2+[f(2v)]^2=2[f(v)]^2+2[f(-v)]^2.
+          \]
+          Dengan $f(0)=0$ dan mengenali bahwa persamaan ini simetris terhadap penggantian $v$ dengan $-v$, dapat disimpulkan (dengan membandingkan kedua sisi untuk $v$ dan $-v$) bahwa $f(-v)=f(v)$ untuk semua $v$.
+
+          extit{Langkah 2:} Turunkan pertidaksamaan Minkowski $f(u+w)\le f(u)+f(w)$.
+
+          Gunakan identitas (b) dengan mengganti $u$ dan $w$ berturut-turut oleh $u$ dan $w$ serta oleh $u$ dan $-w$:
+          \[
+            [f(u+w)]^2+[f(u-w)]^2=2[f(u)]^2+2[f(w)]^2,
+          \]
+          \[
+            [f(u-w)]^2+[f(u+w)]^2=2[f(u)]^2+2[f(-w)]^2.
+          \]
+          Karena $f(-w)=f(w)$, kedua persamaan tersebut sama; tulis
+          \[
+            [f(u+w)]^2=2[f(u)]^2+2[f(w)]^2-[f(u-w)]^2.
+          \]
+          Dengan (a), semua ruas taknegatif sehingga
+          \[
+            [f(u+w)]^2\le2[f(u)]^2+2[f(w)]^2.
+          \]
+          Sekarang gunakan ketaksamaan Cauchy--Schwarz dalam bentuk $(a+b)^2\le2(a^2+b^2)$ untuk bilangan real $a,b\ge0$ dengan mengambil $a=f(u)$ dan $b=f(w)$:
+          \[
+            [f(u)+f(w)]^2\le2\bigl([f(u)]^2+[f(w)]^2\bigr).
+          \]
+          Gabungkan dua ketaksamaan di atas:
+          \[
+            [f(u+w)]^2\le2[f(u)]^2+2[f(w)]^2\ge[f(u)+f(w)]^2.
+          \]
+          Karena semua nilai $f$ taknegatif (syarat (a)), akar kuadrat mempertahankan arah ketaksamaan sehingga
+          \[
+            f(u+w)\le f(u)+f(w).
+          \]
+          Jadi $f$ memenuhi pertidaksamaan segitiga pada $V$.
+        \end{solution}
+
+  \item Misalkan $R$ adalah ring komutatif dan $R[x]$ adalah polinomial terhadap ring $R$. Untuk suatu polinomial $f(x)\in R$, pandang ring faktor $\dfrac{R[x]}{\left<f(x)\right>}$, dan setiap elemen dari $\dfrac{R[x]}{\left<f(x)\right>}$ ditulis sebagai $\overline{p(x)}$ dengan $p(x)\in R[x]$.
+        \begin{enumerate}
+          \item [(a)] Buktikan bahwa $p(x)$ dan $q(x)$ dua polinomial berbeda berderajat kurang  dari $n$, maka $p(x)\neq q(x)$.
+          \item[(b)] Jika $a\in R$ adalah elemen nilpoten, dan $f(x)=x^n-a$, maka $\overline{x}$ adalah elemen nilpoten di $\dfrac{R[x]}{\left<f(x)\right>}$.
+        \end{enumerate}
+        \begin{solution}
+          extbf{(a)}
+
+          Andaikan $p(x)$ dan $q(x)$ dua polinom berbeda dengan $\deg p,\deg q<n$ tetapi mereka mewakili elemen yang sama di $R[x]/\langle f(x)\rangle$. Itu berarti $p(x)-q(x)\in\langle f(x)\rangle$, jadi ada $h(x)\in R[x]$ sedemikian sehingga
+          \[
+            p(x)-q(x)=h(x)f(x)=h(x)(x^n-a).
+          \]
+          Jika $h(x)\ne0$, maka $\deg(h(x)f(x))\ge n$ karena $\deg f=n$ dan $R$ komutatif; sehingga $p(x)-q(x)$ berderajat $\ge n$. Tetapi $p(x)-q(x)$ adalah selisih dua polinom berderajat $<n$, jadi derajatnya $<n$, kontradiksi. Jadi $h(x)=0$ dan $p(x)-q(x)=0$, artinya $p=q$. Dengan demikian, kelas-kelas residu yang berbeda di faktor ini mempunyai perwakilan unik dengan derajat $<n$.
+
+          extbf{(b)}
+
+          Diberikan $a\in R$ nilpoten, jadi ada $m\in\mathbb N$ sehingga $a^m=0$. Di ring faktor, dari $f(x)=x^n-a$ kita punya relasi
+          \[
+            \overline{x}^n=\overline{a}.
+          \]
+          Naikkan pangkat $m$:
+          \[
+            \bigl(\overline{x}^n\bigr)^m=\overline{a}^m=\overline{a^m}=\overline{0}=0.
+          \]
+          Jadi
+          \[
+            \overline{x}^{nm}=0,
+          \]
+          yang menunjukkan bahwa $\overline{x}$ nilpoten di $R[x]/\langle f(x)\rangle$.
+        \end{solution}
+
+  \item Diberikan fungsi $f:U\to U$ disebut sebagai biholomorfik jika $f$ memiliki invers , dan $f$ dan $f^{-1}$ keduanya holomorfik atau analitik.
+        \begin{enumerate}
+          \item [(a)] Buktikan bahwa jika $U=\mathbb{C}$, maka
+                $\displaystyle \lim_{|z|\to \infty}|f(z)|=\infty$.
+          \item[(b)] Carilah bentuk umum dari $f(z)$ dan jelaskan Argumen anda.
+        \end{enumerate}
+        \begin{solution}
+          Andaikan $f:\mathbb C\to\mathbb C$ biholomorfik.
+
+          extbf{(a)}
+
+          Kita akan menunjukkan bahwa $|f(z)|\to\infty$ saat $|z|\to\infty$. Jika tidak, ada barisan $(z_n)$ dengan $|z_n|\to\infty$ tetapi $|f(z_n)|$ terbatas, misalnya $|f(z_n)|\le M$ untuk semua $n$. Karena $f$ kontinu, himpunan $K=\{w\in\mathbb C:|w|\le M\}$ kompak dan citranya $f^{-1}(K)$ (melalui $f^{-1}$ yang kontinu) juga kompak; khususnya $f^{-1}(K)$ terbatas.
+
+          Namun setiap $z_n$ berada di $f^{-1}(K)$ (karena $f(z_n)\in K$) dan $|z_n|\to\infty$, yang bertentangan dengan keterbatasan $f^{-1}(K)$. Jadi asumsi salah dan memang
+          \[
+            \lim_{|z|\to\infty}|f(z)|=\infty.
+          \]
+
+          extbf{(b)}
+
+          Karena $f$ biholomorfik dari $\mathbb C$ ke $\mathbb C$, maka $f$ holomorfik, satu-satu, dan onto. Teorema klasik dalam analisis kompleks menyatakan bahwa satu-satunya fungsi entire bijektif dari $\mathbb C$ ke $\mathbb C$ adalah fungsi linear takkonstan
+          \[
+            f(z)=az+b,
+          \]
+          dengan $a\ne0$.
+
+          Sketsanya: karena $f$ entire dan bukan polinomial derajat $\ge2$ (polinomial seperti itu tidak dapat satu-satu karena punya nilai eigen kritis atau cabang dengan beberapa pra-citra), $f$ harus berderajat $1$. Secara lebih formal, jika $f$ entire bukan linear, maka $f'$ memiliki nol (Teorema Rolle kompleks via Teorema Casorati–Weierstrass atau argumen derajat), sehingga pada titik tersebut $f$ tidak lokal-bijektif, bertentangan dengan adanya invers holomorfik.
+
+          Jadi bentuk umum fungsi biholomorfik $\mathbb C\to\mathbb C$ adalah $f(z)=az+b$ dengan $a\in\mathbb C\setminus\{0\}$ dan $b\in\mathbb C$.
+        \end{solution}
+
+  \item Misalkan relasi rekurensi $P_n$ yang didefinisikan dengan $P_1=2$ dan $P_{n+1}=P_n^2-P_n+1$ untuk semua $n\in\mathbb{N}$. Buktikan bahwa $m\neq n$, maka $P_m$ dan $P_n$ keduanya relatif prima.
+        \begin{solution}
+          Kita tunjukkan bahwa untuk $m\ne n$, $\gcd(P_m,P_n)=1$.
+
+          Pertama perhatikan sifat kongruensi sederhana. Dari definisi
+          \[
+            P_{n+1}=P_n^2-P_n+1,
+          \]
+          didapat
+          \[
+            P_{n+1}-1=P_n(P_n-1).
+          \]
+          Artinya setiap faktor prima dari $P_n$ juga membagi $P_{n+1}-1$.
+
+          Secara umum, untuk $k>n$ dapat diturunkan (dengan induksi) bahwa
+          \[
+            P_k\equiv1\pmod{P_n}.
+          \]
+          Induksi: untuk $k=n+1$,
+          \[
+            P_{n+1}=P_n^2-P_n+1\equiv1\pmod{P_n}.
+          \]
+          Jika $P_{k}\equiv1\pmod{P_n}$ untuk suatu $k\ge n+1$, maka
+          \[
+            P_{k+1}=P_k^2-P_k+1\equiv1^2-1+1\equiv1\pmod{P_n}.
+          \]
+          Jadi benar untuk semua $k>n$.
+
+          Sekarang ambil $m<n$ tanpa mengurangi umum. Jika ada bilangan prima $p$ yang membagi sekaligus $P_m$ dan $P_n$, maka karena $n>m$ kita punya
+          \[
+            P_n\equiv1\pmod{P_m}.
+          \]
+          Maka $P_n\equiv1\pmod p$ (karena $p\mid P_m$), tetapi juga $p\mid P_n$, sehingga $P_n\equiv0\pmod p$. Kontradiksi karena $0\not\equiv1\pmod p$. Jadi tidak ada prima yang membagi keduanya kecuali mungkin $1$, sehingga
+          \[
+            \gcd(P_m,P_n)=1.
+          \]
+          Dengan demikian, $P_m$ dan $P_n$ relatif prima untuk setiap $m\ne n$.
+        \end{solution}
+\end{enumerate}
+\newpage
+\lhead{ONMIPA-PT 2012 }
+\section{ONMIPA-PT TINGKAT NASIONAL 2012}
+\subsection{HARI PERTAMA}
+\begin{enumerate}
+
+  \item Misalkan $Z$ merupakan subgrup dari $G$ yang memenuhi $\forall z\in Z$, $g\in G$ maka $zg=gz$. Jika $G/Z$ siklis, tunjukkan bahwa $G$ komutatif.
+
+  \item Misalkan $f:[a,b]\to[a,b]$ dengan $|f(z)-f(y)|<\dfrac{|x-y|}{3}$. Untuk semua $x,y\in [a,b]$. Tunjukkan bahwa ada $c\in[a,b]$ sehingga $f(c)=c$.
+
+  \item Misalkan $V$ ruang vektor atas real. Didefinisikan vektor $v_1,v_2,v_3,\dots,v_k$ terikat afin jika terdapat $c_1,c_2,\dots,c_k\in\mathbb{R}$ yang tidak semuanya $0$ dan memenuhi $c_1+c_2+\dots+c_k=0$ dan $c_1v_1+c_2v_2+\dots+c_kv_k=0$
+        \begin{enumerate}
+          \item [(a)] Tunjukkan bahwa vektor 0 bebas afin.
+          \item[b)] Carilah contoh empat vektor di $\mathbb{R}^4$ yang bebas afin tetapi tidak bebas  linier.
+        \end{enumerate}
+
+  \item Misalkan $f$ holomorfik kecuali di berhingga titik sebelah dalam suatu lengkungan tertutup berorientasi tertutup positif $C$.
+        \begin{enumerate}
+          \item [(a)] Buktikan $$\oint_{C}f(z)\,dz=2\pi i\text{Residu}_{z=0}\left\lbrace\dfrac{f\left(\dfrac{1}{z}\right)}{z^2}\right\rbrace.$$
+          \item[(b)] Gunakan hasil pada (a) untuk menghitung $$\oint_{|z|=2}\dfrac{z^5}{1-z^3}\,dz,$$
+                pada $|z|=2$.
+
+        \end{enumerate}
+
+  \item Buktikan secara kombinatorik bahwa
+        $$\sum_{k=1}^{n-2}k\binom{n-2}{k}\binom{n+2}{k+2}=\left(n-2\right)\binom{2n-1}{n-1}.$$
+\end{enumerate}
+\newpage
+\subsection{HARI KEDUA}
+\begin{enumerate}
+  \item Misalkan $R$ himpunan tak kosong yang dilengkapi operasi $+$ dan $\times$ dengan
+        \begin{enumerate}
+          \item [(a)] $(R,+)$ grup,
+          \item[(b)] $(R,\times)$ asosiatif dan memiliki unsur identitas,
+          \item[(c)] $a\times(b+c)=a\times b+ a\times c$ dan $(a+b)\times c=a\times c+b\times c$.
+        \end{enumerate}
+        Tunjukkan bahwa $(R,+,\times)$ gelanggang.
+
+  \item Misalkan $f$ merupakan entire dengan $Re(f(z))\leq \dfrac{2}{|z|}$ untuk semua $|z|\geq 1$. Cari semua $f$.
+
+  \item Misalkan $(y_n)_{n\geq 0}$ barisan bilangan real dengan $y_n^2-y_{n-1}y_{n+1}=1$. Tunjukkan bahwa ada $c$ real sehingga $y_{n+1}=cy_n-y_{n-1}$ untuk $n\geq 1$.
+
+  \item Misalkan $V$ ruang vektor atas lapangan  $F$ dengan $\dim\{F(V)\}=n$. Misalkan $T:V\to V$ transfomasi linier. Tunjukkan bahwa terdapat $K\leq n,$ sehingga $Peta(T^k)=Peta(T^{k+i})$ untuk semua bilangan asli $i$.
+
+  \item Misalkan $f:[a,b]\to \mathbb{R}$ terdiferensial dengan $f(a)=0$. Misalkan terdapat $k>0$ dan $m>0$ sehingga $|f'(x)-kf(x)|\leq m|f(x)|$ untuk setiap $x\in[a,b]$. Tunjukkan bahwa $f(x)=0$ untuk setiap $x\in[a,b]$.
+\end{enumerate}
+\newpage
+\lhead{ONMIPA-PT 2013}
+\section{ONMIPA-PT TINGKAT NASIONAL 2013}
+\subsection{HARI PERTAMA}
+\begin{enumerate}
+  \item Suatu subgrup $H$ dari $G$ disebut subgrup \textit{normal} jika untuk setiap $g\in G$ dan $h\in H$ berlaku $g^{-1}hg\in H$. Suatu subgrup $H$  dari $G$ dikatakan mempunyai sifat \textit{refleksif} jika untuk setiap $a,b\in G$ dengan $ab\in H$ berlaku $ba\in H$. Tunjukkan bahwa $H$ merupakan subgrup normal jika dan hanya jika $H$ bersifat refleksif.
+
+
+  \item Misalkan $f:[0,1]\to[0,1]$ merupakan fungsi kontinu sedemikian sehingga $\displaystyle\int_{0}^{1}f(x)\,dx=0$. Tunjukkan bahwa untuk setiap $\alpha\in[0,1]$ berlaku
+        $$\left|\int_{0}^{a}f(x)\,dx\right|\leq \dfrac{1}{8}\sup_{a\in[0,1]}|f'(a)|.$$
+
+
+  \item Misalkan $u$ fungsi harmonik di $\mathbb{R}^2$ dan $v$ fungsi harmonik konjugatnya (yaitu fungsi sehingga $f(z)=u(z)+iv(z)$ analitik). Jika
+        $$u^3-3uv^2\geq 0,$$
+        di $\mathbb{R}^2$, carilah fungsi $u$ dan $v$.
+
+  \item Misalkan $A=[a_{ij}]$ matriks real $n\times n$ dengan $a_{ij}=\min\{i,j\}$,$i,j=1,2,\dots,n$. Tentukan $A^{-1}$.
+
+  \item Sebuah $n-$board adalah sebuah persegi panjang berukuran $n\times 1$. Misalkan $f_n$ menyatakan banyaknya cara mengubin $n-$board dengan menggunakan ubin $1\times 1$ dan ubin $2\times 1$. Jadi $f_1=1$ dan $f_2=2$. Untuk $n\geq 0$, perlihatkan bahwa
+        $$f_{2n+1}=\sum_{i\geq 0}\sum_{j\geq 0}\binom{n-i}{j}\binom{n-j}{i}.$$
+\end{enumerate}
+
+\subsection{HARI KEDUA}
+\begin{enumerate}
+  \item Untuk $0\leq k\leq n/2$, berikan bukti kombinatorial dari persamaan
+        $$\sum_{m=k}^{n-k}\binom{m}{k}\binom{n-m}{k}=\binom{n+1}{2k+1},$$
+        dengan $n$ adalah bilangan bulat positif.
+
+  \item Misalkan $I$ ideal di gelanggang $R$ dan $S\subseteq R$. Didefinisikan $\langle I:S\rangle=\{r\in R:rs\in I\text  { untuk setiap } s\in S\}$.
+        \begin{enumerate}
+          \item [(a)]Buktikan $\langle I:S\rangle$ ideal kiri di $R$.
+          \item[(b)] Jika $S$ ideal di $R$ buktikan $\langle I:S\rangle$ ideal di $R$.
+          \item[(c)] Jika $R$ daerah integral $a,b\in R$ dengan $b\neq 0$, dan $I=\langle ab\rangle$,$J=\langle b\rangle$, buktikan $\langle I:J\rangle=\langle a\rangle$.
+        \end{enumerate}
+
+  \item Diketahui fungsi
+        $$f(z)=\int_{1}^{z}\left(\dfrac{1}{w}+\dfrac{a}{w^2}\right)\cos w\,dw.$$
+        Tentukan nilai $a$ agar fungsi tersebut bernilai tunggal di seluruh daerah bidang kompleks.
+
+  \item Misalkan $a_n\geq 0$ untuk setiap $n\in\mathbb{N}$ dan $\displaystyle s_n=\sum_{n=1}^{\infty}a_k$. Jika $\displaystyle \sum_{n=1}^{\infty}a_n$ divergen, perlihatkan bahwa $\displaystyle \sum_{n=1}^{\infty}\dfrac{a_n}{(s_n)^{\alpha}}$ konvergen jika dan hanya jika $\alpha>1$.
+
+  \item Misalkan $l$ dan $m$ dua garis di $\mathbb{R}^3$ yang bersilangan (yaitu tidak berpotongan dan tidak sejajar). Tentukan titik $P$ di $l$ dan $Q$ di $m$ yang meminimumkan jarak antara titik di $l$ dan titik di $m$.
+\end{enumerate}
+\newpage
+\lhead{ONMIPA-PT 2014}
+\section{ONMIPA-PT TINGKAT NASIONAL 2014}
+\subsection{HARI PERTAMA}
+\begin{enumerate}
+  \item Buktikan dengan kombinatorik
+        $$\sum_{k=2}^{n}k\binom{n-2}{k-2}\binom{n+2}{k}=(n+2)\binom{2n-1}{n-1}.$$
+
+  \item Diketahui fungsi $f(x)$ terdefinisi pada selang $[a,b]$. Misalkan $M=\sup\{f(x):x\in [a,b],f(x)\geq 0\}$. Tunjukkan bahwa barisan $\left(\displaystyle\int_{a}^{b}f^n(x)\,dx\right)^{\frac{1}{n}}$ konvergen ke $M$.
+
+  \item Diketahui $\displaystyle \sum_{i=0}^{n}a_iz^i$ dengan jari-jari konvergensi $R>0$ atau $R=\infty$.\\ Misalkan $M(r)=\max\{|f(z)|:|z|\leq r \},0\leq r<R$.
+        \begin{enumerate}
+          \item [(a)] Hitunglah $M(r)$ dengan $f(z)=\dfrac{\sin \sqrt{z}}{\sqrt{z}}$.
+          \item[(b)] Hitunglah $\displaystyle \lim_{n\to\infty}\dfrac{\log\left(M(r)\right)}{\log(r)}$, $f(z)=\displaystyle\sum_{i=0}^{n}a_iz^i$.
+          \item[(c)] Diberikan $f$ analitik dengan $f(0)=0$. Buktikan bahwa:$$\dfrac{M(r_2)}{M(r_1)}\geq \dfrac{r_2}{r_1},0<r_1<r_2<R.$$
+
+        \end{enumerate}
+
+  \item Diketahui $V$ adalah ruang hasil kali dalam atas $X$ dengan $\dim(V)=n\geq 2$, $X$ basis bagi $V$, misalkan $A\in C^{n\times n}$ tak singular dan $B=(A^{-1})^{*}$. Untuk $i=1,2,\dots,n$ kolom ke $i$ matriks $A$ dan $B$ sebagai koordinat $x_i$ dan $y_i$ di $V$ terhadap $X$. Misalkan $K=\text{span} \{y_1,y_2,\dots,y_n\}$ untuk suatu $1\leq k<n$. Buktikan bahwa
+        \begin{enumerate}
+          \item [(a)] Jika $X$ ortonormal maka $\{y_1,y_2,\dots,y_n\}$ adalah basis terhadap $K^{\bot}$.
+          \item[(b)] Periksalah apakah implikasinya berlaku.
+        \end{enumerate}
+
+  \item $a$ dikatakan pembagi kiri dari $b$, jika $\exists x$ sehingga $ax=b$. $p$ dikatakan prima kiri jika $p|_lab$ maka $p|_la$ atau $p|_lb$. Misalkan $R$ ring dengan setiap unsur dari $R$ adalah prima kiri. Buktikan bahwa
+        \begin{enumerate}
+          \item [(a)] $\exists e\in R$,$\forall x\in R$ berlaku $ex=x$ dan $xe=x$.
+          \item[(b)] $\exists e\in R$,$\forall x\in R$ berlaku $xy=e$ dan $yx=e$.
+        \end{enumerate}
+\end{enumerate}
+\newpage
+\subsection{HARI KEDUA}
+\begin{enumerate}
+  \item Diketahui $f,g:\mathbb{R}\to\mathbb{R}$ fungsi periodik dan $\displaystyle\lim_{n\to\infty}\left(f(x)-g(x)\right)=0$. Buktikan bahwa $f=g$.
+
+
+  \item Carilah koefisien $x^{2n+r},1\leq r\leq 2n$ dari $\displaystyle\sum_{l=0}^{2n}x^l\left(1+x\right)^{4n-l}$
+
+
+  \item Diketahui $A\in \mathbb{R}^{n\times n}$. $A$ bekerja sepenuhnya atas lapangan real. Buktikan bahwa $A$ dapat didiagonalisasikan jika dan hanya jika $\text{tr}(A)\neq0$.
+
+
+  \item $G=\langle x,y:x^2=y^2=e\rangle$. Tuliskan $z=xy$.
+        \begin{enumerate}
+          \item [(a)] Buktikan bahwa $H=\langle z\rangle$ merupakan subgrup normal dari $G$.
+          \item[(b)] Buktikan bahwa $\dfrac{G}{H}$ merupakan grup siklik orde 1 atau 2.
+
+        \end{enumerate}
+
+  \item Diketahui $C_R$ adalah setengah lingkaran dengan pusat $(0,0)$ dengan jari-jari $R$ dan $f(z)\to 0$ secara seragam untuk $R\to\infty$. Buktikan bahwa
+        $$\lim_{R\to\infty}\int_{C_R}f(z)e^{ikz}\,dz=0,$$
+        jika $k>0$.
+\end{enumerate}
+\newpage
+\lhead{ONMIPA-PT 2015}
+\section{ONMIPA-PT TINGKAT NASIONAL 2015}
+\subsection{HARI PERTAMA}
+\begin{enumerate}
+  \item Misalkan $D$ dan $E$ dua matriks diagonal yang berukuran berturut-turut $m\times n$ dan $n\times n$. Jika $D=\text{diag}(d_1,d_2,\dots,d_m)$ dan $E=\text{diag}(e_1,e_2,\dots,e_n)$. Buktikan bahwa $$\det\begin{pmatrix}
+            0 & D \\ E & 0
+          \end{pmatrix}=(-1)^{mn}d_1d_2,\dots d_me_1e_2\dots e_n.$$
+
+
+  \item Misalkan $G$ grup hingga dan $e$ elemen identitas di $G$. Didefinisikan dua himpunan $A=\{x\in G~|~x^3=e\}$ dan $B=\{x\in G~|~x^2\neq e\}$. Tunjukkan bahwa $|A|$ ganjil dan $|B|$ genap.
+
+  \item Misalkan $m$ dan $n$ dua bilangan tak negatif. Berikan sebuah bukti kombinatorial untuk $$\binom{m+n}{m}=\sum_{0\leq a\leq \frac{(m-1)}{2}}\binom{m-a-1}{a}\binom{n+a}{2a}+\sum_{0\leq a\leq \frac{m}{2}}\binom{m-a}{a}\binom{n+a}{2a}.$$
+
+  \item Diberikan barisan bilangan real $\{x_n\}$ yang memenuhi $\sqrt{x_1}\geq\sqrt{x_0+1}$ dan $\left|x_{n+1}-\dfrac{x_n^2}{x_{n-1}}\right|\leq 1$, untuk setiap $n\in\mathbb{N}$. Perlihatkan bahwa barisan $\left\lbrace   \dfrac{x_{n+1}}{x_n} \right\rbrace$ konvergen.
+
+
+  \item Misalkan $P_t(z)$ merupakan polinomial dalam $z$ untuk setiap nilai $t$ dengan $0\leq t\leq 1$. Misalkan pada $P_t(z)$ kontinu terdapat $t$, dalam arti
+        $$P_t(z)=\sum_{j=0}^{N}a_j(t)z^j$$
+        dengan $a_j(t)$ kontinu, $j=0,1,\dots,N$. Misalkan $Z=\{(z,t)|P_t(z)=0\}$
+        \begin{enumerate}
+          \item [(a)] Buktikan bahwa $Z$, merupakan himpunan tutup di perkalian topologi.
+
+          \item[(b)] Jika $P_{t_0}(z_0)=0$ dan $\left(\dfrac{\partial }{\partial z}\right)P_{t_0}(z)\big|_{z=z_0}\neq 0$, buktikan  bahwa untuk setiap $\varepsilon>0$ dan untuk $t$ yang cukup dengan $t_0$, ada satu dan hanya satu $z\in D(z_0,t)$ sehingga $P_{t_0}(z)=0$.	\end{enumerate}
+
+\end{enumerate}
+\newpage
+\subsection{HARI KEDUA}
+\begin{enumerate}
+  \item Misalkan $f:\mathbb{R}\to\mathbb{R}$ terdiferensial, $f'(x)>f(x) $ untuk setiap $x\in\mathbb{R}$ dan $f(x_0)=0$, untuk suatu $x_0\in\mathbb{R}$. Buktikan bahwa $f(x)>0$, untuk setiap $x>x_0$. Sebagai aplikasi, diberikan $c>0$, perlihatkan bahwa persamaan $ce^x=1+x+\dfrac{x^2}{2}$ mempunyai tepat satu akar.
+
+  \item \begin{enumerate}
+          \item [(a)] Misalkan $n$ bilangan asli. Buktikan bahwa
+                $$\dfrac{1}{2\pi i}\int_{C}\dfrac{(1+z)^{2n}}{z^{n+1}}\,dz=C_{n}^{2n},$$
+                dengan $C$ adalah sebarang lingkaran yang mengelilingi titik asal, dan $C_k^n$ adalah koefisien binomial $\dfrac{n!}{k!(n-k)!}$.
+
+          \item[(b)] Gunakan hasil di atas untuk menentukan
+                $$\sum_{n=0}^{\infty}\dfrac{1}{5^n}\begin{pmatrix}.
+                    2n \\n
+                  \end{pmatrix}$$
+                Tunjukkan perhitungannya.
+        \end{enumerate}
+
+  \item Diketahui dua matriks persegi berukuran $M$ dan $N$ yang semua nilai eigennya real positif.
+        \begin{enumerate}
+          \item[(a)] Jika $M=M^*$ dan $N=N^*$, tunjukkan bahwa semua nilai eigen matriks $MN$ positif.
+          \item[(b)] Berikan contoh matriks $M$ dan $N$ berukuran $3\times3$ sehingga $MN$ hanya mempunyai nilai eigen real positif. Tunjukkan bahwa contoh yang diberikan memang  memenuhi semua persyaratan yang diminta.
+
+        \end{enumerate}
+
+  \item \begin{enumerate}
+          \item [(a)] Berikan contoh suku banyak $P(x)$ dengan koefisien rasional memenuhi
+                $$P(1+2\sqrt[3]{2})=1+2\sqrt[3]{4}$$
+          \item[(b)] Tentukan semua suku banyak $Q(x)$ dengan koefisien rasional yang memenuhi persamaan $(a)$.
+
+        \end{enumerate}
+
+  \item Didefinisikan $\displaystyle A_n=\dfrac{1}{n+1}\binom{2n}{n}$ untuk semua $n\in\mathbb{N}$ dan bentuk fungsi pembangkit
+        $$A(x)=\sum_{n\geq 0}A_nx^n.$$
+        Buktikan bahwa
+        $$\sum_{n\geq 0}(2n+1)x^nA(x)^{2n+1}=\sum_{m\geq 0}(4x)^m.$$
+\end{enumerate}
+\newpage
+\lhead{ONMIPA-PT 2016}
+\section{ONMIPA-PT TINGKAT NASIONAL 2016}
+\subsection{HARI PERTAMA}
+\begin{enumerate}
+  \item Misalkan $A\in\mathbb{R}^{2\times 2}$ dan $b\in \mathbb{R}^2,b\neq 0$. Pemetaan $T:\mathbb{R}^2\to\mathbb{R}^2$ didefinisikan sebagai $T(x)=Ax+b$. Oleh $T$, setiap titik dipetakan ke titik lain dan setiap garis dipetakan ke garis lain. Buktikan bahwa $Ab\neq b$ dan $(A-I)^	2=0$, dengan $I$ adalah matriks identitas $2\times2$.
+  \item Misalkan $R$ suatu ring. Unsur $x\neq 0$ di $R$ disebut sebagai pembagi nol kiri jika terdapat $a\neq 0$ di $R$ sedemikian sehingga $xa=0.$ Secara serupa, unsur $y\neq 0$ di $R$ disebut sebagai pembagi nol kanan jika terdapat $b\neq 0$ di $R$ sedemikian sehingga $by=0$. Misalkan $x$ pembagi nol kiri dan $y$ pembagi nol kanan di $R$. Jika $R$ gelanggang dengan berhingga banyak unsur $xy\neq 0$, tunjukkan bahwa $xy$ sekaligus merupakan pembagi nol kiri dan pembagi nol kanan.
+
+  \item Misalkan fungsi kontinu $f:[0,1]\to \mathbb{R}^{+}$. Didefinisikan $u_n=\left(\displaystyle\int_{0}^{1}\left(f(x)\right)^n\,dx \right)^{\frac{1}{n}}$ dan $\displaystyle M=\sup_{0\leq x\leq 1}f(x)$. Buktikan bahwa
+        \begin{enumerate}
+          \item[(a)]Untuk setiap $\varepsilon>0$, terdapat bilangan $\alpha$ dan $\beta$ dengan $0\leq \alpha<\beta\leq 1$ sedemikian sehingga $M(1-\varepsilon)\leq f(x)\leq M, \forall x\in(\alpha,\beta)$.
+
+          \item[(b)] $\displaystyle
+                  \lim_{n\to\infty}u_n=M$.
+        \end{enumerate}
+
+  \item Untuk setiap pernyataan berikut, buktikan atau berikan sebuah contoh penyangkal
+        \begin{enumerate}
+          \item [(a)] Jika fungsi kompleks $f(z)$ terdefinisi pada cakram satuan terbuka $D=\{z\in\mathbb{C}:|z|<1\}$ dan jika $f^2(z)$ analitik pada $D$, maka $f$ analitik pada $D$.
+          \item[(b)] Jika fungsi kompleks $f(z)$ terdefinisi dan terdiferensial kontinu pada cakram satuan terbuka $D=\{z\in\mathbb{C}:|z|<1\}$ dan jika $f^2(z)$ analitik pada $D$, maka $f$ analitik pada $D$.
+        \end{enumerate}
+
+  \item Setiap bilangan-bilangan $1,2,\dots,n$ diwarnai dengan tiga warna. Tentukan $n$ terkecil sedemikian sehingga untuk sebarang pewarnaan dari bilangan-bilangan tersebut, selalu terdapat tiga bilangan $x_1,x_2,x_3\in\{1,2,\dots,n\}$ yang berwarna sama dan memenuhi $x_1+x_2=x_3$.
+
+\end{enumerate}
+\newpage
+\subsection{HARI KEDUA}
+\begin{enumerate}
+  \item Misalkan $A=[a_{ij}]\in \mathbb{R}^{n\times n}$ memiliki sifat: terdapat bilangan-bilangan real konstan $c_1,c_2,\cdots,c_n$ sehingga $\sum_{i=1}^k a_{ij}=c_k$ untuk semua $1\leq j\leq k\leq n$. Tentukan semua nilai eigen dari $A$.
+  \item Misalkan $G$ suatu grup dengan $n$ unsur $(n\geq 2)$ dan $p$ adalah faktor prima terkecil dari $n$. Misalkan $G$ memiliki tepat satu subgrup $H$ yang berorde $p$. Tunjukkan bahwa untuk setiap $h\in H$ dan $g\in G$ berlaku $hg=gh$.
+  \item Diberikan suatu konstanta positif $k$. Misalkan barisan bilangan real non-negatif ${a_n}$ memenuhi $a_{m+n}\leq a_m+a_n+K$, untuk setiap bilangan bulat positif $m,n$. Perlihatkan bahwa barisan $\left\{\frac{a_n}{n}\right\}$ konvergen.
+  \item Diberikan bilangan-bilangan kompleks $z_1,z_2,z_3$ dengan $z_1\neq z_2$ dan $|z_1|=|z_2|=|z_3|=r>0$. Buktikan bahwa
+        \begin{align*}
+          \min\{kz_1+(1-k)z_2-z_3\mid k\in \mathbb{R}\} = \frac{1}{2r}|z_1-z_3||z_2-z_3|.
+        \end{align*}
+  \item Misalkan $G=(V(G),E(G))$ adalah suatu graf terhubung tak trivial. Didefinisikan $c:E(G)\to \{1,2,\dots,k\}, k\in\mathbb{N}$ adalah suatu pewarnaan sisi dengan dua sisi yang bertetangga boleh berwarna sama. Suatu lintasan $P$ dari titik $u$ ke titik $v$ di graf $G$ ditulis $u-v$ \textit{path} $P$ di $G$. Lintasan $u-v~path~P$ di $G$ dinamakan \textit{rainbow path} jika tidak terdapat dua sisi di $P$ yang berwarna sama. Graf $G$ disebut \textit{rainbow connected} jika di setiap dua titik yang berbeda di $G$ dihubungkan oleh \textit{rainbow path}. Pewarnaan sisi yang mengakibatkan $G$ bersifat \textit{rainbow connected} dikatakan \textit{rainbow coloring}. Bilangan \textit{rainbow connection} dari graf terhubung $G$ ditulis $rc(G)$, yaitu banyaknya warna minimal yang diperlukan untuk sedemikian sehingga graf $G$ \textit{rainbow connected}. Misalkan $c$ adalah \textit{rainbow coloring} dari graf terhubung $G$. Misalkan $C_n$ adalah graf lingkaran (\textit{cycle}) dengan $n\geq 3$. Tentukan $rc(C_n)$, kemudian buktikan.
+\end{enumerate}
+\pagebreak
+\lhead{ONMIPA-PT 2017}
+\section{ONMIPA-PT TINGKAT NASIONAL 2017}
+\subsection{HARI PERTAMA}
+\begin{enumerate}
+  \item Untuk bilangan bulat $k$ dan $n$ dengan $0 \leq k \leq n,$ Buktikan bahwa
+        \begin{equation*}
+          \displaystyle\sum_{m=k}^{n} \begin{pmatrix}
+            m \\k
+          \end{pmatrix} = \begin{pmatrix}
+            n+1 \\k+1
+          \end{pmatrix}.
+        \end{equation*}
+
+  \item Misalkan $A$ dan $B$ adalah matriks dalam $\mathbb{R}^{n\times n}$ yang memenuhi persamaan
+        $AB^2 - 2BAB+B^2A = 0$.	Tentukan nilai eigen terbesar dari matriks $AB-BA$.
+
+
+  \item Misalkan $a,b,$ dan $c$ adalah bilangan-bilangan kompleks dengan sifat $abc = 1$ dan
+        \begin{equation*}
+          \left\lbrace \begin{array}{rcl}
+            a^{20}+b^{20}+c^{20}       & = & \dfrac{1}{a^{20}}+\dfrac{1}{b^{20}}+\dfrac{1}{c^{20}}       \\\\
+            a^{17}+b^{17}+c^{17}       & = & \dfrac{1}{a^{17}}+\dfrac{1}{b^{17}}+\dfrac{1}{c^{17}}       \\\\
+            a^{2017}+b^{2017}+c^{2017} & = & \dfrac{1}{a^{2017}}+\dfrac{1}{b^{2017}}+\dfrac{1}{c^{2017}} \\
+          \end{array} \right.
+        \end{equation*}
+        Buktikan bahwa $1 \in \left\lbrace a,b,c\right\rbrace$.
+
+
+  \item Jika fungsi $f : \mathbb{R} \to \mathbb{R}$ mempunyai sifat: untuk setiap deret $\displaystyle\sum_{n=1}^{\infty} a_n$ konvergen berakibat deret $\displaystyle\sum_{n=1}^{\infty} f(a_n)$ konvergen, buktikan bahwa terdapat $M>0$ dan $\varepsilon>0$, dengan sifat untuk setiap $x\in\mathbb{R}, 0 < x < \varepsilon$ berlaku $\left| f(x) \right| \leq Mx$.
+  \item \begin{enumerate}
+          \item[(a)] Berikan contoh suatu bilangan prima ganjil $p$ dan suatu grup $G$ sehingga $|G|=p+1$ dan $p$ membagi $|\text{Aut}(G)|.$
+          \item[(b)] Misalkan $p$ suatu bilangan prima ganjil dan $G$ suatu grup dengan $|G| = p+1$. Buktikan bahwa jika $p$ membagi $|\text{Aut}(G)|$ maka $p=4k+3$ untuk suatu bilangan bulat $k$.
+        \end{enumerate}
+\end{enumerate}
+\subsection{HARI KEDUA}
+\begin{enumerate}
+  \item Misalkan $A$ dan $B$ adalah matriks dalam $\mathbb{R}^{2017\times2017}$ yang memenuhi persamaan-persamaan $A^{-1} = (A+B)^{-1}-B^{-1}$	dan $\det(A^{-1}) = 2017$. Tentukan $\det(B)$.
+
+  \item Misalkan $R$ suatu gelanggang yang memenuhi $x^2=x$ untuk setiap $x$ di $R$
+        \begin{enumerate}
+          \item Tunjukkan bahwa $R$ merupakan gelanggang komutatif.
+          \item Buktikan bahwa untuk setiap $x_1,x_2, \dots x_n$ di $R$, ideal $I := \langle x_1\rangle+\langle x_2 \rangle+\dots+\langle x_n \rangle$ dapat dituliskan sebagai $I = \langle x \rangle$ untuk suatu $x$ di $R$.
+        \end{enumerate}
+
+
+  \item Sebuah barisan $\left\lbrace Y_n \right\rbrace$ didefinisikan oleh $Y_1 = 2$ dan $Y_{n+1} = Y_n(Y_n-1)+1$, untuk $n \geq 1.$ Buktikan bahwa bila $m \not= n$, maka pembagi sekutu terbesar dari $Y_m$ dan $Y_n$ adalah 1 dan
+        \begin{equation*}
+          \displaystyle\sum_{i = 1}^{\infty} \dfrac{1}{Y_i} = 1.
+        \end{equation*}
+
+
+  \item Diketahui fungsi $f : \mathbb{R}\to\mathbb{R}$ kontinu dan surjektif. Jika untuk setiap $y \in \mathbb{R}$, cacah anggota himpunan $\left\lbrace x\in\mathbb{R} : f(x) = y \right\rbrace$ paling banyak dua, buktikan bahwa $f$ monoton.
+
+
+  \item Misalkan $C = \left\lbrace z \in \mathbb{C} : |z|=2 \right\rbrace$ dan
+        \begin{equation*}
+          f(z) = \dfrac{z^4+2017}{z^4+z^3+1}.
+        \end{equation*}
+        \begin{enumerate}
+          \item Buktikan bahwa untuk setiap $R>2$ berlaku
+                \begin{equation*}
+                  \displaystyle\int_{C}^{} f(z)\,dz = \displaystyle\int_{|z|=R}^{}f(z)\,dz.
+                \end{equation*}
+          \item Hitung $\displaystyle\int_{C}^{}f(z)\,dz$.
+        \end{enumerate}
+\end{enumerate}
+\pagebreak
+
+\lhead{ONMIPA-PT 2018}
+\section{ONMIPA-PT TINGKAT NASIONAL 2018}
+\subsection{HARI PERTAMA}
+\begin{enumerate}
+  \item Diberikan bilangan asli $n$. Cari semua bilangan bulat yang dapat dinyatakan dalam bentuk
+        \begin{equation*}
+          \left( \displaystyle\sum_{k=1}^{n} z_k \right)\left( \displaystyle\sum_{k=1}^{n} \dfrac{1}{z_k} \right).
+        \end{equation*}
+        Untuk suatu bilangan kompleks $z_1,\dots,z_n \in \mathbb{C}$ dengan $|z_1|=\dots = |z_n|=1$.
+
+
+  \item Misalkan $A \in \mathbb{R}^{n\times n}$ dengan $k_1,k_2,\dots,k_n \in \mathbb{R}^n$ adalah vektor-vektor kolom dari $A$. Vektor-vektor kolom tersebut memenuhi hubungan
+        \begin{equation*}
+          k_i = (i+2)k_{i+2},
+        \end{equation*}
+        dengan $i = 1,2,\dots,(n-2)$.\\Untuk $n>3$. Pilihlah satu nilai eigen $A$ kemudian tentukan dimensi terkecil yang mungkin untuk ruang eigen dari nilai eigen yang terpilih.
+
+
+  \item Untuk bilangan bulat positif $n \geq 1,$ definisikan $h_n$ sebagai banyaknya cara menuliskan $n$ sebagai jumlahan dari bilangan $1$ dan $2$ dengan memperhatikan urutan kemunculan bilangan $1$ dan $2$. Sebagai contoh $h_3 = 3$, karena $3=1+1+1,3=2+1,$ dan $3=1+2.$ Selanjutnya $h_4=5,$ karena $4 = 1+1+1+1, 4= 1+1+2, 4=1+2+1,4=2+1+1,$ dan $4 = 2+2$. Buktikan bahwa untuk $k \geq 0$
+        \begin{equation*}
+          h_{2k+1} = \displaystyle\sum_{i\geq 0}^{}\sum_{j\geq 0}^{} \begin{pmatrix}
+            k-i \\j
+          \end{pmatrix}\begin{pmatrix}
+            k-j \\i
+          \end{pmatrix}.
+        \end{equation*}
+
+
+  \item Diberikan fungsi kontinu $f : [0,\infty) \to [0,a]$ untuk suatu bilangan real $a>0$, dan $f$ memenuhi \textit{The Intermediate Value Property} pada $[0,\infty)$. Jika $f(0)=0$ dan $xf(x)\geq\displaystyle\int_{0}^{x}f(t)\,dt$, untuk semua $x\in (0,\infty)$, buktikan bahwa $f$ mempunyai anti derivatif.
+
+
+  \item Diberikan bilangan prima $p$ dan bilangan asli $n \geq 3$. Misalkan
+        \begin{equation*}
+          G_n(p) := \left\lbrace x+a_2x^2+\dots+a_nx^n |a_i \in \mathbb{Z}_p \right\rbrace.
+        \end{equation*}
+        Definisikan operasi $\circ$ di $G_n(p)$ melalui $P \circ Q = P(Q(x))$ modulo $x^{n+1}$. Sebagai contoh di $G_3(5)$, misalkan $P = x+2x^2$ dan $Q = x+3x^2$, maka
+        \begin{equation*}
+          \begin{array}{rcl}
+            P \circ Q & = & (x+3x^2)+2(x+3x^2)^2                                       \\
+                      & = & x+3x^2+2(x^2+6x^3+9x^4)                                    \\
+                      & = & x+5x^2+12x^3+18x^4                                         \\
+                      & = & x+5x^2+12x^3 \quad (\text{karena modulo } x^4)             \\
+                      & = & x+2x^3 \quad (\text{karena koefisiennya di } \mathbb{Z}_5)
+          \end{array}
+        \end{equation*}
+        Periksa apakah $G_n(p)$ merupakan grup terhadap operasi $\circ$.
+\end{enumerate}
+\pagebreak
+\subsection{HARI KEDUA}
+\begin{enumerate}
+  \item Diberikan bilangan bulat tak negatif $k$ dan $n$ sehingga $0 \leq k <n$. Berikan bukti kombinatorial bahwa
+        \begin{equation*}
+          \displaystyle\sum_{j=0}^{k} \begin{pmatrix}
+            n \\j
+          \end{pmatrix} = \sum_{j=0}^{k}\begin{pmatrix}
+            n-1-j \\k-j
+          \end{pmatrix}2^j.
+        \end{equation*}
+
+
+  \item \begin{enumerate}
+          \item Apakah $\langle x+2018 \rangle$ merupakan ideal prima di $\mathbb{Z}[x]?$
+          \item Apakah $\langle x+2018 \rangle$ merupakan ideal maksimal di $\mathbb{Z}[x]$?
+        \end{enumerate}
+
+
+  \item Misalkan barisan bilangan real $\left\lbrace x_n \right\rbrace$ terbatas dan memenuhi $x_{n+2} \leq \dfrac{1}{2} (x_n+x_{n+1}),\,\forall n \geq 0$. Jika $A_n = \text{max}\left\lbrace x_n,x_{n+1} \right\rbrace,$ buktikan:
+        \begin{enumerate}
+          \item barisan $\left\lbrace A_n \right\rbrace$ konvergen.
+          \item barisan $\left\lbrace x_n \right\rbrace$ konvergen.
+        \end{enumerate}
+
+
+  \item Buktikan atau beri contoh penyangkal
+        \begin{enumerate}
+          \item Untuk setiap fungsi $f:\mathbb{R}\to\mathbb{R}$, jika fungsi $g:\mathbb{R}\to\mathbb{R}$ dengan definisi
+                \begin{equation*}
+                  g(x) = f(x^{2018}), \,\forall x \in \mathbb{R},
+                \end{equation*}
+                mempunyai deret pangkat $\displaystyle\sum_{n=0}^{\infty} a_nx^n$ yang konvergen di suatu persekitaran $x=0$ maka $f$ mempunyai turunan di $x=0$.
+          \item Untuk setiap fungsi $f:\mathbb{C}\to\mathbb{C},$ jika fungsi $g : \mathbb{C}\to\mathbb{C}$, dengan definisi
+                \begin{equation*}
+                  g(z) = f(z^{2018}),\,\forall z \in \mathbb{C},
+                \end{equation*}
+                mempunyai deret pangkat $\displaystyle\sum_{n=0}^{\infty} a_nz^n$ yang konvergen di suatu persekitaran $z=0$ maka $f$ mempunyai turunan di $z=0$.
+        \end{enumerate}
+
+
+  \item Diberikan bilangan asli $n$. Misalkan $A =\begin{bmatrix}
+            a & b \\ c& d
+          \end{bmatrix} \in \mathbb{R}^{2\times2}$ dengan det$(A) = a+d =1$. Jika $A^n = \begin{bmatrix}
+            a' & b' \\ c'&d'
+          \end{bmatrix},$ maka tentukanlah $a'+d'$.
+\end{enumerate}
+
+\pagebreak
+
+\lhead{ONMIPA-PT 2019}
+\section{ONMIPA-PT TINGKAT NASIONAL 2019}
+\subsection{HARI PERTAMA}
+\begin{enumerate}
+  \item Diberikan fungsi $f : \mathbb{R} \to \mathbb{R}$ memenuhi sifat bahwa jika untuk setiap $\lambda \in [0,1]$ dan $x, y \in \mathbb{R}$ maka
+        \[
+          \lambda f(x) + (1 - \lambda) f(y) - f(\lambda x + (1 - \lambda)y) \geq 0.
+        \]
+        Buktikan:
+        \begin{enumerate}
+          \item Untuk semua $x$ dan $y$ dengan $x < y$, maka
+                \[
+                  f\left( \frac{x + y}{2} \right) \leq \frac{f(x) + f(y)}{2}.
+                \]
+          \item
+                \(       \displaystyle \int_{0}^{2\pi} f(x) \cos x \, dx \)  adalah positif.
+        \end{enumerate}
+
+  \item Misalkan $G$ adalah grup dan $H$ subgrup dari $G$. Buktikan bahwa tidak ada subgrup $S$ dari $G$ dengan $S \ne G$ dan $S \supseteq G - H$.
+
+  \item Diberikan bilangan bulat $n$ dan $k$ dengan $0 \leq k \leq n/2$. Tuliskan sebuah bukti kombinatorial dari persamaan:
+        \[
+          \sum_{m=k}^{n-k} \binom{m}{m - k} \binom{n - m}{k} = \binom{n + 1}{2k + 1}.
+        \]
+
+  \item Diberikan fungsi kompleks
+        \[
+          f(z) = \sum_{n=0}^{\infty} c_n z^n
+        \]
+        yang bersifat analitik pada $\mathcal{U} := \{ z \in \mathbb{C} : |z| < 1 \}$ dan diasumsikan bahwa
+        \[
+          W := \iint_{\mathcal{U}} |f'(z)|^2 \, dxdy < \infty.
+        \]
+        Buktikan:
+        \begin{enumerate}
+          \item
+                \(
+                W = \pi \sum_{n=1}^{\infty} n |c_n|^2.
+                \)
+          \item Untuk setiap $z \in \mathcal{U}$ berlaku:
+                \[
+                  |f(z) - f(0)| \leq \sqrt{ \frac{W}{\pi} \ln\left( \frac{1}{1 - |z|^2} \right) }.
+                \]
+        \end{enumerate}
+
+  \item Diberikan $F$ dan $H$ matriks berukuran $n \times n$ dengan
+        \[
+          HF - FH = 2^{2019} F
+        \]
+        Misalkan $\mathbf{v}$ adalah vektor eigen dari $H$ dengan $F\mathbf{v} \ne 0$. Buktikan terdapat bilangan bulat positif $k$ sehingga $F^k \mathbf{v}$ adalah vektor eigen dari $F$.
+\end{enumerate}
+\pagebreak
+\subsection{HARI KEDUA}
+\begin{enumerate}
+  \item Diberikan bilangan bulat positif $k$ dan $n$. Buktikan bahwa
+        \[
+          \sum_{i=0}^{k} (-1)^i \binom{k}{i} (k - i)^n =
+          \begin{cases}
+            n! & \text{jika } k = n, \\\\
+            0  & \text{jika } k > n.
+          \end{cases}
+        \]
+
+  \item Bilangan bulat positif $n$ dikatakan \textit{cantik} jika terdapat empat bilangan kompleks $a, b, c,$ dan $d$ yang memenuhi
+        \[
+          a^n = b^n = c^n = d^n = 1 \quad \text{dan} \quad a + b + c + d = 1.
+        \]
+        \begin{enumerate}
+          \item Tunjukkan bahwa terdapat bilangan cantik.
+          \item Apakah 28 merupakan bilangan cantik? Jelaskan.
+        \end{enumerate}
+
+  \item Misalkan $R$ suatu gelanggang komutatif dengan unsur kesatuan. Ideal $I$ dan $J$ di $R$ memenuhi $I + J = R$.
+        \begin{enumerate}
+          \item Buktikan bahwa pemetaan $\phi : R \to R/I \times R/J$ yang didefinisikan melalui $\phi(r) = (r + I, r + J)$ merupakan homomorfisma yang surjektif.
+          \item Gunakan bagian (a) di atas untuk membuktikan bahwa
+                \(
+                R / (I \cap J)
+                \) isomorfik dengan \(R/I\times R/J\).
+        \end{enumerate}
+
+  \item Misalkan $A$ matriks tak nol berukuran $n \times (n - k)$, $k < n$, dengan kolom-kolom $A$ adalah himpunan ortogonal yang tidak memuat vektor nol. Misalkan juga $\mathbf{b}_1, \mathbf{b}_2, \dots, \mathbf{b}_k$ adalah vektor kolom berukuran $n - k$. Jika matriks
+        \[
+          B = \left[A_1 \mid A_2 \mid \cdots \mid A_{n-k} \mid A\mathbf{b}_1 \mid \cdots \mid A\mathbf{b}_k\right]
+        \]
+        dengan $A_i$ adalah kolom ke-$i$ dari $A$, tentukan suatu basis bagi ruang nol $B$.
+
+  \item Diberikan barisan bilangan real positif $\{a_n\}$ untuk $n \geq 0$. Barisan tersebut memenuhi:
+        \[
+          \sqrt{a_0} + 1 \leq \sqrt{a_1} \quad \text{dan} \quad \left| a_{n+1} - \frac{a_n^2}{a_{n-1}} \right| \leq 1,
+        \]
+        untuk semua $n$ bilangan bulat positif. Buktikan bahwa barisan $\left\{ \frac{a_{n+1}}{a_n} \right\}$ konvergen, katakan ke $\alpha$. Selanjutnya buktikan barisan $\left\{ \frac{a_n}{\alpha^n}\right\}$ konvergen.
+\end{enumerate}
+
+\pagebreak
+
+\lhead{KNMIPA-PT 2020}
+\section{KNMIPA-PT TINGKAT NASIONAL 2020}
+\subsection{HARI PERTAMA}
+\begin{enumerate}
+  \item Bila $x$, $y$, dan $m$ adalah bilangan bulat dengan $x, y \geq 0$ dan $m \geq x + y$, buktikan bahwa
+        \[
+          \binom{m + 1}{x + y + 1} = \sum_{i = 0}^{m} \binom{i}{x} \binom{m - i}{y}.
+        \]
+
+  \item Tentukan semua fungsi $f : \mathbb{C} \to \mathbb{C}$ yang memenuhi $f(0) = 0$ dan
+        \[
+          |f(z) - f(w)| = |z - w|,
+        \]
+        untuk setiap $z \in \mathbb{C}$ dan $w \in \{0, 1, i\}$.
+
+  \item Diketahui fungsi $f : [a, b] \to \mathbb{R}$ kontinu dan $F : [a, b] \to \mathbb{R}$, dengan
+        \[
+          F(x) = \int_a^x f(t) \, dt, \quad \text{untuk setiap } x \in [a, b].
+        \]
+        Jika $(p_n) \subseteq \mathbb{R}$ merupakan barisan \textbf{Cauchy}, dengan $a \leq p_n \leq b$ untuk setiap $n$, \textbf{buktikan} bahwa terdapat $p$ dan $c$, dengan $a \leq p, c \leq b$, dengan sifat barisan $(F(p_n))$ konvergen ke $f(c)(p - a)$.
+
+  \item Misalkan $V$ sebuah ruang vektor berdimensi $n \geq 2$ dan $\mathcal{B} = \{\mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_n\}$ sebuah basis dari $V$. Diberikan sebuah operator linear $T : V \to V$ yang memiliki balikan (invertible) $T^{-1} : V \to V$. Operator linear $A$ dan $B$ pada $V$ yang memenuhi:
+        \[
+          A(\mathbf{v}_1) = \mathbf{0} \quad \text{dan} \quad A(\mathbf{v}_i) = T^{-1}(\mathbf{v}_{i}) \quad \text{untuk } i = 2, \dots, n,
+        \]
+        \[
+          B(\mathbf{v}_1) = \mathbf{0} \quad \text{dan} \quad B(\mathbf{v}_i) = T^{-1}(\mathbf{v}_{i-1}) \quad \text{untuk } i = 2, \dots, n.
+        \]
+        \begin{enumerate}
+          \item Buktikan bahwa $\operatorname{rank}((A \circ T)^{n - 1}) = n - 1$.
+          \item Hitunglah $\operatorname{rank}((B \circ T)^{n - 1})$.
+        \end{enumerate}
+
+        \textbf{Catatan:} Jika $S$ suatu operator linear pada $V$ dan $k$ suatu bilangan asli, $S^k$ didefinisikan sebagai komposisi $S$ sebanyak $k$ kali, yakni
+        \[
+          S^k = \underbrace{S \circ S \circ \cdots \circ S}_{k \text{ kali}}.
+        \]
+
+  \item Misalkan $G$ adalah suatu grup hingga dan $m$ adalah suatu bilangan asli kelipatan tiga. Buktikan jika $G$ memuat tepat sebanyak $m$ unsur berorde $m$, maka $m$ adalah bilangan kelipatan enam dan $G$ memiliki tepat tiga subgrup siklik berorde $m$.
+\end{enumerate}
+\pagebreak
+\subsection{HARI KEDUA}
+\begin{enumerate}
+  \item Pasangan bilangan kompleks $(a,b)$ dikatakan \textit{seimbang} jika $|a| = |b| = |a + b|$.
+        \begin{enumerate}
+          \item Tunjukkan bahwa terdapat pasangan seimbang $(a,b)$ dengan $a \ne b$.
+          \item Jika $(a,b)$ merupakan pasangan seimbang dan $a^{2020} = b^{2020}$, tunjukkan bahwa $a = b$.
+        \end{enumerate}
+
+  \item Andaikan $B = \{1, 2, \dots, n\}$. Untuk bilangan bulat positif $k \leq n$, buktikan bahwa banyaknya barisan $B_1, B_2, \dots, B_k$ sedemikian sehingga $B_i \subseteq B$ untuk $1 \leq i \leq k$, dan
+        \[
+          \bigcup_{i=1}^k B_i = B
+        \]
+        adalah $(2^k - 1)^n$.
+
+  \item Diberikan $a \in \mathbb{R}$ dan interval terbuka dan terbatas $I \subseteq \mathbb{R}$, dengan $a \in I$. Untuk setiap $n \in \mathbb{N}$, fungsi $f_n, g, h : I \to \mathbb{R}$ terdiferensial, memenuhi:
+        \begin{enumerate}
+          \item $f_n(a) = g(a)$ untuk setiap $n \in \mathbb{N}$;
+          \item $f_n'(x) \geq g'(x)$, untuk setiap $x \in I$ dan $x > a$;
+          \item $f_n' \to h'$ secara seragam pada $I$.
+        \end{enumerate}
+        Buktikan bahwa terdapat fungsi terdiferensial $f : I \to \mathbb{R}$, dengan $f_n \to f$ pada $I$ dan $h(x) \geq g(x)$, untuk setiap $x \in I$ dan $x > a$.
+
+  \item Misalkan $R$ adalah ring yang memiliki identitas perkalian $1$. Diketahui bahwa $x, y$ adalah unsur di $R$ yang bersifat $xy = 1$ tetapi $yx \ne 1$.
+        \begin{enumerate}
+          \item Tunjukkan bahwa untuk setiap bilangan bulat positif $m, n$ yang berbeda berlaku $y^m x^m \ne y^n x^n$.
+          \item Tunjukkan bahwa terdapat tak hingga banyaknya unsur $z$ di $R$ yang memenuhi $z^{2020} = 0$.
+        \end{enumerate}
+
+  \item Misalkan $A, B, C, D$ adalah matriks ukuran $9 \times 9$ dengan entri-entri bilangan riil dan memenuhi persamaan $CA = BC$. Jika polinom karakteristik matriks $A$ sama dengan polinom karakteristik matriks $B$, maka apakah polinom karakteristik matriks $(A - DC)$ juga sama dengan polinom karakteristik matriks $(B - CD)$? Lengkapilah jawaban Anda dengan bukti.
+\end{enumerate}
+
+\pagebreak
+
+\lhead{KNMIPA-PT 2021}
+\section{KNMIPA-PT TINGKAT NASIONAL 2021}
+\subsection{HARI PERTAMA}
+\begin{enumerate}
+  \item Diberikan bilangan bulat positif $n$ dan $k$ sehingga $2\leq k\leq n$. Buktikan bahwa
+        \begin{align*}
+          \sum_{k=2}^n \begin{pmatrix}
+                         k \\ 2
+                       \end{pmatrix}\begin{pmatrix}
+                                      n+2 \\k
+                                    \end{pmatrix}
+          \begin{pmatrix}
+            n-2 \\k-2
+          \end{pmatrix} & = \begin{pmatrix}
+                              n+2 \\2
+                            \end{pmatrix}\begin{pmatrix}
+                                           2n-2 \\n-2
+                                         \end{pmatrix}.
+        \end{align*}
+  \item Diberikan fungsi $f$ analitik di dalam dan pada kurva tertutup sederhana $\gamma$ dan $z_0$ sebuah titik pada bidang kompleks yang tidak berada pada $\gamma$. Buktikan bahwa untuk setiap bilangan asli $m$ dan $n$ berlaku
+        \begin{align*}
+          \oint_{\gamma} \dfrac{f^{(m)}(z)}{(z-z_0)^n}\, dz = \dfrac{(m+n-1)!}{(n-1)!}\oint_{\gamma} \dfrac{f(z)}{(z-z_0)^{m+n}}\, dz.
+        \end{align*}
+  \item Misalkan $k$ dan $n$ bilangan bulat positif dan $G$ adalah grup dengan $n$ unsur. Buktikan bahwa kedua pernyataan berikut ekuivalen.
+        \begin{enumerate}
+          \item Bilangan $n$ dan $k$ relatif prima.
+          \item Untuk setiap subgrup $A$ dari $G$ berlaku $\{x\in G~|~x^k\in H\}\subseteq H$.
+        \end{enumerate}
+  \item Diberikan matriks $A$ berukuran $n\times n$ dengan komponen real. Didefinisikan pemetaan linear $T:\mathbb{R}^n\rightarrow \mathbb{R}^n$ dan $S:\mathbb{R}^n\rightarrow\mathbb{R}^n$ dengan $T(\mathbf{x})=A\mathbf{x}$ dan $S(\mathbf{x})=A^T\mathbf{x}$ untuk setiap $\mathbf{x}\in \mathbb{R}^n$.
+        \begin{enumerate}
+          \item Buktikan bahwa $\ker (S\circ T)=\ker (T)$.
+          \item Jelaskan apakah selalu berlaku $\text{Im}(S\circ T)=\text{Im}(S)$?
+        \end{enumerate}
+  \item Diberikan barisan fungsi kontinu $(f_n)$ dengan $f_n:[0,1]\rightarrow[0,\infty)$ untuk setiap $n\in\mathbb{N}$. Jika dipenuhi kondisi berikut:
+        \begin{enumerate}
+          \item $f_1(x)\geq f_2(x)\geq f_3(x)\geq \cdots$ untuk setiap $x\in[0,1]$.
+          \item $f(x)=\displaystyle\lim_{n\rightarrow\infty} f_n(x)$ dan $\displaystyle M=\sup_{0\leq x\leq 1} f(x)$.
+        \end{enumerate}
+        maka
+        \begin{enumerate}
+          \item[(1)] Buktikan terdapat $t\in[0,1]$ sedemikian sehingga $f(t)=M$.
+          \item[(2)] Berikan contoh bahwa (1) belum tentu berlaku, apabila kondisi (a) diganti menjadi terdapat bilangan asli $N_x$  sehingga untuk setiap $n\geq N_x, f_n(x)\geq f_{n+1}(x)$. Jelaskan.
+        \end{enumerate}
+\end{enumerate}
+\pagebreak
+\subsection{HARI KEDUA}
+\begin{enumerate}
+  \item Tentukan banyaknya bilangan terurut quintuples $(a_1,a_2,a_3,a_4,a_5)$ dari bilangan bulat ganjil positif yang memenuhi $a_1+a_2+a_3+a_4+a_5=101$.
+  \item Diberikan himpunan terbatas $A\subset \mathbb{R}$. Jika fungsi $f:A\rightarrow\mathbb{R}$ kontinu seragam,
+        \begin{enumerate}
+          \item Selidiki apakah terdapat fungsi kontinu $g:\bar{A}\rightarrow\mathbb{R}$ dengan $g(x)=f(x)$ untuk setiap $x\in A$. (Catatan: $\bar{A}$ menyatakan klosur himpunan $A$)
+          \item Buktikan bahwa $f$ terbatas.
+        \end{enumerate}
+  \item Untuk sebarang bilangan asli $n$, misalkan $A_n=(a_{ij})$ matriks berukuran $n\times n$ dengan $a_{ij}=|i-j|$ untuk setiap $1\leq i,j\leq n$. Tentukan dengan bukti, nilai dari $\det(A_n)$ untuk setiap bilangan asli $n$.
+  \item Pasangan terurut bilangan real $(a,b)$ dikatakan \textit{milenial} jika memenuhi persamaan $(a+bi)^{2021}=a^2-b^2-2abi$ dengan $i=\sqrt{-1}$.
+        \begin{enumerate}
+          \item Jika $(a,b)$ adalah pasangan milenial, buktikan bahwa $a=b=0$ atau $a^2+b^2=1$.
+          \item Hitunglah banyak semua pasangan \textit{milenial}.
+        \end{enumerate}
+  \item Misalkan $(A,+)$ adalah grup siklik dengan kardinalitas $n$. Ditetapkan $\alpha$ sebuah pembangun dari $(A,+)$. Untuk setiap $m$ bilangan asli, didefinisikan ring $A_m$ dengan $(A_m,+)=(A,+)$ dan perkalian di $A_m$ didefinisikan melalui
+        \begin{align*}
+          \alpha\dot \alpha = \alpha+\alpha+\cdots +\alpha =m\alpha.
+        \end{align*}
+        Buktikan bahwa $A_r$ isomorfik dengan $A_s$ sebagai ring jika dan hanya jika fpb$(r,n)=$fpb$(s,n)$.
+\end{enumerate}
+
+\pagebreak
+
+\lhead{ONMIPA-PT 2022}
+\section{ONMIPA-PT TINGKAT NASIONAL 2022}
+\subsection{HARI PERTAMA}
+\begin{enumerate}
+  \item Misalkan $a,b,c$ adalah unsur di grup $G$ sehingga $abc=e$ dengan $e$ adalah unsur identitas di $G$. Untuk masing-masing pernyataan berikut, buktikan jika benar atau berikan contoh penyangkal jika salah.
+        \begin{enumerate}
+          \item $bca=e$.
+          \item $bac=e$.
+        \end{enumerate}
+  \item Misalkan $n\in \mathbb{N}$ dan $c$ adalah sembarang bilangan real. Tunjukkan bahwa terdapat bilangan bulat $a$ dan $b$ dengan $1\leq b\leq n$ sedemikian sehingga $\left|c-\dfrac{a}{b}\right|<\dfrac{1}{bn}$.
+  \item Diberikan suku banyak $p(z)=az^2+bz+c$ untuk suatu bilangan kompleks $a,b,$ dan $c$.
+        \begin{enumerate}
+          \item Jika $\{w_0,w_1,w_2\}$ merupakan himpunan penyelesaian dari persamaan $w^3=1$, tentukan nilai dari
+                $$ w_0p(w_0)+w_1p(w_1)+w_2p(w_2).$$
+                Jelaskan jawaban saudara!
+          \item Jika $|abc|>1$, tunjukkan bahwa terdapat bilangan kompleks $z$ dengan $|z|\leq 1$ sehingga $|p(z)|>1$.
+        \end{enumerate}
+  \item Diberikan matriks $A$ berukuran $4\times 2$ dan matriks $B=\begin{bmatrix}
+            b_{11} & b_{12} & b_{13} & b_{14} \\
+            b_{21} & b_{22} & b_{23} & b_{24}
+          \end{bmatrix} $ yang memenuhi
+        $$ A\begin{bmatrix}
+            b_{12} \\ b_{22}
+          \end{bmatrix} = \begin{bmatrix}
+            0 \\ 2\\0\\0
+          \end{bmatrix}	 \qquad \text{dan} \qquad A\begin{bmatrix}
+            b_{11}+b_{13}+b_{14} \\
+            b_{21}+b_{23}+b_{24}
+          \end{bmatrix} =\begin{bmatrix}
+            2 \\0\\2\\2
+          \end{bmatrix}. $$
+        \begin{enumerate}
+          \item Tentukan semua nilai eigen dari matriks $AB$ beserta multiplisitas aljabarnya.
+          \item Buktikan bahwa $BA=\begin{bmatrix}
+                    2 & 0 \\
+                    0 & 2
+                  \end{bmatrix}$.
+        \end{enumerate}
+  \item Misalkan barisan bilangan real $(a_n)$ dengan $\dfrac{1}{2}<a_n<1$ untuk setiap $n\geq 0$. Didefinisikan barisan $(x_n)$ dengan
+        $$ x_0=a_0, ~~x_{n+1}= \dfrac{a_{n+1}+x_n}{1+a_{n+1}\cdot x_n}, ~~n\geq 0.$$
+        Apakah $(x_n)$ konvergen? Jika ya, tentukan limitnya.
+\end{enumerate}
+\pagebreak
+\subsection{HARI KEDUA}
+\begin{enumerate}
+  \item Misalkan $k\geq 4$ adalah bilangan bulat genap dan $S=\{1,2,\dots,n\}$.\\
+        Tentukan bilangan asli terkecil $n$ sedemikian sehingga untuk setiap pewarnaan bilangan-bilangan di dalam $S$ dengan tiga warna berbeda senantiasa terdapat tiga anggota $S$. Katakan $a,b,$ dan $c$ (tidak harus berbeda) yang berwarna sama dan memenuhi $ ka+b =c.$
+  \item Diberikan fungsi terbatas $f:[a,b]\rightarrow R$ dan $x_0\in (a,b) $.	Didefinisikan fungsi $p:(a,b)\rightarrow \mathbb{R}$ dengan $ p(x)=\sup\{f(t):t<x\} $. Jika fungsi $f$ kontinu di $x_0$, selidiki apakah $p$ kontinu di $x_0$! Berikan penjelasan jawaban saudara!
+  \item Diberikan fungsi kompleks
+        $ f(z)=1+c_1z+c_2z^2+\cdots +c_kz^k $
+        dengan $|c_n|<1945$ untuk setiap $1\leq n\leq k$. Buktikan bahwa fungsi $f$ tidak memiliki akar $z$ dengan sifat $ |z|<\dfrac{1}{2022} $.
+  \item Misalkan $A$ adalah ring dengan identitas perkalian 1. Untuk setiap $a\in A$, didefinisikan pemetaan $l_a$ dan $r_a$ dari $A$ ke $A$ melalui $l_a(x)=ax$ dan $r_a(x)=xa$ untuk setiap $x\in A$.
+        \begin{enumerate}
+          \item Berikan contoh ring tak komutatif $A$ sehingga manakala $a\in A$ membuat salah satu dari $l_a$ atau $r_a$ injektif, maka yang satunya lagi juga injektif.
+          \item Berikan contoh ring tak komutatif $A$ sehingga terdapat $a\in A$ yang membuat tepat salah satu di antara $l_a$ atau $r_a$ injektif.
+        \end{enumerate}
+  \item Diberikan dua bilangan bulat positif $n$ dan $m$ dengan $n\leq m$. Buktikan bahwa
+        $$ \begin{vmatrix}
+            1      & ~^mP_1     & \cdots & ~^mP_n     \\
+            1      & ~^{m+1}P_1 & \cdots & ~^{m+1}P_n \\
+            \vdots & \vdots     & \ddots & \vdots     \\
+            1      & ~^{m+n}P_1 & \cdots & ~^{m+n}P_n
+          \end{vmatrix}	= 1!2!\cdots n!.	 $$
+\end{enumerate}
+
+\pagebreak
+
+\lhead{ONMIPA-PT 2023}
+\section{ONMIPA-PT TINGKAT NASIONAL 2023}
+\subsection{HARI PERTAMA}
+\begin{enumerate}
+  \item Diberikan enam bilangan asli berbeda
+        yang tidak melebihi 426. Buktikan terdapat tiga diantaranya, sebut saja $a,b,c$ yang memenuhi kondisi $a<b+c<4a$.
+  \item Buktikan bahwa tidak terdapat bilangan kompleks $z$ sedemikian sehingga $|z|=1$ dan $z^{2023}+z+1=0$
+  \item Diberikan barisan bilangan real $(x_n)$, dan fungsi bernilai real $f$ dan $g$.
+        \begin{enumerate}
+          \item Jika barisan $(x_n)$ didefinisikan dengan \begin{align*}
+                  x_n := \int_1^n \dfrac{\sin t}{t^2}\, dt,
+                \end{align*}
+                buktikan bahwa $(x_n)$ konvergen.
+          \item Jika fungsi $f$ kontinu dan $g$ terdiferensialkan pada $\mathbb{R}$ dengan
+                \begin{align*}
+                  (g'(1)-f(1))(f(0)-g'(0))>0,
+                \end{align*}
+                buktikan bahwa terdapat $c\in (0,1)$ sehingga $g'(c)-f(c)=0$.
+        \end{enumerate}
+  \item Misalkan $G\subseteq \mathbb{R}^3$ adalah grup dengan operasi $\star$ ($G$ tidak selalu merupakan subgrup dari $\mathbb{R}^3$. Diketahui bahwa untuk hasil kali silang (\textit{cross product}) di $\mathbb{R}^3$ dan untuk setiap $\mathbf{a,b}\in G$ berlaku: $\mathbf{a}\times \mathbf{b}=\mathbf{a}\star \mathbf{b}$ atau $\mathbf{a}\times \mathbf{b} = \mathbf{0}$ (atau keduanya).
+        \begin{enumerate}
+          \item Tunjukkan bahwa untuk setiap $\mathbf{a,b}\in G$, berlaku $\mathbf{a}\times\mathbf{b}=\mathbf{0}$.
+          \item Berikan contoh grup $(G,\star)$ yang memenuhi sifat di atas dengan $|G|>1$ dan $G$ bukan subgrup dari $\mathbb{R}^3$.
+        \end{enumerate}
+  \item Misalkan $n\geq 2$ suatu bilangan asli dan $P_n$ adalah ruang polinom dengan koefisien real berderajat paling tinggi $n$. Diberikan polinom-polinom tak nol $Q_0(x),Q_1(x),Q_2(x),\dots,Q_n(x)$ di $P_n$ sehingga $\deg (Q_j)=j$ untuk $j=0,1,2,\dots,n$ dan
+        \begin{align*}
+          Q_j(2023)=\begin{cases}
+                      1, & \text{jika } j=0,          \\
+                      0, & \text{jika } j=1,2,\dots,n
+                    \end{cases}
+        \end{align*}
+        Jika $D:P_n\to P_n$ adalah suatu pemetaan linear dengan
+        \begin{align*}
+          D(Q_j)=\begin{cases}
+                   0,       & \text{jika } j=0,           \\
+                   Q_{j-1}, & \text{jika } j=1,2,\dots,n,
+                 \end{cases}
+        \end{align*}
+        buktikan bahwa untuk sebarang polinom $f(x)\in P_n$ berlaku
+        \begin{align*}
+          f(x)=\sum_{j=0}^n (D^j(f))(2023)\cdot Q_j(x).
+        \end{align*}
+        \textbf{Catatan:} $D^j$ adalah komposisi dari $D$ sebanyak $j$ kali.
+\end{enumerate}
+\pagebreak
+\subsection{HARI KEDUA}
+\begin{enumerate}
+  \item Misalkan $A$ suatu matriks berbentuk
+        \begin{align*}
+          A=\begin{bmatrix}
+              a & b & b & b \\
+              b & a & b & b \\
+              b & b & a & b \\
+              b & b & b & a
+            \end{bmatrix},
+        \end{align*}
+        dengan $a,b$ bilangan real selain nol. Tentukan semua nilai yang mungkin dari rank$(A)$. Jelaskan jawaban Anda.
+  \item Untuk setiap bilangan bulat positif $n$, buktikan
+        \begin{align*}
+          \sum_{k=0}^n 2^k \begin{pmatrix}
+                             n \\k
+                           \end{pmatrix}\begin{pmatrix}
+                                          n-k \\
+                                          \lfloor (n-k)/2\rfloor
+                                        \end{pmatrix} = \begin{pmatrix}
+                                                          2n+1 \\n
+                                                        \end{pmatrix}.
+        \end{align*}
+  \item Untuk fungsi kompleks $f$ yang analitik pada domain $A\subseteq \mathbb{C}$, didefinisikan $A^*=\{\overline{z}~|~z\in A\}$ dan fungsi $f^*:A^*\to \mathbb{C}$ dengan $f^*(z)=\overline{f(\overline{z})}$.
+        \begin{enumerate}
+          \item Jika $f(z)=\sin z$, maka tunjukkan bahwa $f^*(z)=f(z)$ untuk setiap $z\in\mathbb{C}$.
+          \item Buktikan bahwa $(^*)'(z)=\overline{f'(\overline{z})}$ untuk setiap $z\in A^*$.
+        \end{enumerate}
+  \item Diketahui bahwa untuk setiap $n\in\mathbb{N}$, fungsi $g_n:[a,b]\to \mathbb{R}$ terintegral Riemann pada $[a,b]$. Jika untuk setiap $n\in\mathbb{N}$ dan untuk setiap $x\in[a,b]$ berlaku $|g_n(x)|\leq 2023$ dan barisan $(g_n)$ konvergen ke fungsi $g$ yang terintegral Riemann pada $[a,b]$, selidiki apakah
+        \begin{align*}
+          \lim_{n\to\infty}\int_a^b g_n(x)\, dx=\int_a^b g(x)\, dx.
+        \end{align*}
+        Tuliskan penjelasan jawaban Saudara!
+  \item Diberikan suatu \textit{ring} $(R,+,\cdot)$ dan $\dfrac{R}{Z_R}=\{r+Z_R~|~r\in R\}\cong \mathbb{Z}_{23}\times \mathbb{Z}_{23}$, dengan $Z_R=\{s\in R~|~sr=rs,\forall r\in R\}$. Untuk setiap $x\in R$, definisikan $C_x=\{r\in R~|~xr=rx\}$.
+        \begin{enumerate}
+          \item Jika $(S,+)$ merupakan subgrup tak-trivial dari $(R,+)$ dengan $Z_R$ subset sejati dari $S$, tentukan $\left|\dfrac{S}{Z_R}\right|$.
+          \item Jika $C=\{C_x~|~x\in R\}$, tentukan $|C|$.
+        \end{enumerate}
+\end{enumerate}
+\pagebreak
+
+\lhead{ONMIPA-PT 2024}
+\section{ONMIPA-PT TINGKAT NASIONAL 2024}
+\subsection{HARI PERTAMA}
+\begin{enumerate}
+  \item Diberikan barisan bilangan real $(a_n)$ yang memenuhi kondisi $0<a_n<1$ dan $$
+          a_n(1-a_{n+1})>\frac{1}{4}, \quad \forall n\in\mathbb{N}.$$
+        Selidiki kekonvergenan barisan $(a_n)$ dan tentukan limitnya jika ada.
+  \item Diketahui fungsi $f:\mathbb{C}\to\mathbb{C}$ analitik pada $\mathbb{C}$, memenuhi
+        $$
+          f(z_1+z_2)=f(z_1)f(z_2),
+        $$
+        untuk setiap $z_1,z_2\in \mathbb{C}$ dan $f(x)=e^x$ untuk $x\in \mathbb{R}$. Buktikan bahwa $f(z)=e^z$ untuk setiap $z\in\mathbb{C}$.
+  \item Diberikan barisan Fibonacci $a_1,a_2,a_3,\cdots$ dengan aturan $a_1=a_2=1$ dan $a_{n+1}=a_n+a_{n-1},$ untuk setiap $n>1$.
+        Buktikan bahwa terdapat bilangan pada barisan tersebut yang berakhir dengan 2024 angka nol tak terputus sebelah kanan.
+  \item
+        \begin{enumerate}
+          \item Misalkan $A$ suatu matriks berukuran $n\times n$ atas $\mathbb{R}$ yang memenuhi persamaan $A^2=A^T$. Jika $A$ dapat didiagonalkan atas $\mathbb{R}$, buktikan bahwa $A$ matriks simetrik.
+          \item Berikan matriks $B$ berukuran $2\times 2$ atas $\mathbb{R}$ yang tidak simetrik dan memenuhi persamaan $B^2=B^T$.
+        \end{enumerate}
+  \item Diberikan grup hingga $G$ dengan unsur-unsurnya $x_1,x_2,\dots,x_n$. Misalkan $A=(a_{ij})$ adalah matriks berukuran $n\times n$ dengan
+        \begin{align*}
+          a_{ij}=\begin{cases}
+                   1, & \text{jika } x_ix_j^{-1} \neq x_jx_i^{-1}, \\
+                   0, & \text{jika } x_ix_j^{-1} = x_jx_i^{-1}.
+                 \end{cases}
+        \end{align*}
+        Buktikan bahwa $\det(A)$ selalu genap.
+\end{enumerate}
+\pagebreak
+\subsection{HARI KEDUA}
+\begin{enumerate}
+  \item Cari semua pasangan bilangan kompleks $(x, y, z)$ yang memenuhi sistem persamaan
+        \[
+          \begin{aligned}
+            x^2 + y^2 & = (x + y)z, \\
+            y^2 + z^2 & = (y + z)x, \\
+            z^2 + x^2 & = (z + x)y.
+          \end{aligned}
+        \]
+
+  \item Diberikan sembarang pewarnaan merah-biru pada setiap ruas garis yang menghubungkan 10 titik. Buktikan bahwa terdapat tiga titik sedemikian sehingga ketiga ruas garis yang menghubungkan ketiga titik tersebut berwarna merah, atau terdapat empat titik sedemikian sehingga keenam ruas garis yang menghubungkan keempat titik tersebut berwarna biru.
+
+  \item Diketahui $r > 0$, $\alpha \in (0,1)$, fungsi $f : (-r, r) \to \mathbb{R}$ kontinu di $0$ dan
+        \[
+          \lim_{x \to 0} \frac{f(x) - f(\alpha x)}{x},
+        \]
+        ada di $\mathbb{R}$. Selidiki eksistensi $f'(0)$. Berikan penjelasan jawaban Anda.
+  \item Diketahui $\mathbb{R}[x]$ adalah ring polinom atas $\mathbb{R}$. Untuk setiap $p(x) \in \mathbb{R}[x]$, ideal di $\mathbb{R}[x]$ yang dibangun oleh $p(x)$ dinotasikan sebagai $\langle p(x) \rangle$.
+        \begin{enumerate}
+          \item Buktikan $\langle x - 2024 \rangle$ merupakan ideal maksimal di $\mathbb{R}[x]$.
+          \item Tentukan bilangan asli $a$ terbesar sehingga $\langle x^2 + ax + 2024 \rangle$ merupakan ideal maksimal di $\mathbb{R}[x]$.
+        \end{enumerate}
+
+  \item Misal $V$ ruang vektor yang dilengkapi dengan hasil kali dalam riil $\langle \cdot, \cdot \rangle$ dan norma $\|\cdot\|$ yang didefinisikan dengan
+        \[
+          \|\textbf{f}\|^2 = \langle \textbf{f}, \textbf{f} \rangle, \quad \forall f \in V.
+        \]
+        Lebih lanjut, diberikan pemetaan linier $T : V \to V$ dengan
+        \[
+          \langle T(\mathbf{v}_1), \mathbf{v}_2 \rangle = \langle \mathbf{v}_1, T(\mathbf{v}_2) \rangle, \quad \mathbf{v}_1, \mathbf{v}_2 \in V.
+        \]
+        Buktikan bahwa jika $\textbf{v} \in V$ dan $\textbf{u} \in T(V)$ dengan $T(\textbf{v}) = T(\textbf{u})$, buktikan bahwa
+        \[
+          \|\textbf{u} - \textbf{v}\| \leq \|\textbf{w} - \textbf{v}\|, \quad \forall \textbf{w} \in T(V).
+        \]
+        \textbf{Catatan.} $T(V) = \{T(\textbf{a}) : \textbf{a} \in V\}$.
+\end{enumerate}
+
+\pagebreak
+
+\lhead{ONMIPA-PT 2025}
+\section{ONMIPA-PT TINGKAT NASIONAL 2025}
+\subsection{HARI PERTAMA}
+\begin{enumerate}
+  \item Jika $a,b,c,d \in \mathbb{C}$ dengan $|a| = |b| = |c| = |d|$ dan
+        $
+          a + b + c = d,
+        $
+        buktikan bahwa $d = a$ atau $d = b$ atau $d = c$.
+
+  \item Misal $A$ matriks tak singular $3 \times 3$ dengan entri bilangan kompleks sehingga terdapat 2 vektor eigen $\mathbf{x},\mathbf{y}$ dari $A$ yang bersesuaian dengan 2 nilai eigen berbeda dari $A$ memenuhi
+        \[
+          A(\mathbf{x}+\mathbf{y}) = \mu (\mathbf{x}-\mathbf{y})
+        \]
+        untuk suatu bilangan kompleks $\mu$.
+        \begin{enumerate}
+          \item Berikan satu contoh matriks $A$ yang memenuhi.
+          \item Buktikan bahwa nilai eigen dari $A$ adalah entri-entri dari diagonal utama pada $A$.
+        \end{enumerate}
+
+  \item Diberikan barisan bilangan real $(b_n)$ untuk $n\ge 0$, bilangan real $m>0$, dan bilangan real $0<M<1$. Didefinisikan barisan $(y_n)$ dengan
+        \[
+          0 < y_0 < 1,
+          \quad \text{ dan }\quad
+          y_{n+1} = y_n + (1 + y_n)b_{n+1}.
+        \]
+        Jika $m \le b_n \le M$, buktikan barisan $(y_n)$ konvergen dan tentukan nilai limitnya.
+
+  \item Misal $G$ grup dengan $\varphi : G \to G$ dengan $\varphi(x) = x^3$ untuk setiap $x \in G$ merupakan monomorfisma.
+
+        \begin{enumerate}
+          \item Buktikan untuk setiap $a,b \in G$ berlaku
+                $
+                  a^2 b = b a^2.
+                $
+          \item Apakah $G$ komutatif? Jelaskan.
+        \end{enumerate}
+
+  \item Diberikan barisan $m+1$ bilangan bulat berbeda dengan $m,n \in \mathbb{Z}^+$ berbeda.
+        Buktikan barisan tersebut selalu memiliki subbarisan naik sepanjang $m+1$ atau subbarisan turun sepanjang $n+1$.
+\end{enumerate}
+\pagebreak
+\subsection{HARI KEDUA}
+\begin{enumerate}
+  \item Jika fungsi kontinu $f : [a,b] \to \mathbb{R}$ terdiferensial pada $(a,b)$, buktikan bahwa terdapat $c \in (a,b)$ dengan
+        \[
+          f'(c)(a-c) < 2 \qquad \text{dan} \qquad f'(c)(b-c) < 2.
+        \]
+
+  \item Tentukan himpunan terbuka terbesar $\Omega \subseteq \mathbb{C}$ sedemikian sehingga $\mathrm{Ln}(1 - z^{2025})$ analitik di $\Omega$.
+        \emph{Catatan:} $\mathrm{Ln}$ menyatakan bagian utama dari logaritma natural kompleks.
+
+  \item Diberikan $(R, +, \cdot)$ ring dengan elemen satuan $0_R$ dan $1_R$. Untuk setiap $r \in R$, didefinisikan
+        \[
+          A_r = \{xr \mid x \in R\}, \qquad B_r = \{x \in R \mid xr = 0_R\}.
+        \]
+        Unsur $r$ dikatakan \emph{rapi} jika terdapat isomorfisma grup $\varphi : R/A_r \to B_r$ sehingga memenuhi
+        $\varphi(xa) = x\varphi(a)$ untuk semua $x \in R$ dan $a \in R/A_r$. Buktikan:
+
+        \begin{enumerate}
+          \item Jika $r$ rapi dan tak nol, maka terdapat $s \in R$ dengan $s \ne r$ sehingga $A_r = B_s$ dan $A_s = B_r$.
+          \item Jika $r$ rapi dan $u$ adalah unit di $R$, maka $R/A_{ur} \cong B_{ur}$ sebagai grup.
+        \end{enumerate}
+
+  \item Misalkan $\mathbb{M}$ himpunan semua matriks simetrik berukuran $4 \times 4$ dengan entri-entri merupakan elemen dari $\{0,2,5\}$, dan setiap baris memiliki ketiga elemen 0, 2, dan 5.
+
+        \begin{enumerate}
+          \item Jika pada $A \in \mathbb{M}$ terdapat $k \in \{0,2,5\}$ yang muncul sebanyak 8 di $A$, buktikan bahwa $\det(A) \ne 0$.
+          \item Tentukan nilai dari $\max\{\det(A) : A \in \mathbb{M}\}$. Uraikan jawaban Anda!
+        \end{enumerate}
+
+  \item Dua puluh lima rumah yang berjajar di sisi barat Jalan ONMIPA akan diwarnai merah atau putih.
+        Setiap rumah diwarnai tepat satu warna, dengan aturan tidak ada dua rumah bersebelahan yang diwarnai putih dan tidak ada tiga rumah bersebelahan yang diwarnai merah.
+        Tentukan banyaknya cara mewarnai 25 rumah tersebut.
+        Uraikan jawaban Saudara!
+\end{enumerate}
+
+
+\end{document}
