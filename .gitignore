@@ -1,0 +1,53 @@
+# Ignore VS Code settings
+.vscode/
+
+# Ignore python and node
+*node_modules/
+*media/
+*slides/
+
+# Ignore LaTeX auxiliary files
+*.aux
+*.bbl
+*.blg
+*.err
+*.fdb_latexmk
+*.fls
+*.log
+*.lot
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*_minted
+_minted-*/
+*.listing
+*.gnuplot
+*.pyg
+*.bcf
+*.run.xml
+*.xdv
+*.lof
+*.synctex(busy)
+*.bbl-SAVE-ERROR
+*.mkv
+
+# Ignore Python bytecode and caches
+__pycache__/
+*.py[cod]
+*.$py.class
+
+# Ignore Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+#Ignore folder
+Template Math Depart/
+
+## Manim cache:
+*__pycache__/
+*media/
+*slides/
+
+
