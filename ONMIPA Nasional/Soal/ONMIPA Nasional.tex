@@ -1093,5 +1093,186 @@ $~$
           Uraikan jawaban Saudara!
 \end{enumerate}
 
+\pagebreak
+
+\lhead{ONMIPA-PT 2026}
+\section{ONMIPA-PT TINGKAT NASIONAL 2026}
+\subsection{HARI PERTAMA}
+\begin{enumerate}
+    \item Untuk setiap bilangan bulat positif $n$, buktikan bahwa
+          \[
+              \sum_{k=0}^{n}
+              2^k \binom{n}{k}
+              \binom{\,n-k\,}{\left\lfloor \frac{n-k}{2}\right\rfloor}
+              =
+              \binom{2n+1}{n}.
+          \]
+
+    \item Misalkan $A$ adalah matriks blok berbentuk
+          $\displaystyle
+              A=
+              \begin{pmatrix}
+                  P & Q \\
+                  Q & P
+              \end{pmatrix},
+          $
+          dengan $P$ dan $Q$ matriks berukuran $1013\times 1013$.
+          Buktikan bahwa
+          \[
+              \det(A)=\det(P+Q)\det(P-Q).
+          \]
+    \item Diberikan barisan bilangan real $(a_n)_{n \geq 0}$ yang terbatas dan memenuhi
+          \[
+              a_{n+2}\le \frac{a_{n+1}+a_n}{2}
+          \]
+          untuk setiap $n\in\mathbb{N}$.
+          \begin{enumerate}
+              \item Jika
+                    $
+                        x_n=\max\{a_n,a_{n+1}\}
+                    $,
+                    buktikan bahwa $(x_n)$ konvergen.
+              \item Buktikan bahwa $(a_n)$ konvergen dan tentukan limitnya.
+          \end{enumerate}
+    \item Misalkan
+          $
+              A=\{e,a_1,a_2,\ldots,a_n\}
+          $
+          adalah grup komutatif berhingga terhadap operasi $*$. Definisikan
+          $
+              B=\{a\in A:a*a=e\},
+          $
+          \begin{enumerate}
+              \item Jika $
+                        B=\{e,b_1,b_2,\ldots,b_m\}.
+                    $ Buktikan bahwa
+                    $
+                        a_1*\dots *a_n=b_1*\dots *b_m.
+                    $
+              \item Jika $|B|>2$, buktikan bahwa
+                    $
+                        a_1*\cdots*a_n=e.
+                    $
+          \end{enumerate}
+    \item
+          Diberikan fungsi
+          \[
+              f(z)=\bigl(|z|^2-2\bigr)\,\overline{z}.
+          \]
+          dan daerah $D\subseteq \mathbb{C}$ dengan $f$ analitik pada $D$.
+          \begin{enumerate}
+              \item Tentukan $f'(z)$ dan tuliskan dalam variabel $z$.
+              \item Misalkan $0<|w|<1$. Jika $C$ adalah lingkaran $|z|=1$, tentukan integral lintasan
+                    \[
+                        \oint_C \frac{f(z)}{z-w}\,dz.
+                    \]
+          \end{enumerate}
+\end{enumerate}
+
+\pagebreak
+\subsection{HARI KEDUA}
+\begin{enumerate}
+    \item Diberikan fungsi $f$ yang terdiferensialkan dua kali dan kontinu pada $[0,1]$ dengan
+          $
+              f(0)=f(1)=0.
+          $
+          Misalkan terdapat $M>0$ sehingga
+          $
+              |f''(x)|<M
+          $
+          untuk setiap $x\in[0,1]$.
+
+          Tunjukkan bahwa
+          \[
+              \left|f'\!\left(\frac{1}{2026}\right)\right|
+              \le
+              \frac{(1+2025^2)M}{2\cdot 2026^2}.
+          \]
+
+          \bigskip
+
+    \item Diberikan $A\in M_{n\times n}(\mathbb{R})$ dengan
+          $
+              \operatorname{tr}(A)=0
+          $
+          dan
+          $
+              I_n-A
+          $
+          invertibel.
+          \begin{enumerate}
+              \item Buktikan bahwa jika $n=3$, maka
+                    $
+                        A^3\neq I.
+                    $
+
+              \item Selidiki apakah terdapat $n\ge 2$ dan matriks $A$ yang memenuhi syarat pada soal serta
+                    $
+                        A^n=I
+                    $? Berikan penjelasan jawaban Anda!
+          \end{enumerate}
+
+    \item Diberikan $A\subseteq \mathbb{C}$ dengan $|A|<\infty$ dan untuk setiap $z\in A$ berlaku
+          $
+              z^2-2z+2\in A.
+          $
+
+          \begin{enumerate}
+              \item Buktikan bahwa
+                    \[
+                        z=1
+                        \quad
+                        \text{atau}
+                        \quad
+                        |z-1|=1
+                    \]
+                    untuk setiap $z\in A$.
+
+              \item Tentukan himpunan $A$ jika seluruh elemen $A$ adalah bilangan real.
+          \end{enumerate}
+
+    \item Diberikan ring $R$ dengan unsur identitas yang memenuhi identitas
+          \[
+              x^3=x
+          \]
+          untuk setiap $x\in R$.
+
+          \begin{enumerate}
+              \item Buktikan bahwa setiap $x\neq 0$ bukan elemen nilpoten.
+
+              \item Tunjukkan bahwa setiap $x\neq 0$ yang bukan pembagi nol merupakan unit.
+          \end{enumerate}
+
+    \item Diberikan tabel berukuran $n\times 5$ berikut.
+          \[
+              \begin{array}{|c|c|c|c|c|}
+                  \hline
+                  A_{11} & A_{12} & A_{13} & A_{14} & A_{15} \\
+                  \hline
+                  A_{21} & A_{22} & A_{23} & A_{24} & A_{25} \\
+                  \hline
+                  A_{31} & A_{32} & A_{33} & A_{34} & A_{35} \\
+                  \hline
+                  \vdots & \vdots & \vdots & \vdots & \vdots \\
+                  \hline
+                  A_{n1} & A_{n2} & A_{n3} & A_{n4} & A_{n5} \\
+                  \hline
+              \end{array}
+          \]
+
+          Sebuah lintasan dikatakan \emph{aman} jika setiap langkahnya bergerak ke atas,
+          diagonal kiri-atas, atau diagonal kanan-atas.
+          Buktikan bahwa banyaknya lintasan aman dari $A_{n1}$ menuju baris pertama adalah
+
+          \[
+              \frac{1}{3}
+              \sum_{j=1}^{5}
+              \sum_{k=1}^{5}
+              \left(1+2\cos\frac{k\pi}{6}\right)^{n-1}
+              \sin\frac{k\pi}{6}
+              \sin\frac{jk\pi}{6}.
+          \]
+          \textbf{Catatan:} untuk $n=3$ maka $A_{31}\to A_{21}\to A_{11}$ merupakan lintasan aman, tetapi $A_{31}\to A_{23}\to A_{12}$ bukan lintasan aman.
+\end{enumerate}
 
 \end{document}
