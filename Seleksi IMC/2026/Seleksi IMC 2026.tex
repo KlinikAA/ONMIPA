@@ -1,0 +1,354 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{titlesec}
+\titleformat*{\section}{\centering\Large\bfseries}
+\titleformat*{\subsection}{\centering\large\bfseries}
+
+\begin{document}
+
+\section*{Seleksi IMC 2026}
+\subsection*{Hari Pertama}
+
+\begin{enumerate}
+  \item Find, with proof, all functions $f:\mathbb{R}\to\mathbb{R}$ satisfying
+        \[
+          |f(x+y)-f(x-y)-y|\le y^2,
+          \qquad \forall x,y\in\mathbb{R}.
+        \]
+
+  \item Diketahui
+        $
+          D=\{z\in\mathbb{C}:|z|\le 1\}
+        $
+        dan $f:D\to D$ analitik dengan
+        \[
+          f(0)=f'(0)=f''(0)=\cdots=f^{(n-1)}(0)=0.
+        \]
+        Tunjukkan bahwa
+        $
+          |f(z)|\le |z|^n
+        $
+        untuk setiap $z\in D$.
+
+  \item Misalkan $A$ sebuah ring sehingga $x^2=0$ hanya jika $x=0$. Misalkan $B$ adalah subhimpunan dari $A$ yang setiap unsurnya merupakan invers diri sendiri, yaitu
+        \[
+          B=\{b\in A\mid b^2=1\}.
+        \]
+        \begin{enumerate}
+          \item Buktikan bahwa untuk setiap $a,b\in B$, berlaku
+                \[
+                  ab-ba=bab-a.
+                \]
+          \item Jika $x,y\in B$, apakah $xy\in B$?
+        \end{enumerate}
+
+  \item Misalkan $A$ dan $B$ matriks $3\times 3$ dengan komponen bulat sehingga $A+B$, $A+2B$, $A+3B$, $A+4B$, $A+5B$ memiliki invers berkomponen bulat. Buktikan bahwa $A$ juga memiliki invers berkomponen bulat.
+
+  \item An athlete starts a competition with a score of $0$. The competition consists of $n$ rounds. In round $k$ $(1\le k\le n)$, the athlete's score changes by exactly $k$ points, either increasing by $k$ or decreasing by $k$.
+
+        Let $S(n,m)$ be the number of possible outcomes of the competition that leave the athlete with a final score of $m$. Prove that
+        \[
+          S(n,m)=\frac{2^{n-1}}{\pi}\int_0^{2\pi}\cos(mt)\cos t\cos(2t)\cdots\cos(nt)\,dt.
+        \]
+\end{enumerate}
+
+\newpage
+
+\section*{Solusi}
+
+\begin{enumerate}
+  \item Ambil
+        \[
+          u=x+y,\qquad v=x-y.
+        \]
+        Maka
+        \[
+          x=\frac{u+v}{2},\qquad y=\frac{u-v}{2},
+        \]
+        sehingga syarat pada soal ekuivalen dengan
+        \[
+          \left|f(u)-f(v)-\frac{u-v}{2}\right|\le \frac{(u-v)^2}{4},
+          \qquad \forall u,v\in\mathbb{R}.
+        \]
+        Definisikan
+        \[
+          g(t)=f(t)-\frac{t}{2}.
+        \]
+        Maka untuk semua $u,v\in\mathbb{R}$ berlaku
+        \[
+          |g(u)-g(v)|\le \frac{(u-v)^2}{4}.
+        \]
+        Sekarang untuk sembarang $a,b\in\mathbb{R}$ dan $N\in\mathbb{N}$, bagi ruas dari $a$ ke $b$ menjadi $N$ bagian sama panjang:
+        \[
+          t_k=a+\frac{k}{N}(b-a),\qquad k=0,1,\dots,N.
+        \]
+        Dengan ketaksamaan di atas,
+        \[
+          |g(t_k)-g(t_{k-1})|
+          \le \frac{(t_k-t_{k-1})^2}{4}
+          =\frac{(b-a)^2}{4N^2}.
+        \]
+        Menjumlahkan,
+        \[
+          |g(b)-g(a)|
+          \le \sum_{k=1}^N |g(t_k)-g(t_{k-1})|
+          \le \frac{(b-a)^2}{4N}.
+        \]
+        Karena ini berlaku untuk setiap $N$, dengan mengambil limit $N\to\infty$ diperoleh
+        \[
+          |g(b)-g(a)|=0.
+        \]
+        Jadi $g(a)=g(b)$ untuk semua $a,b\in\mathbb{R}$, sehingga $g$ konstan. Ada konstanta $c\in\mathbb{R}$ sehingga
+        \[
+          g(x)=c
+        \]
+        untuk semua $x\in\mathbb{R}$. Dengan demikian
+        \[
+          f(x)=\frac{x}{2}+c,
+          \qquad \forall x\in\mathbb{R}.
+        \]
+
+        Sebaliknya, untuk setiap konstanta $c\in\mathbb{R}$, fungsi
+        \[
+          f(x)=\frac{x}{2}+c
+        \]
+        memenuhi
+        \[
+          f(x+y)-f(x-y)-y
+          =\left(\frac{x+y}{2}+c\right)-\left(\frac{x-y}{2}+c\right)-y
+          =0,
+        \]
+        sehingga
+        \[
+          |f(x+y)-f(x-y)-y|=0\le y^2.
+        \]
+        Maka semua solusi adalah tepat
+        \[
+          f(x)=\frac{x}{2}+c,\qquad c\in\mathbb{R}.
+        \]
+
+  \item Karena
+        \[
+          f(0)=f'(0)=\cdots=f^{(n-1)}(0)=0,
+        \]
+        deret Taylor $f$ di sekitar $0$ berbentuk
+        \[
+          f(z)=z^n g(z),
+        \]
+        dengan $g$ analitik pada $D$.
+
+        Ambil $0<r<1$. Pada lingkaran $|z|=r$, karena $f(D)\subseteq D$, kita punya
+        \[
+          |f(z)|\le 1,
+        \]
+        sehingga
+        \[
+          |g(z)|=\frac{|f(z)|}{|z|^n}\le \frac{1}{r^n}.
+        \]
+        Dengan prinsip maksimum modulus, untuk setiap $|z|\le r$ berlaku
+        \[
+          |g(z)|\le \frac{1}{r^n}.
+        \]
+        Karena $r$ bisa dipilih sebarang dengan $|z|<r<1$, lalu ambil limit $r\to 1^-$, diperoleh
+        \[
+          |g(z)|\le 1
+        \]
+        untuk setiap $|z|<1$. Akibatnya,
+        \[
+          |f(z)|=|z|^n |g(z)|\le |z|^n
+        \]
+        untuk setiap $|z|<1$.
+
+        Untuk $|z|=1$, ketaksamaan yang sama tetap benar karena ruas kanan sama dengan $1$ dan $|f(z)|\le 1$. Jadi
+        \[
+          |f(z)|\le |z|^n,\qquad \forall z\in D.
+        \]
+
+  \item
+        \begin{enumerate}
+          \item Ambil
+                \[
+                  x=ab-ba-bab+a.
+                \]
+                Tulis ulang sebagai
+                \[
+                  x=(1-b)a(1+b).
+                \]
+                Maka
+                \[
+                  x^2=(1-b)a(1+b)(1-b)a(1+b)=0,
+                \]
+                sebab
+                \[
+                  (1+b)(1-b)=1-b^2=0.
+                \]
+                Karena pada ring $A$ berlaku $y^2=0\Rightarrow y=0$, kita dapatkan $x=0$. Jadi
+                \[
+                  ab-ba=bab-a.
+                \]
+
+          \item Ambil
+                \[
+                  c=ab-ba.
+                \]
+                Dari bagian (a),
+                \[
+                  c=bab-a.
+                \]
+                Selanjutnya
+                \[
+                  ac=a(ab-ba)=b-aba.
+                \]
+                Dengan menukar peran $a$ dan $b$ pada bagian (i), diperoleh
+                \[
+                  ba-ab=aba-b,
+                \]
+                sehingga
+                \[
+                  b-aba=ab-ba=c.
+                \]
+                Jadi $ac=c$.
+
+                Dengan cara serupa,
+                \[
+                  ca=(ab-ba)a=aba-b=-(ab-ba)=-c.
+                \]
+                Sekarang
+                \[
+                  baba=(bab)a=(a+c)a=1+ca=1-c,
+                \]
+                dan
+                \[
+                  abab=a(bab)=a(a+c)=1+ac=1+c.
+                \]
+                Maka
+                \[
+                  c^2=(bab-a)^2
+                  =babbab-baba-abab+a^2
+                  =1-(1-c)-(1+c)+1=0.
+                \]
+                Lagi-lagi dari syarat ring diperoleh $c=0$, sehingga
+                \[
+                  ab=ba.
+                \]
+                Akibatnya
+                \[
+                  (ab)^2=a^2b^2=1,
+                \]
+                jadi $ab\in B$.
+
+                Jadi jawabannya: ya, jika $x,y\in B$ maka $xy\in B$.
+        \end{enumerate}
+
+  \item Untuk matriks berentri bulat, mempunyai invers berentri bulat ekuivalen dengan determinannya bernilai $\pm 1$.
+        Jadi untuk
+        \[
+          p(t)=\det(A+tB),
+        \]
+        kita tahu bahwa $p(t)$ adalah polinom berderajat paling tinggi $3$ dan
+        \[
+          p(1),p(2),p(3),p(4),p(5)\in\{1,-1\}.
+        \]
+
+        Karena $p$ berderajat paling tinggi $3$, beda hingga orde empatnya nol. Maka
+        \[
+          p(5)-4p(4)+6p(3)-4p(2)+p(1)=0.
+        \]
+        Tuliskan $\varepsilon_k=p(k)\in\{1,-1\}$. Persamaan di atas menjadi
+        \[
+          \varepsilon_5-4\varepsilon_4+6\varepsilon_3-4\varepsilon_2+\varepsilon_1=0.
+        \]
+        Kalikan seluruh persamaan dengan $\varepsilon_3$ dan definisikan $\delta_i=\varepsilon_i\varepsilon_3\in\{1,-1\}$. Maka
+        \[
+          \delta_5-4\delta_4+6-4\delta_2+\delta_1=0,
+        \]
+        atau
+        \[
+          4(\delta_2+\delta_4)-(\delta_1+\delta_5)=6.
+        \]
+        Karena $\delta_2+\delta_4,\delta_1+\delta_5\in\{-2,0,2\}$, satu-satunya kemungkinan adalah
+        \[
+          \delta_2=\delta_4=1,\qquad \delta_1=\delta_5=1.
+        \]
+        Jadi semua $\varepsilon_i$ sama:
+        \[
+          p(1)=p(2)=p(3)=p(4)=p(5)=\varepsilon_3.
+        \]
+
+        Maka polinom $p(t)-\varepsilon_3$ berderajat paling tinggi $3$ dan mempunyai empat akar berbeda $1,2,3,4$. Jadi
+        \[
+          p(t)\equiv \varepsilon_3.
+        \]
+        Khususnya,
+        \[
+          \det(A)=p(0)=\varepsilon_3=\pm 1.
+        \]
+        Dengan demikian $A$ mempunyai invers berkomponen bulat.
+
+  \item Setiap kemungkinan hasil kompetisi ditentukan oleh pilihan tanda
+        \[
+          \varepsilon_k\in\{-1,1\},\qquad k=1,2,\dots,n,
+        \]
+        dengan skor akhir
+        \[
+          \sum_{k=1}^n k\varepsilon_k.
+        \]
+        Jadi
+        \[
+          S(n,m)=\#\left\{(\varepsilon_1,\dots,\varepsilon_n)\in\{-1,1\}^n:
+          \sum_{k=1}^n k\varepsilon_k=m\right\}.
+        \]
+
+        Gunakan identitas Fourier
+        \[
+          \frac{1}{2\pi}\int_0^{2\pi} e^{it(r-m)}\,dt=
+          \begin{cases}
+            1, & r=m,    \\
+            0, & r\ne m.
+          \end{cases}
+        \]
+        Maka
+        \[
+          S(n,m)
+          =\sum_{\varepsilon_1,\dots,\varepsilon_n}
+          \frac{1}{2\pi}\int_0^{2\pi}
+          e^{it(\sum_{k=1}^n k\varepsilon_k-m)}\,dt.
+        \]
+        Tukar jumlah dan integral:
+        \[
+          S(n,m)
+          =\frac{1}{2\pi}\int_0^{2\pi}
+          e^{-imt}
+          \prod_{k=1}^n
+          \left(\sum_{\varepsilon_k=\pm 1}e^{ik\varepsilon_k t}\right)\,dt.
+        \]
+        Tetapi
+        \[
+          \sum_{\varepsilon_k=\pm 1}e^{ik\varepsilon_k t}
+          =e^{ikt}+e^{-ikt}
+          =2\cos(kt).
+        \]
+        Jadi
+        \[
+          S(n,m)
+          =\frac{2^n}{2\pi}\int_0^{2\pi}
+          e^{-imt}\cos t\cos(2t)\cdots\cos(nt)\,dt.
+        \]
+        Karena $\cos t\cos(2t)\cdots\cos(nt)$ adalah fungsi real dan genap, bagian imajiner dari integral bernilai nol, sehingga
+        \[
+          \int_0^{2\pi} e^{-imt}\prod_{k=1}^n \cos(kt)\,dt
+          =
+          \int_0^{2\pi} \cos(mt)\prod_{k=1}^n \cos(kt)\,dt.
+        \]
+        Maka
+        \[
+          S(n,m)
+          =\frac{2^{n-1}}{\pi}\int_0^{2\pi}
+          \cos(mt)\cos t\cos(2t)\cdots\cos(nt)\,dt.
+        \]
+        Terbukti.
+\end{enumerate}
+
+\end{document}
