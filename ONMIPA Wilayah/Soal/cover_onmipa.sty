@@ -1,0 +1,158 @@
+% Cover ONMIPA Nasional dengan judul dan tahun yang dapat diedit.
+% Gunakan \covernasionalsetup{...} setelah \usepackage{cover}.
+% Font Plus Jakarta Sans SemiBold disertakan; tidak perlu instalasi font.
+% Simpan cover_assets di samping dokumen utama. Kompilasi: pdfLaTeX.
+\NeedsTeXFormat{LaTeX2e}[2020/10/01]
+\ProvidesPackage{cover_onmipa}[2026/10/30 v2.0 Cover dengan teks editable]
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+\RequirePackage{iftex}
+
+% Nilai bawaan paket. Ubah judul/tahun buku melalui \covernasionalsetup
+% di ONMIPA Nasional.tex, setelah \usepackage{cover_nasional}.
+\pgfkeys{
+  /covernasional/.is family, /covernasional,
+  judul/.store in=\cn@judul,
+  kompetisi/.store in=\cn@kompetisi,
+  tingkat/.store in=\cn@tingkat,
+  tahun/.store in=\cn@tahun,
+  label tahun/.store in=\cn@labeltahun,
+  identitas/.store in=\cn@identitas,
+  organisasi/.store in=\cn@organisasi,
+  ukuran judul/.store in=\cn@ukuranjudul,
+  ukuran tahun/.store in=\cn@ukurantahun,
+  ukuran identitas/.store in=\cn@ukuranidentitas,
+  lebar teks/.store in=\cn@lebarteks,
+}
+\newcommand{\covernasionalsetup}[1]{\pgfkeys{/covernasional/.cd,#1}}
+\covernasionalsetup{
+  judul={Kumpulan Soal},
+  kompetisi={ONMIPA-PT},
+  tingkat={Tingkat Nasional},
+  tahun={2006-2024},
+  label tahun={Tahun},
+  identitas={Klinik Aljabar Analisis},
+  organisasi={ASCI HIMATIKA ITS 2018-2019},
+  ukuran judul=165,
+  ukuran tahun=80,
+  ukuran identitas=75,
+  lebar teks=1360,
+}
+
+% Font hanya berlaku di cover; font dan encoding isi buku tetap mengikuti dokumen.
+\ifPDFTeX
+  \@ifundefined{T@T1}{\input{t1enc.def}}{}
+  \pdfmapline{+cnjakarta-sb PlusJakartaSans-SemiBold <cover_assets/fonts/cnjakarta-t1.enc <cover_assets/fonts/cnjakarta-sb.ttf}
+  \pdfmapline{+cnjakarta-sbi PlusJakartaSans-SemiBoldItalic <cover_assets/fonts/cnjakarta-t1.enc <cover_assets/fonts/cnjakarta-sbi.ttf}
+  \DeclareFontFamily{T1}{cnjakarta}{}
+  \DeclareFontShape{T1}{cnjakarta}{m}{n}{<-> cover_assets/fonts/cnjakarta-sb}{}
+  \DeclareFontShape{T1}{cnjakarta}{m}{it}{<-> cover_assets/fonts/cnjakarta-sbi}{}
+  \newcommand{\cn@selectfont}[2]{%
+    \fontencoding{T1}\fontfamily{cnjakarta}\fontseries{m}\fontshape{#2}%
+    \fontsize{#1bp}{#1bp}\selectfont
+  }
+\else
+  \RequirePackage{fontspec}
+  \newfontfamily\cn@font[
+    Path=cover_assets/fonts/,
+    UprightFont=cnjakarta-sb.ttf,
+    ItalicFont=cnjakarta-sbi.ttf,
+    BoldFont=cnjakarta-sb.ttf,
+    BoldItalicFont=cnjakarta-sbi.ttf
+  ]{cnjakarta-sb.ttf}
+  \newcommand{\cn@selectfont}[2]{%
+    \cn@font\fontseries{m}\fontshape{#2}\fontsize{#1bp}{#1bp}\selectfont
+  }
+\fi
+
+% Teks pendek memakai ukuran aslinya. Baris panjang diperkecil proporsional
+% agar tidak melewati tepi kanan. Setiap nilai adalah satu baris teks biasa.
+\newsavebox{\cn@textbox}
+\newcommand{\cn@text}[5]{%
+  \node[anchor=base west,inner sep=0pt,outer sep=0pt,text=#3] at (249,#4) {%
+    \sbox{\cn@textbox}{\cn@selectfont{#1}{#2}\ignorespaces#5\unskip}%
+    \ifdim\wd\cn@textbox>\cn@lebarteks bp
+      \resizebox{\cn@lebarteks bp}{!}{\usebox{\cn@textbox}}%
+    \else
+      \usebox{\cn@textbox}%
+    \fi
+  };
+}
+
+% Warna sRGB dari PDF sumber; tidak dibulatkan ke nama warna umum.
+\definecolor{coverNasionalKuning}{rgb}{1,0.933333,0.541176}
+\definecolor{coverNasionalKuningMuda}{rgb}{1,0.956863,0.690196}
+\definecolor{coverNasionalPutihTeks}{rgb}{0.964604,0.971653,0.999844}
+\definecolor{coverNasionalOranye}{rgb}{0.192157,0.172549,0.486275}
+\definecolor{coverNasionalEmas}{rgb}{0.749020,0.674510,0.301961}
+
+% Lokasi kedua logo. Font tetap berada di cover_assets/fonts/.
+\newcommand{\covernasionalassetpath}{cover_assets/}
+\newcommand{\covernasionalsetassetpath}[1]{\renewcommand{\covernasionalassetpath}{#1}}
+
+% Gradasi diagonal asli. Untuk titik (x,y) di panel atas, proyeksi pada
+% sumbu gradasi adalah dot((x,y+1710)-(-1239.2756,442.89186),
+% (2168.0003,-998.5002)) / (2168.0003^2+998.5002^2).
+% Fungsi PDF ini mempertahankan arah, titik awal, dan warna kedua ujung.
+\pgfdeclarefunctionalshading{coverNasionalBiru}
+  {\pgfpoint{0bp}{0bp}}{\pgfpoint{1760bp}{790bp}}{}{
+    1267.10814 add -998.5002 mul
+    exch 1239.2756 add 2168.0003 mul add
+    5697227.95020013 div
+    dup 0 lt { pop 0.0 } if
+    dup 1 gt { pop 1.0 } if
+    dup -0.356863 mul 0.403922 add exch
+    dup -0.400000 mul 0.662745 add exch
+    -0.388235 mul 0.874510 add
+  }
+
+% Seluruh koordinat dalam unit bp PDF sumber, dengan titik (0,0) di kiri bawah.
+\newcommand{\covernasionalartwork}{%
+  \begin{tikzpicture}[x=1bp,y=1bp]
+    \path[use as bounding box] (0,0) rectangle (1760,2500);
+    \clip (0,0) rectangle (1760,2500);
+    \fill[coverNasionalKuning] (0,0) rectangle (1760,2500);
+    \node[anchor=south west,inner sep=0pt,outer sep=0pt] at (0,1710)
+      {\pgfuseshading{coverNasionalBiru}};
+    \cn@text{\cn@ukuranidentitas}{n}{coverNasionalPutihTeks}{1889}{\cn@identitas}
+    \cn@text{\cn@ukuranidentitas}{n}{coverNasionalPutihTeks}{1794}{\cn@organisasi}
+    \cn@text{\cn@ukuranjudul}{n}{coverNasionalOranye}{1516}{\cn@judul}
+    \cn@text{\cn@ukuranjudul}{n}{coverNasionalOranye}{1308}{\cn@kompetisi}
+    \cn@text{\cn@ukuranjudul}{n}{coverNasionalOranye}{1100}{\cn@tingkat}
+    \cn@text{\cn@ukurantahun}{it}{coverNasionalEmas}{873}{\cn@labeltahun\space\cn@tahun}
+    \fill[coverNasionalKuningMuda] (0,0) rectangle (184,1375);
+    \fill[white] (174.498047,0.136963) rectangle (184.498047,2500.136963);
+    \fill[white] (0,1375) rectangle (184.328506,1385);
+    \node[anchor=south west,inner sep=0pt,outer sep=0pt] at (1360,100)
+      {\includegraphics{\covernasionalassetpath logo-himatika.pdf}};
+    \node[anchor=south west,inner sep=0pt,outer sep=0pt] at (1090,100)
+      {\includegraphics{\covernasionalassetpath logo-its.pdf}};
+  \end{tikzpicture}%
+}
+
+% Rasio presisi tinggi menghindari pembulatan skala \resizebox pada gambar besar.
+\newsavebox{\cn@coverbox}
+\ExplSyntaxOn
+\cs_new:Npn \cn@ratio #1#2
+  { \fp_eval:n { \dim_to_fp:n {#1} / \dim_to_fp:n {#2} } }
+\ExplSyntaxOff
+\newcommand{\cn@fitpage}{%
+  \sbox{\cn@coverbox}{\covernasionalartwork}%
+  \scalebox{\cn@ratio{\paperwidth}{\wd\cn@coverbox}}%
+    [\cn@ratio{\paperheight}{\ht\cn@coverbox}]{\usebox{\cn@coverbox}}%
+}
+
+% Menghasilkan tepat satu halaman cover tanpa header/footer; nomor halaman
+% berikutnya berjalan seperti biasa. Tidak mengubah margin atau warna halaman lain.
+\newcommand{\makecovernasional}{%
+  \clearpage
+  \thispagestyle{empty}%
+  \AddToHookNext{shipout/background}{%
+    \put(0,-\paperheight){%
+      \cn@fitpage
+    }%
+  }%
+  \null\clearpage
+}
+
+\endinput

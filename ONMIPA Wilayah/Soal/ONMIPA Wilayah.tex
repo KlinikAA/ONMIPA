@@ -27,6 +27,14 @@
 \usepackage{textcomp}
 \usetikzlibrary{arrows}
 \usepackage{pdfpages}
+\usepackage{cover_onmipa}
+% PENGATURAN COVER: ganti judul dan tahun langsung di sini.
+\covernasionalsetup{
+    judul={Kumpulan Soal},
+    kompetisi={ONMIPA-PT},
+    tingkat={Tingkat Wilayah},
+    tahun={2006-2026},
+}
 \usetikzlibrary{shapes}
 \setlength{\multicolsep}{5.0pt plus 2.0pt minus 1.5pt}% 50% of original values
 \geometry{
@@ -80,9 +88,7 @@
 \hbadness=10000
 \begin{document}
 
-\thispagestyle{empty}
-\includepdf[pages=1]{cover.pdf}
-\pagebreak
+\makecovernasional
 \nopagecolor
 $~$
 \thispagestyle{empty}
