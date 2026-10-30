@@ -1,17 +1,17 @@
-% Cover ONMIPA Nasional dengan judul dan tahun yang dapat diedit.
-% Gunakan \covernasionalsetup{...} setelah \usepackage{cover}.
+% Cover ONMIPA Wilayah berdasarkan cover.pdf, dengan teks yang dapat diedit.
+% Gunakan \coveronmipasetup{...} setelah \usepackage{cover_onmipa}.
 % Font Plus Jakarta Sans SemiBold disertakan; tidak perlu instalasi font.
 % Simpan cover_assets di samping dokumen utama. Kompilasi: pdfLaTeX.
 \NeedsTeXFormat{LaTeX2e}[2020/10/01]
-\ProvidesPackage{cover_onmipa}[2026/10/30 v2.0 Cover dengan teks editable]
+\ProvidesPackage{cover_onmipa}[2026/10/30 v2.1 Cover Wilayah dengan teks editable]
 \RequirePackage{graphicx}
 \RequirePackage{tikz}
 \RequirePackage{iftex}
 
-% Nilai bawaan paket. Ubah judul/tahun buku melalui \covernasionalsetup
-% di ONMIPA Nasional.tex, setelah \usepackage{cover_nasional}.
+% Nilai bawaan mengikuti PDF acuan. Ubah judul/tahun buku melalui
+% \coveronmipasetup di ONMIPA Wilayah.tex, setelah \usepackage{cover_onmipa}.
 \pgfkeys{
-  /covernasional/.is family, /covernasional,
+  /coveronmipa/.is family, /coveronmipa,
   judul/.store in=\cn@judul,
   kompetisi/.store in=\cn@kompetisi,
   tingkat/.store in=\cn@tingkat,
@@ -24,11 +24,13 @@
   ukuran identitas/.store in=\cn@ukuranidentitas,
   lebar teks/.store in=\cn@lebarteks,
 }
-\newcommand{\covernasionalsetup}[1]{\pgfkeys{/covernasional/.cd,#1}}
-\covernasionalsetup{
+\newcommand{\coveronmipasetup}[1]{\pgfkeys{/coveronmipa/.cd,#1}}
+% Kompatibilitas untuk dokumen yang masih memakai nama perintah lama.
+\let\covernasionalsetup\coveronmipasetup
+\coveronmipasetup{
   judul={Kumpulan Soal},
   kompetisi={ONMIPA-PT},
-  tingkat={Tingkat Nasional},
+  tingkat={Tingkat Wilayah},
   tahun={2006-2024},
   label tahun={Tahun},
   identitas={Klinik Aljabar Analisis},
@@ -80,30 +82,30 @@
 }
 
 % Warna sRGB dari PDF sumber; tidak dibulatkan ke nama warna umum.
-\definecolor{coverNasionalKuning}{rgb}{1,0.933333,0.541176}
-\definecolor{coverNasionalKuningMuda}{rgb}{1,0.956863,0.690196}
-\definecolor{coverNasionalPutihTeks}{rgb}{0.964604,0.971653,0.999844}
-\definecolor{coverNasionalOranye}{rgb}{0.192157,0.172549,0.486275}
-\definecolor{coverNasionalEmas}{rgb}{0.749020,0.674510,0.301961}
+\definecolor{coverWilayahKuning}{rgb}{1,0.933333,0.541176}
+\definecolor{coverWilayahKuningMuda}{rgb}{1,0.956863,0.690196}
+\definecolor{coverWilayahPutihTeks}{rgb}{0.964604,0.971653,0.999844}
+\definecolor{coverWilayahBiruJudul}{rgb}{0.015686,0.184314,0.388235}
+\definecolor{coverWilayahEmas}{rgb}{0.749020,0.674510,0.301961}
 
 % Lokasi kedua logo. Font tetap berada di cover_assets/fonts/.
 \newcommand{\covernasionalassetpath}{cover_assets/}
 \newcommand{\covernasionalsetassetpath}[1]{\renewcommand{\covernasionalassetpath}{#1}}
 
 % Gradasi diagonal asli. Untuk titik (x,y) di panel atas, proyeksi pada
-% sumbu gradasi adalah dot((x,y+1710)-(-1239.2756,442.89186),
-% (2168.0003,-998.5002)) / (2168.0003^2+998.5002^2).
+% sumbu gradasi adalah dot((x,y+1710)-(342.964935,740.740112),
+% (1715.000122,496.000092)) / (1715.000122^2+496.000092^2).
 % Fungsi PDF ini mempertahankan arah, titik awal, dan warna kedua ujung.
-\pgfdeclarefunctionalshading{coverNasionalBiru}
+\pgfdeclarefunctionalshading{coverWilayahBiru}
   {\pgfpoint{0bp}{0bp}}{\pgfpoint{1760bp}{790bp}}{}{
-    1267.10814 add -998.5002 mul
-    exch 1239.2756 add 2168.0003 mul add
-    5697227.95020013 div
+    969.259888 add 496.000092 mul
+    exch 342.964935 sub 1715.000122 mul add
+    3187241.509724023 div
     dup 0 lt { pop 0.0 } if
     dup 1 gt { pop 1.0 } if
-    dup -0.356863 mul 0.403922 add exch
-    dup -0.400000 mul 0.662745 add exch
-    -0.388235 mul 0.874510 add
+    dup -0.211765 mul 0.250980 add exch
+    dup -0.282353 mul 0.533333 add exch
+    -0.286275 mul 0.764706 add
   }
 
 % Seluruh koordinat dalam unit bp PDF sumber, dengan titik (0,0) di kiri bawah.
@@ -111,16 +113,16 @@
   \begin{tikzpicture}[x=1bp,y=1bp]
     \path[use as bounding box] (0,0) rectangle (1760,2500);
     \clip (0,0) rectangle (1760,2500);
-    \fill[coverNasionalKuning] (0,0) rectangle (1760,2500);
+    \fill[coverWilayahKuning] (0,0) rectangle (1760,2500);
     \node[anchor=south west,inner sep=0pt,outer sep=0pt] at (0,1710)
-      {\pgfuseshading{coverNasionalBiru}};
-    \cn@text{\cn@ukuranidentitas}{n}{coverNasionalPutihTeks}{1889}{\cn@identitas}
-    \cn@text{\cn@ukuranidentitas}{n}{coverNasionalPutihTeks}{1794}{\cn@organisasi}
-    \cn@text{\cn@ukuranjudul}{n}{coverNasionalOranye}{1516}{\cn@judul}
-    \cn@text{\cn@ukuranjudul}{n}{coverNasionalOranye}{1308}{\cn@kompetisi}
-    \cn@text{\cn@ukuranjudul}{n}{coverNasionalOranye}{1100}{\cn@tingkat}
-    \cn@text{\cn@ukurantahun}{it}{coverNasionalEmas}{873}{\cn@labeltahun\space\cn@tahun}
-    \fill[coverNasionalKuningMuda] (0,0) rectangle (184,1375);
+      {\pgfuseshading{coverWilayahBiru}};
+    \cn@text{\cn@ukuranidentitas}{n}{coverWilayahPutihTeks}{1889}{\cn@identitas}
+    \cn@text{\cn@ukuranidentitas}{n}{coverWilayahPutihTeks}{1794}{\cn@organisasi}
+    \cn@text{\cn@ukuranjudul}{n}{coverWilayahBiruJudul}{1516}{\cn@judul}
+    \cn@text{\cn@ukuranjudul}{n}{coverWilayahBiruJudul}{1308}{\cn@kompetisi}
+    \cn@text{\cn@ukuranjudul}{n}{coverWilayahBiruJudul}{1100}{\cn@tingkat}
+    \cn@text{\cn@ukurantahun}{it}{coverWilayahEmas}{873}{\cn@labeltahun\space\cn@tahun}
+    \fill[coverWilayahKuningMuda] (0,0) rectangle (184,1375);
     \fill[white] (174.498047,0.136963) rectangle (184.498047,2500.136963);
     \fill[white] (0,1375) rectangle (184.328506,1385);
     \node[anchor=south west,inner sep=0pt,outer sep=0pt] at (1360,100)
@@ -144,7 +146,7 @@
 
 % Menghasilkan tepat satu halaman cover tanpa header/footer; nomor halaman
 % berikutnya berjalan seperti biasa. Tidak mengubah margin atau warna halaman lain.
-\newcommand{\makecovernasional}{%
+\newcommand{\makecoveronmipa}{%
   \clearpage
   \thispagestyle{empty}%
   \AddToHookNext{shipout/background}{%
@@ -154,5 +156,6 @@
   }%
   \null\clearpage
 }
+\let\makecovernasional\makecoveronmipa
 
 \endinput
